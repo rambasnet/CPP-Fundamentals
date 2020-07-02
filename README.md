@@ -1,6 +1,6 @@
 # C++ Fundamentals
 - Jupyter Notebooks for Learning Computer Science Foundational Concepts (CS1) using C++
-- Most chapters of notebooks are based on the open source textbook: Think C++ by Allen B. Downey
+- Most of the contents are based on the open source textbook: Think C++ by Allen B. Downey
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 
@@ -28,7 +28,7 @@
     jupyter nbextensions_configurator enable --user
 ```
 
-## Run notebooks
+## Run or Use notebooks natively
 - clone the repository locally once the tools are installed
 - open a terminal and cd into this cloned repo and run jupyter notebook
 
@@ -40,3 +40,7 @@
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
 - $ conda deactivate # to deactivate the virtual env and go back to base installation
+
+## Run notebooks using VS Code
+- alternatively, VS Code can be used to load and execute notebooks
+- VS Code will help you find the right plugins if missing to render and execute notebooks
