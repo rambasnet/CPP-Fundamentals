@@ -44,3 +44,8 @@
 ## Run notebooks using VS Code
 - alternatively, VS Code can be used to load and execute notebooks
 - VS Code will help you find the right plugins if missing to render and execute notebooks
+
+## Demo programs and sample solutions
+- Jupyter notebook doesn't run complete C++ program with main()
+- complete demo programs and example solutions are provided in programs_solutions folder
+- these programs demonstrate complete C++ programs that need can be compiled using any C++ compiler
