@@ -9,7 +9,7 @@ Algorithm steps:
 1. get person's citizenship status
 2. get person's age
 3. determine voter eligibility
-    - if the person is US citizen and their age is 18 and above they're qualified to vote
+    - if the person is US citizen and their age is 18 or above they're qualified to vote
 ==================================================*/
 #include <iostream>
 #include <string>
