@@ -54,7 +54,8 @@ int main() {
     cout << "BMI: " << BMI << endl;
     cout << "=======================\n";
     // FIXME: step #5
-    cout << "Thank you for using my BMI Calculator, John!\nGood bye..." << endl;
+
+    cout << "Thank you for using my BMI Calculator, " << f_name << "!\nGood bye..." << endl;
 
     // all done!
     return 0;
