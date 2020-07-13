@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     do {
         cout << "Enter a whole number between 1 and 20: ";
         cin >> input;
-        if (cin.fail()) { // somehow cin failed if wrong type is entered
+        if (cin.fail()) { // somehow cin failed 
             cout << "Invalid input. Try again!\n";
             cin.clear(); // clear the error flag
             cin.ignore(INT_MAX, '\n'); // ignore upto INT_MAX bytes in std input stream or '\n'
