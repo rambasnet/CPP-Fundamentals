@@ -1,5 +1,4 @@
-// Sample solution for #3
-// using incremental development
+// working with triangle using vector
 // using functions as possible to break the problem
 #include <iostream>
 #include <cmath>
@@ -7,14 +6,13 @@
 #include <cassert>
 #include <sstream>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
 // use struct to represent Triangle
 struct Triangle {
     float side1, side2, side3;
-    // can be an array
-    // float sides[3];
 };
 
 // function prototypes
@@ -115,7 +113,7 @@ void test_triangleArea() {
     cerr << "all test cases passed for triangleArea()\n";
 }
 
-// function to calculate and print the result of a given triangle
+// function to calculate and print the result on triangle
 void computeAreaAndPerimeter(const Triangle & t) {
     cout << "Triangle info: \n"
          << "3 sides length: " << t.side1 << " " << t.side2 << " " << t.side3
@@ -127,13 +125,18 @@ void computeAreaAndPerimeter(const Triangle & t) {
 void program() {
     Triangle t;
     string cont;
+    // store all the entered triangles into a vector
+    vector<Triangle> triangles;
     do {
         t = getTriangle();
         computeAreaAndPerimeter(t);
+        triangles.push_back(t);
         cout << "\nWant to enter another triangle? [yes|y]: ";
         cin >> cont;
         if (cont == "yes" || cont == "y") continue;
         else break;
     } while(true);
+    cout << "You entered " << triangles.size() << 
+        ((triangles.size() > 1)? " triangles\n" : " triangle\n");
     cout << "Good bye...\n";
 }
