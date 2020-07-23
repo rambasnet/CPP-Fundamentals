@@ -1,14 +1,16 @@
 # C++ Fundamentals
-- Jupyter Notebooks for Learning Computer Science Foundational Concepts (CS1) using C++
+- Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
 - Most of the contents are based on the open source textbook: Think C++ by Allen B. Downey
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 
-## Requirements
-- Linux/MacOS/WSL on Windows (Not tested on Windows itself)
+## System Requirements
+- Linux/MacOS/WSL on Windows (not tested on Windows itself)
 - Jupyter Notebook
 - xeus-cling notebook kernel to run C++ code in Jupyter
 - git client
+- G++ compiler
+- VS Code
 
 ## Install required tools
 - Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++, you can safely ignore this section
@@ -47,5 +49,17 @@
 
 ## Demo programs and sample solutions
 - Jupyter notebook doesn't run complete C++ program with main()
-- complete demo programs and example solutions are provided in programs_solutions folder
-- these programs demonstrate complete C++ programs that need can be compiled using any C++ compiler
+- complete demo programs and example solutions are provided in demo_programs folder
+- these programs need can be compiled using any C++ compiler (with C++11 or later standandard)
+
+## Compiling and running C++ programs with g++
+- open a terminal and run the following commands
+```bash
+   cd demo_programs/Ch...
+   g++ -std=c++17 -o programName inputFile.cpp
+   ./programName
+```
+## Compiling and running C++ programs with VS Code
+- install C/C++ plugins for VS Code
+- open integreted terminal: View -> Terminal and follow the commands above
+- you can also click run button on the top right corner for some programs, but not recommended for many programs that are interactive
