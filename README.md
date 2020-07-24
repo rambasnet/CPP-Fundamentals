@@ -48,12 +48,13 @@
 - VS Code will help you find the right plugins if missing to render and execute notebooks
 
 ## Demo programs and sample solutions
-- Jupyter notebook doesn't run complete C++ program with main()
+- Jupyter Notebook doesn't run complete C++ program with main()
 - complete demo programs and example solutions are provided in demo_programs folder
-- these programs need can be compiled using any C++ compiler (with C++11 or later standandard)
+- these programs need to be compiled using any C++ compiler (with C++11 or newer standandard)
 
 ## Compiling and running C++ programs with g++
 - open a terminal and run the following commands
+- cd into a chapter with with sample program; compile and run the program
 ```bash
    cd demo_programs/Ch...
    g++ -std=c++17 -o programName inputFile.cpp
