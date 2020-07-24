@@ -1,6 +1,7 @@
 # C++ Fundamentals
 - Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
-- Most of the contents are based on the open source textbook: Think C++ by Allen B. Downey
+- some of the contents are based on the open source textbook: Think C++ by Allen B. Downey
+    - others are based on https://en.cppreference.com/ and http://cplusplus.com/
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 
