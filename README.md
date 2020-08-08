@@ -4,6 +4,8 @@
     - others are based on https://en.cppreference.com/ and http://cplusplus.com/
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
+## PDF Format
+- each notebook chapter is converted into pdf format and found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
 
 ## System Requirements
 - Linux/MacOS/WSL on Windows (not tested on Windows itself)
