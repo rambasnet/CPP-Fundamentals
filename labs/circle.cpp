@@ -26,22 +26,22 @@ int main() //main entry function that returns 0
 	const double pi = 3.14159;
 	// variables declared and initialized
 	double radius=0, area=0, circumference=0;
-    string name; // variable to store user's name
-    cout << "Hi there, what's your full name? ";
-    getline(cin, name);
-    cout << "Nice meeting you, " << name << "!" << endl;
+	string name; // variable to store user's name
+	cout << "Hi there, what's your full name? ";
+	getline(cin, name);
+	cout << "Nice meeting you, " << name << "!" << endl;
 
-    // display some information about this program to the user
-    cout << "\nProgram finds area and circumference of a circle with the given radius.\n\n";
-   	
+	// display some information about this program to the user
+	cout << "\nProgram finds area and circumference of a circle with the given radius.\n\n";
+
 	// prompt user telling what to do
 	cout << name << ", please enter radius of a circle: ";
 	cin >> radius; //read the entered value and store it into radius variable
-   
+
 	area = pi * pow(radius, 2); // same as: area = pi * radius * radius;
 	//FIXME3: find circumference
-   
-    cout << "Your circle has radius: " << fixed << setprecision(6) << radius << endl;
+
+	cout << "Your circle has radius: " << fixed << setprecision(6) << radius << endl;
 	cout << "Area of the circle is:\t" << area << '\n';
 	//FIXME4: Output the value of circumference
 
@@ -50,6 +50,6 @@ int main() //main entry function that returns 0
 	cin.ignore(1000, '\n'); //ignore 1000 chars or until \n whichever comes first
 	// make the console wait for user input
 	cin.get();
-    cout << "Good bye...\n";
+	cout << "Good bye...\n";
 	return 0;
 }
