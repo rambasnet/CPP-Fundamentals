@@ -33,25 +33,39 @@ double findDistance(int, int, int, int);
 // test function that runs automated testing
 void test();
 
+// function clears the screen system call
+// NOTE: system call is not a security best pracice!
+void clearScreen() {
+    // use "cls" in windows and "clear" command in Mac and Linux
+    #ifdef _WIN32
+        system("clS");
+    #else
+        system("clear");
+    #endif
+}
+
 int main()
 {
     int x1, y1, x2, y2; // variables to store two points (x1, y1) and (x2, y2)
     char ch;
 
     //FIXME-bonus - 10 bonus points - add loop until user wants to quit
-    system("cls");
-    cout << "Program calculates distance between 2 points on a 2D coordinate." << endl;
-    cout << "Enter a point in the form (x, y): ";
-    // parse the input stream
-    cin >> ch >> x1 >> ch >> y1 >> ch; // value stored in ch is ignored
-    printf("(x1, y1) = (%d, %d)\n", x1, y1);
+    // the loop will execute the following block of code
+    {
+        clearScreen();
+        cout << "Program calculates distance between 2 points on a 2D coordinate." << endl;
+        cout << "Enter a point in the form (x, y): ";
+        // parse the input stream
+        cin >> ch >> x1 >> ch >> y1 >> ch; // value stored in ch is ignored
+        printf("(x1, y1) = (%d, %d)\n", x1, y1);
 
-    cout << "Enter a second point in the form (x, y): ";
-    //FIXME3 - Read/parse the second point and store data into variables x2 and y2
-    //FIXME4 - Call test function
+        cout << "Enter a second point in the form (x, y): ";
+        //FIXME3 - Read/parse the second point and store data into variables x2 and y2
+        //FIXME4 - Call test function
 
-    //FIXME5 - call findDistance function passing proper arguments
-    //FIXME6 – Using printf function display the returned distance with proper description
+        //FIXME5 - call findDistance function passing proper arguments
+        //FIXME6 – Using printf function display the returned distance with proper description
+    }
 
     cin.ignore(1000, '\n');
     cout << "Enter to quit the program: ";
