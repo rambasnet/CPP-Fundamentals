@@ -27,15 +27,14 @@ void printArray(int *, int);
 // crux of the program is done in this function
 void program();
 
-int main(int argc, char* argv[])
-{
-    char ans = 'y';
-    do {
-        program();
-        cin.ignore(1000, '\n');
-        cout << "Would you like to run the program again?[y/n]: ";
-        cin >> ans;
-    } while(ans == 'y');
+int main(int argc, char* argv[]) {
+	char ans = 'y';
+	do {
+		program();
+		cin.ignore(1000, '\n');
+		cout << "Would you like to run the program again?[y/n]: ";
+		cin >> ans;
+	} while(ans == 'y');
 
 	cin.ignore(1000, '\n');
 	cout << "All done. Enter to exit...";
@@ -68,17 +67,16 @@ void program() {
 //read data from a file and store it in into given nums array.
 void readData(int nums[], int size)
 {
-    cout << "You've asked to enter " << size << " integers.\n";
-	for(int i = 0; i < size; i++)
-    {
-        cout << "Enter an integer: ";
-        cin >> nums[i];
-    }
+	cout << "You've asked to enter " << size << " integers.\n";
+	for(int i = 0; i < size; i++) {
+		cout << "Enter an integer: ";
+		cin >> nums[i];
+	}
 }
 
 void printArray(int nums[], int len)
 {
-    cout << "[ ";
+	cout << "[ ";
 	for (int i = 0; i < len; i++)
 		cout << nums[i] << " ";
 	cout << "]" << endl;
@@ -88,8 +86,7 @@ void findMaxAndMin(int nums[], int len, int &max, int &min)
 {
 	max = nums[0]; //say, max is the first element
 	min = nums[0]; //say, min is the first element
-	for (int i = 0; i < len; i++)
-	{
+	for (int i = 0; i < len; i++) {
 		if (max < nums[i]) //compare max with each element and update max
 			max = nums[i];
 
@@ -101,21 +98,18 @@ void findMaxAndMin(int nums[], int len, int &max, int &min)
 void bubbleSort(int nums[], int len)
 {
 	int i, j, temp;
-    bool sorted = false;
-	for (i = 0; i < len; i++)
-	{
-        sorted = true;
-		for (j = 0; j < len-i-1; j++)
-		{
+	bool sorted = false;
+	for (i = 0; i < len; i++) {
+    	sorted = true;
+		for (j = 0; j < len-i-1; j++) {
 			// if two adjacent numbers are not in order, swap 'em
-			if (nums[j] > nums[j+1]) 
-			{
+			if (nums[j] > nums[j+1]) {
 				//FIXME5: swap the values of nums[j] and nums[j+1]
-                // can use built-in swap or implement your own swap
-                sorted = false;
+				// can use built-in swap or implement your own swap
+				sorted = false;
 			}
 		}
-        if (sorted) break;
+		if (sorted) break;
 	}
 }
 
