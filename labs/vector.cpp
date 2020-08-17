@@ -7,6 +7,7 @@
 	Program: Number system converter  
 
 	The program converts decimal to binary and binary to decimal number system.
+    Lab demonstrates the vector application. 
 */
 
 #include <iostream> 
@@ -83,18 +84,16 @@ int main()
             cin.get();
         }
 	} while (choice != 5);
-	cin.ignore();
+    cin.ignore();
     cout << "Good bye! Enter to quit...";
     cin.get();
-	return 0;
+    return 0;
 }
 
 string decToBin(llu num) {
-    /*
-        FIXME5 
-		use algorithm step in Ch03-StdInputOutput chapter
-        or use hint from decToOct function
-	*/
+    // FIXME5 - use algorithm step in Ch03-StdInputOutput chapter
+    // or use hint from decToOct function
+    
     return to_string(num);
 }
 
@@ -102,20 +101,20 @@ llu binToDec(string binaryNumber)
 {
     // FIXME6 - use algorithm described in Ch03-StdInputOutput chapter
     // or use hints from binToOct function
-	return 0;
+    return 0;
 }
 
 string decToOct(llu num)
 {
-	/*
-	Algorithm steps:
-	1. repeteadly divide the decimal number by base 8 until the quotient becomes 0
+    /*
+    Algorithm steps:
+    1. repeteadly divide the decimal number by base 8 until the quotient becomes 0
     2. collect the remainder for each division
     3. reverse the order of the remainders 
         - the first remainder is the last digit in octal
-	*/
-	vector<int> octal;
-	int divisor = 8; // base 8
+    */
+    vector<int> octal;
+    int divisor = 8; // base 8
     llu quotient = num;
     int remainder;
     // step 1 and 2
