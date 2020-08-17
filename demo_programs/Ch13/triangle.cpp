@@ -225,7 +225,7 @@ void menu() {
 
 
 // function reads the triangles' information from a given fileName
-// stores data into trianbles vector
+// stores data into triangles vector
 void readTriangles(vector<Triangle> & triangles, const string & fileName) {
     // open the given file and read the data
     ifstream fin(fileName.c_str());
@@ -257,6 +257,7 @@ void readTriangles(vector<Triangle> & triangles, const string & fileName) {
         triangles.push_back(temp);
         ID++;
     }
+    fin.close();
     cout << "Read " << triangles.size() << " out of " << count << " triangles from the file.\n";
 }
 
