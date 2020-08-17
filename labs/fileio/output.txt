@@ -1,7 +1,7 @@
-Numbers Read: 100 10 5 0 -99 10 99
+List of Numbers: 100 10 5 0 -99 10 99
 
 ========================================
-            Output Results
+          Statistical Results
 ========================================
 Max     Min     Mean     Median    Range
-100     -99     40.14        10      199   
+100     -99     17.86        10      199   
