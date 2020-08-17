@@ -83,7 +83,7 @@ int main()
             cout << "Enter to continue...";
             cin.get();
         }
-	} while (choice != 5);
+    } while (choice != 5);
     cin.ignore();
     cout << "Good bye! Enter to quit...";
     cin.get();
