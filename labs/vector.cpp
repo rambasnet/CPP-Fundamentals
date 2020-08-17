@@ -1,12 +1,12 @@
 /*
-	CS1 - Vector Lab
+    CS1 - Vector Lab
 
-	Updated by: FIXME1
-	Date: FIXME2
+    Updated by: FIXME1
+    Date: FIXME2
 
-	Program: Number system converter  
+    Program: Number system converter  
 
-	The program converts decimal to binary and binary to decimal number system.
+    The program converts decimal to binary and binary to decimal number system.
     Lab demonstrates the vector application. 
 */
 
