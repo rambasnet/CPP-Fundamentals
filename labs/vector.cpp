@@ -67,7 +67,7 @@ int main()
                 cout << "Enter a positive decimal number: ";
                 cin >> decimalNum;
                 octalNum = decToOct(decimalNum);
-		        printf("(%llu) base 10 = (%s) base 8\n", decimalNum, octalNum.c_str());
+                printf("(%llu) base 10 = (%s) base 8\n", decimalNum, octalNum.c_str());
                 break;
             case 4:
                 cout << "Enter a positive octal number: ";
