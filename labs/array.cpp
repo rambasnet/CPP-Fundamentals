@@ -1,7 +1,7 @@
 /*
 FIXME1: Include program and programmer information, date, etc.
 
-The lab demostrates the use of array and some operations on array
+The lab demostrates the use of array and some operations on array.
 */
 
 #include <iostream>
