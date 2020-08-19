@@ -2,18 +2,20 @@
 - Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey
     - others are based on https://en.cppreference.com/ and http://cplusplus.com/
-- PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
+    - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 ## PDF Format
-- each notebook chapter is converted into pdf format and found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
+- pdf format of each chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
 
 ## System Requirements
-- Linux/MacOS/WSL on Windows (not tested on Windows itself)
+- Linux/MacOS/WSL on Windows
 - Jupyter Notebook
-- xeus-cling notebook kernel to run C++ code in Jupyter
-- git client
-- G++ compiler
-- VS Code
+- xeus-cling kernel to run C++ code in Jupyter notebook
+- git client - 
+- G++ compiler to run sample codes, solve exercises and labs
+- VS Code - Editor to write C++ code
+
+### Note: xeus-cling doesn't support Windows
 
 ## Install required tools
 - Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++, you can safely ignore this section
@@ -24,8 +26,9 @@
 - create a virual environment to keep C++ specific installtions seperate from base installation
 
 ```bash
-    conda create -n cpp python=3.7 # create virtual env named cpp with Python3.7 support
-    conda activate cpp #activate the virual environemnt
+    conda update conda
+    conda create -n cpp python=3.7
+    conda activate cpp
     conda install notebook
     conda install -c conda-forge xeus-cling
     conda install -c conda-forge jupyter_contrib_nbextensions
