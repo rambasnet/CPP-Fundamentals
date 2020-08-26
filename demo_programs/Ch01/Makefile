@@ -15,8 +15,8 @@ INPUTFILES = helloworld.cpp
 # make all rule
 all: $(TARGET)
 
-$(TARGET): helloworld.cpp
-	$(CXX) $(CFLAGS) -o $(TARGET) $(INPUTFILES)
+$(TARGET): $(INPUTFILES)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(INPUTFILES)
 
 # make clean rule
 clean:
