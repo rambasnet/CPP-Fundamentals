@@ -8,16 +8,16 @@ CXX = g++
 CXXFLAGS = -g -Wall -std=c++17
 
 # the build target executable file
-TARGET = helloworld.exe
+OUTPUT = helloworld.exe
 # list cpp files separated by space
 INPUTFILES = helloworld.cpp
 
 # make all rule
-all: $(TARGET)
-
-$(TARGET): $(INPUTFILES)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(INPUTFILES)
+all: 
+	$(CXX) $(CXXFLAGS) -o $(OUTPUT) $(INPUTFILES)
 
 # make clean rule
+# delete object and binary files
 clean:
-	$(RM) $(TARGET)
+	$(RM) $(OUTPUT)
+	
