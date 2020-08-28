@@ -1,8 +1,8 @@
 /*
     ASCII Lab
-    ASCII Art and Standard Ouput
+    ASCII Art and Standard Input/Ouput
     
-    Updated By: Your name #FIXME1
+    Updated By: <Your name> #FIXME1
     Date: ... #FIXME2
     
     This program produces an ASCII art on the console.
@@ -23,19 +23,18 @@ int main()
     cout << "Hi there, what's your full name? ";
     getline(cin, name);
     cout << "Nice meeting you, " << name << "!" << endl;
-    cout << "Hope you'll like my ascii art...\n";
+    cout << "Hope you like my Tom & Jerry ASCII art...\n\n";
 
-    cout << "  |\\_/|   ******************    (\\_/)" << endl;
-    cout << " / @ @ \\  *       Lab 1    *   (=\'.\'=)" << endl;
+    cout << "  |\\_/|   **********************    (\\_/)" << endl;
+    cout << " / @ @ \\  *       ASCII Lab    *   (=\'.\'=)" << endl;
 
-    //FIXME3: print the third row
-    //FIXME4: print the fourth row
-    //FIXME5: print the final row
+    //FIXME3: print the third line
+    //FIXME4: print the fourth line
+    //FIXME5: print the final line
 
     // the following code may be required to make your console pause...
-    cout << "Hit enter to exit the program!" << '\n';
+    cout << "\nGood bye... hit enter to exit the program: " << '\n';
     // make the console wait for user input
     cin.get();
-    cout << "Good bye...\n";
     return 0; //exit program by returning 0 status to the system
 }
