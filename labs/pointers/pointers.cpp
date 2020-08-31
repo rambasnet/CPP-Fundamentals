@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
     switch (oper) {
         case ADD:
             cout << "Enter two whole numbers separated by space: ";
-            // store the data into pointers
+            // store the data by dereferencing pointers
             cin >> *num1 >> *num2;
             // passing pointers to findSum function
             *sum = MyFunctions::findSum(num1, num2);
@@ -77,9 +77,9 @@ int main(int argc, char* argv[]) {
 
 void showMenu(void) {
     cout << "Enter one of the following menu options:\n";
-    cout << "[1] Add two big_ints\n";
-    cout << "[2] Multiply two big_ints\n";
-    cout << "[3] Subtract one big_int from another\n";
+    cout << "[1] Add two integers\n";
+    cout << "[2] Multiply two integers\n";
+    cout << "[3] Subtract one integer from another\n";
     cout << "[4] Quit the program\n";
     cout << "Enter your choice [1-4]: ";
 }

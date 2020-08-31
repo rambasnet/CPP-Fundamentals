@@ -3,6 +3,7 @@ Functions Lab
 Updated By: FIXME1
 CSCI 111
 Date: FIXME2
+
 Program prompts the user to enter two points in the form (x1, y1) and (x2, y2) and finds the distance between the two points using a function.
 Algorithm steps:
    1. Define a function called findDistance(…) that takes four parameters x1, y1 and x2, y2 as two points
