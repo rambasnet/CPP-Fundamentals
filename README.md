@@ -16,6 +16,7 @@
 - VS Code - Editor to write C++ code
 
 ### Note: xeus-cling doesn't support Windows
+### Detail steup by step instructions can be found here: https://github.com/rambasnet/DevEnvSetup
 
 ## Install required tools
 - Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++, you can safely ignore this section
@@ -25,26 +26,26 @@
 - open a terminal/shell and run the following commands
 - create a virual environment to keep C++ specific installtions seperate from base installation
 
-```bash
-    conda update conda
-    conda create -n cpp python=3.7
-    conda activate cpp
-    conda install notebook
-    conda install -c conda-forge xeus-cling
-    conda install -c conda-forge jupyter_contrib_nbextensions
-    conda install -c conda-forge jupyter_nbextensions_configurator
-    jupyter nbextensions_configurator enable --user
-```
+    ```bash
+        conda update conda
+        conda create -n cpp python=3.7
+        conda activate cpp
+        conda install notebook
+        conda install -c conda-forge xeus-cling
+        conda install -c conda-forge jupyter_contrib_nbextensions
+        conda install -c conda-forge jupyter_nbextensions_configurator
+        jupyter nbextensions_configurator enable --user
+    ```
 
 ## Run or Use notebooks natively
 - clone the repository locally once the tools are installed
 - open a terminal and cd into this cloned repo and run jupyter notebook
 
-```bash
-    cd <CPP Fundamentals repo folder>
-    conda activate cpp
-    jupyter notebook
-```
+    ```bash
+        cd <CPP Fundamentals repo folder>
+        conda activate cpp
+        jupyter notebook
+    ```
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
 - $ conda deactivate # to deactivate the virtual env and go back to base installation
@@ -61,11 +62,21 @@
 ## Compiling and running C++ programs with g++
 - open a terminal and run the following commands
 - cd into a chapter with with sample program; compile and run the program
-```bash
-   cd demo_programs/Ch...
-   g++ -std=c++17 -o programName inputFile.cpp
-   ./programName
-```
+
+    ```bash
+       cd demo_programs/Ch...
+       g++ -std=c++17 -o programName inputFile.cpp
+       ./programName
+    ```
+    
+- OR use Makefile see demo_program and labs folder for examples
+- once the Makefile is created; use the following commands from terminal
+    ```bash
+        make all
+        ./programName
+        make clean
+    ```
+
 ## Compiling and running C++ programs with VS Code
 - install C/C++ plugins for VS Code
 - open integreted terminal: View -> Terminal and follow the commands above
