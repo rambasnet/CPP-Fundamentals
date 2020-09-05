@@ -12,11 +12,11 @@
 ## System Requirements
 
 - Linux/MacOS/WSL on Windows
-- Jupyter Notebook
-- xeus-cling kernel to run C++ code in Jupyter notebook
-- git client - 
-- G++ compiler to run sample codes, solve exercises and labs
-- VS Code - Editor to write C++ code
+- Jupyter Notebook - learning evinornment
+- xeus-cling kernel - to run C++ code in Jupyter notebook
+- git client - to use version control
+- G++ compiler - to compile and run sample codes, solve exercises and labs
+- VS Code - Editor to write C++ programs
 
 ### Note: xeus-cling doesn't support Windows
 ### Detail step-by-step instructions (with screenshots) can be found here: https://github.com/rambasnet/DevEnvSetup
