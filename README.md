@@ -87,6 +87,6 @@
 
 ## Compiling and running C++ programs with VS Code
 
-- install C/C++ plugins for VS Code
+- install C/C++ extensions for VS Code
 - open integreted terminal: View -> Terminal and follow the commands above
 - you can also click run button on the top right corner for some programs, but not recommended for many programs that are interactive
