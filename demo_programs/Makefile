@@ -8,10 +8,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = hello.exe
+PROGRAM = # e.g. hello.exe; whatever you want to call your program
 
 # list all .cpp file(s) separated by space
-CPPFILES = helloworld.cpp
+CPPFILES = # e.g. helloworld.cpp any .cpp files that are part of the program
 
 # make all rule or the default rule that'll be run when we run "make"
 # first compile each file to object file
