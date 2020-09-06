@@ -1,7 +1,7 @@
 // demonstrates standard input and output
 // specifically >> and getline
 // compile and run the program as it is
-// fix it by uncommentint cin >> line, so the getline works propertly!
+// TODO: fix it by uncommenting cin >> line, so the getline works propertly!
 
 #include <iostream>
 #include <string>
