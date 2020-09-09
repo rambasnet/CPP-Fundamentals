@@ -19,7 +19,7 @@ CPPFILES = main.cpp
 all:
 	$(CXX) $(CXXFLAGS) $(CPPFILES) # compile each file to object file
 	$(CXX) -o $(PROGRAM) *.o # build the binary program using object file(s)
-	# ./$(PROGRAM) # uncomment it if you want to run the program if successfully built
+	# ./$(PROGRAM) # run the program if successfully built
 
 # make clean rule
 # delete object and binary files
