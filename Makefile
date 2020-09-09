@@ -1,3 +1,4 @@
+# Makefile Template
 # compiler name
 CXX = g++
 
@@ -10,10 +11,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = # e.g. hello.exe
+PROGRAM = hello.exe
 
 # list all .cpp files separated by space
-CPPFILES = # e.g. main.cpp hello.cpp
+CPPFILES = helloworld.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
