@@ -3,7 +3,7 @@ BMI Calculator
 Author: Ram Basnet
 Copyright: MIT License
 
-Program finds Body Mass Index (BMI) of a person.
+Program finds Body Mass Index (BMI) of a person
 
 Algorithm steps:
 1. get person's height
