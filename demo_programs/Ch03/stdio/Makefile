@@ -11,7 +11,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = stdio.exe
 
 # list all .cpp file(s) separated by space
-CPPFILES = stdio.cpp
+CPPFILES = main.cpp
 
 # make all rule or the default rule that'll be run when we run "make"
 # first compile each file to object file
