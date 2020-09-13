@@ -47,7 +47,7 @@
         jupyter nbextensions_configurator enable --user
     ```
 
-## Run or Use notebooks natively
+## Run or use Jupyter Notebooks
 
 - clone the repository locally once the tools are installed
 - open a terminal and `cd` into this cloned repo and run jupyter notebook
