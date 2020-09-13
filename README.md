@@ -3,11 +3,11 @@
 - Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey
     - others are based on https://en.cppreference.com/ and http://cplusplus.com/
-    - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
+- PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 ## PDF Format
 
-- pdf format of each chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
+- pdf format of each chapter notebook can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
 
 ## System Requirements
 
@@ -69,19 +69,21 @@
 ## Compiling and running C++ programs with g++
 
 - open a terminal and run the following commands
-- cd into a chapter with with sample program; compile and run the program
+- `cd` into a folder with a demo program; compile and run the program
 
     ```bash
        cd demo_programs/Ch...
        g++ -g -Wall -std=c++17 -o programName inputFile.cpp
        ./programName
     ```
-    
-- OR use Makefile see demo_program and labs folder for examples
+
+- OR use Makefile see makefile_demos folder for examples
 - once the Makefile is created; use the following commands from terminal
+- `cd` into a folder with a .cpp files; compile and run the program
+
     ```bash
-        make all
-        ./programName
+        make
+        make run
         make clean
     ```
 
