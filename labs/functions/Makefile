@@ -13,13 +13,16 @@ PROGRAM = distance.exe
 # list .cpp files separated by space
 CPPFILES = pointDistance.cpp
 
-# make all rule/default rule that'll be run when we run "make"
+# make build rule/default rule that'll be run when we run "make"
 # first compile each file to object file
 # then make a single binary program
-all:
+build:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
 
+run:
+	$(PROGRAM)
+	
 # make clean rule
 # delete object and binary files
 clean:

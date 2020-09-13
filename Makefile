@@ -1,5 +1,5 @@
 # Makefile Template
-# compiler name
+# variable for compiler name
 COMPILER = g++
 
 # c++ compiler flags
@@ -11,7 +11,7 @@ COMPILER = g++
 COMPILER_FLAGS = -c -g -Wall -std=c++17
 
 # the build target executable program name of your choice
-PROGRAM =  # FIXME
+PROGRAM_NAME =  # FIXME
 
 # list all .cpp files separated by space; files must exist!
 CPP_FILES =  # FIXME
@@ -21,14 +21,14 @@ CPP_FILES =  # FIXME
 # then make a single binary program
 build:
 	$(COMPILER) $(COMPILER_FLAGS) $(CPP_FILES)
-	$(COMPILER) -o $(PROGRAM) *.o
+	$(COMPILER) -o $(PROGRAM_NAME) *.o
 
 # rule to run the program
 # make run to execute this rule
 run:
-	./$(PROGRAM)
+	./$(PROGRAM_NAME)
 
 # make clean rule
 # delete object and binary files
 clean:
-	rm -f $(PROGRAM) *.o
+	rm -f $(PROGRAM_NAME) *.o

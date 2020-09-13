@@ -11,7 +11,7 @@ PROGRAM_NAME = hello.exe
 
 # rule for compiling and building program
 # make or make all triggers the following rule
-all:
+build:
 	# compiles .cpp to object file .o
 	$(COMPILER) $(COMPILER_FLAGS) $(CPP_FILES)
 	# builds executable from object files
