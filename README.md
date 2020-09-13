@@ -19,11 +19,17 @@
 - VS Code - Editor to write C++ programs
 
 ### Note: xeus-cling doesn't support Windows
-### Detail step-by-step instructions (with screenshots) can be found here: https://github.com/rambasnet/DevEnvSetup
+
+    - as of September 2020
+
+## Development Environment Setup
+
+- detail step-by-step instructions (with screenshots) can be found here: [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
 
 ## Install required tools
 
-- Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++, you can safely ignore this section
+- if you went through Development Environment Setup step, you can ignore this section
+- Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++ Kernel, you can safely ignore this section
 
 - git client is already available on Mac and Linux
 - install Miniconda: [https://conda.io/miniconda.html](https://conda.io/miniconda.html)
