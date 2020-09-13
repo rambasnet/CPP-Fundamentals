@@ -50,21 +50,16 @@
 ## Run or Use notebooks natively
 
 - clone the repository locally once the tools are installed
-- open a terminal and cd into this cloned repo and run jupyter notebook
+- open a terminal and `cd` into this cloned repo and run jupyter notebook
 
     ```bash
         cd <CPP Fundamentals repo folder>
-        conda activate cpp
+        conda activate cpp # activate virtualenv cpp if created
         jupyter notebook
     ```
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
 - $ conda deactivate # to deactivate the virtual env and go back to base installation
-
-## Run notebooks using VS Code
-
-- alternatively, VS Code can be used to load and execute notebooks
-- VS Code will help you find the right plugins if missing to render and execute notebooks
 
 ## Demo programs and sample solutions
 
@@ -72,7 +67,9 @@
 - complete demo programs and example solutions are provided in demo_programs folder
 - these programs need to be compiled using any C++ compiler (with C++11 or newer standandard)
 
-## Compiling and running C++ programs with g++
+## Compiling and running C++ programs
+
+### Compiling with g++ compiler from terminal
 
 - open a terminal and run the following commands
 - `cd` into a folder with a demo program; compile and run the program
@@ -83,7 +80,10 @@
        ./programName
     ```
 
-- OR use Makefile see makefile_demos folder for examples
+### Compiling with Make program
+
+- see GNU Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/)
+- create a Makefile; see makefile_demos folder for examples
 - once the Makefile is created; use the following commands from terminal
 - `cd` into a folder with a .cpp files; compile and run the program
 
