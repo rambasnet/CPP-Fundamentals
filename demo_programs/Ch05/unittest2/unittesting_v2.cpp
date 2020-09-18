@@ -26,7 +26,7 @@ int main() {
 
 // function adds two numbers and returns the sum
 long addfunc(int num1, int num2) {
-    return num1 + num2;
+  return num1 + num2;
 }
 
 void test_addfunc() {

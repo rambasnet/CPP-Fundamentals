@@ -2,7 +2,7 @@
 Area and Perimeter of a Rectangle
 By: Ram Basnet
 Date: 07/06/2020
-License: MIT - Feel free to use it however you want. 
+License: MIT - Feel free to use it however you want.
 
 Program finds area and perimeter of a Rectangle using as many libraries as possible.
 
@@ -10,7 +10,7 @@ Algorithm steps:
 1. prompt user to enter length and  width of a rectangle
   i. store the values into variables
 2. calculate perimeter by summing two sides
-  - perimeter = length + width
+  - perimeter = 2 x (length + width)
 3. calculate area = length x width
 4. display the results
 ======================================================*/
@@ -45,7 +45,7 @@ int main() {
     // parse into three sides
     inputstream >> length >> width;
     // 2.
-    perimeter = length + width;
+    perimeter = 2*(length + width);
     // 3. 
     area = length * width;
     // 4.
