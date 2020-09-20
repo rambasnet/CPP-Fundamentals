@@ -23,7 +23,7 @@ Algorithm steps:
 #include <cmath>
 using namespace std;
 
-const float epsilon = 1e-6; // 0.000001 accuracy upto 6 decimal points
+const float epsilon = 1e-6; // 0.000001 accuracy upto 6 decimal points; error of margin
 
 // function prototypes
 
@@ -88,7 +88,7 @@ void test()
 {
     float result =  findDistance(4, 3, 5, 1);
     float expected = 2.23607f;
-    assert( abs(result - expected) <= epsilon);
+    assert( fabs(result - expected) <= epsilon); //accept the result if it's less than the error of margin
     // FIXME8 - add at least two more test cases
     cout << "all tests passed..." << endl;
 }
