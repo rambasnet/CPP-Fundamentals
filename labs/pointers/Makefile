@@ -1,9 +1,9 @@
 # compiler name
 CXX = g++
 # c++ compiler flags
-# -g: adds debugging information to the executable file
-# - Wall turns on most, but not  all, compiler warnings
-# -std=C++17 uses c++17 standard
+# -g : adds debugging information to the executable file
+# -Wall : turns on most, but not  all, compiler warnings
+# -std=C++17 : uses c++17 standard
 # put all the required flags separated by space
 CXXFLAGS = -c -g -Wall -std=c++17
 

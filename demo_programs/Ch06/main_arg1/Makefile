@@ -4,9 +4,9 @@ COMPILER = g++
 
 # c++ compiler flags
 # -c : just do preprocess; compile and assemble into object files
-# -g: adds debugging information to the executable file
-# - Wall turns on most, but not  all, compiler warnings
-# -std=c++17 uses c++17 standard
+# -g : adds debugging information to the executable file
+# -Wall : turns on most, but not  all, compiler warnings
+# -std=c++17 : uses c++17 standard
 # put all the required flags separated by space
 COMPILER_FLAGS = -c -g -Wall -std=c++17
 
