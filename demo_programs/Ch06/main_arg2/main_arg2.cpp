@@ -15,6 +15,8 @@ T2 sum(T1 n1, T2 n2) {
 }
 
 // function prototypes
+
+// templated function to find product of two numbers
 template<class T1, class T2>
 T2 product(T1, T2);
 

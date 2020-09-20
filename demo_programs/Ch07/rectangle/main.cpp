@@ -40,21 +40,54 @@ void printResults(float, float, float, float);
 
 void displayTitle();
 
+void program();
+
 // Test functions
 void testFindArea();
 void testFindPerimeter();
 
 #define ERROR_MARGIN 0.001 // the relative error ~ 0.001
 
-int main() {
-    // run automated tests
-    cout << setw(40) << setfill('=') << '\n';
-    cout << setw(20) << setfill(' ') << "Automated Testing" << endl;
-    testFindArea();
-    testFindPerimeter();
-    cout << setw(40) << setfill('=') << "" << setfill(' ') << endl;
+// function to clear the screen
+void clear() {
+    // Note: system call is not recommended security best practices in real-world!
+    #ifdef _WIN32 // if 32 or 64 bit Windows
+    system("cls"); 
+    #else // assuming mac or linux
+    system("clear");
+    #endif
+}
 
-    // variables to store data
+int main(int argc, char* argv[]) {
+    if (argc == 2 && string(argv[1]) == "test") {
+        // run automated tests
+        cout << setw(40) << setfill('=') << '\n';
+        cout << setw(20) << setfill(' ') << "Automated Testing" << endl;
+        testFindArea();
+        testFindPerimeter();
+        cout << setw(40) << setfill('=') << "" << setfill(' ') << endl;
+        exit(EXIT_SUCCESS); // exit the program
+    }
+    else { 
+        char ans;
+        do {
+            program();
+            cout << "Would you like to continue? [y/n]: ";
+            cin >> ans;
+            if (ans != 'y') break;
+            clear();
+        }
+        while(true);
+    }
+    cout << "Good bye! Enter to exit the program...";
+    cin.ignore(INT_MAX, '\n');
+    cin.get();
+    // all done; exit the program!
+    return 0;
+}
+
+void program() {
+     // variables to store data
     float length, width, area, perimeter;
     // print description
     displayTitle();
@@ -68,12 +101,6 @@ int main() {
     area = findArea(length, width);
     // 4. display results
     printResults(length, width, area, perimeter);
-
-    cin.ignore(1000, '\n');
-    cout << "Good bye! Enter to exit the program...";
-    cin.get();
-    // all done; exit the program!
-    return 0;
 }
 
 void displayTitle() {

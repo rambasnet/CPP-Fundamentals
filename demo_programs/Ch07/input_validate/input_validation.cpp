@@ -12,8 +12,7 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
-    // declare and intialize variables;
+int getNumber() {
     int input; // variable to store user input
 
     do {
@@ -29,7 +28,13 @@ int main(int argc, char* argv[]) {
         }
         else break;
     } while (true);
+    
+    return input;
+}
 
-    cout << "Great! you entered: " << input << endl;
+int main(int argc, char* argv[]) {
+    // declare and intialize variables;
+    int num = getNumber();
+    cout << "Great! you entered: " << num << endl;
     return 0;
 }
