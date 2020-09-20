@@ -10,17 +10,17 @@ using namespace std;
 void clear() {
     // Note: system call is not recommended security best practices in real-world!
     #ifdef _WIN32 // if 32 or 64 bit Windows
-    system("cls"); 
+        system("cls"); 
     #else // assuming mac or linux
-    system("clear");
+        system("clear");
     #endif
 }
 
 void pause(float seconds) {
     #ifdef _WIN32 // if 32 or 64 bit Windows
-    Sleep(seconds*1000); // milliseconds
+        Sleep(seconds*1000); // milliseconds
     #else // assuming mac or linux
-    usleep(seconds*1000000); // microseconds
+        usleep(seconds*1000000); // microseconds
     #endif
 }
 
