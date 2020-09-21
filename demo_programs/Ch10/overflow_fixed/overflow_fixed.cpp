@@ -12,12 +12,15 @@ using namespace std;
 // or '\n' which ever comes first
 void readData(char buffer[], unsigned int size){
     char ch;
-    for(int i=0; i<size-1; i++) {
+    int i = 0;
+    while (i < size-1) {
         cin.get(ch);
         if (ch == '\n') break;
-        buffer[i] = ch;
+        buffer[i++] = ch;
     }
-    buffer[size-1] = 0; // end the buffer with NULL character
+    buffer[i] = 0; // end the buffer with NULL character
+    // read and discard the rest of the characters from std input stream
+    cin.ignore(INT_MAX, '\n');
 }
 
 int main()
