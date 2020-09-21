@@ -36,7 +36,7 @@ int main()
 	
     //cout << boolalpha << valid << endl;
     if(valid) {
-        cout << "You have now access to top secret part of the program!" << endl;
+        cout << "You have now access to the top secret part of the program!" << endl;
         cout << "Your social is 123-45-5678\n";
     }
     else
