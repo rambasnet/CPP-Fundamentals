@@ -1,7 +1,10 @@
-// a simple program to demonstrate buffer overflow vulnerability
-// TODO: compile and run the program with 7 characters
-// run the program with 8 characters
-// run the program with more than 8 characters
+// a simple program to demonstrate buffer overflow vulnerability by corrupting data in memory
+// Run the program with various length of passwords (any characters!) and notice the output of SSN
+// TODO: 
+// 1. compile and run the program with 7 characters
+// 2. run the program with 8 characters
+// 3. run the program with more than 8 characters
+// You'll see the SSN being overwritten and corrupted with part of your password
 
 #include <iostream>
 #include <cstring>

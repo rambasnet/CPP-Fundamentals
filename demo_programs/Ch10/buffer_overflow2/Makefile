@@ -4,14 +4,15 @@ CXX = g++
 # -g : adds debugging information to the executable file
 # -Wall : turns on most, but not  all, compiler warnings
 # -std=C++17 : uses c++17 standard
+# -fno-stack-protector : compilers provide way to detect stack-overflow; so must be disabled!
 # put all the required flags separated by space
-CXXFLAGS = -c -g -Wall -std=c++17
+CXXFLAGS = -c -g -Wall -std=c++17 -fno-stack-protector
 
 # the build target executable file; .exe is not required
-PROGRAM = distance.exe
+PROGRAM = authenticator.exe
 
 # list .cpp files separated by space
-CPPFILES = pointDistance.cpp
+CPPFILES = buffer_overflow2.cpp
 
 # make build rule/default rule that'll be run when we run "make"
 # first compile each file to object file
