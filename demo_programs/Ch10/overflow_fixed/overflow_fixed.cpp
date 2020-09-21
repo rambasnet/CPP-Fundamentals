@@ -1,5 +1,5 @@
 // Authenticator program with fixed buffer overflow vulnearbility
-// TODO: Compile and run the program using given Makefile
+// TODO: Compile and run the program using the given Makefile
 // try to get the program print the password without providing the correct username and password
 // goal is to display the social security without using the hidden password; but you shouldn't succeeed!
 
