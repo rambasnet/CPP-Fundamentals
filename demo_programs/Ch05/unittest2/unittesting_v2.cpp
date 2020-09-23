@@ -15,7 +15,7 @@ int main() {
   // manual testing
   long answer;
   int n1, n2;
-  cout << "Enter two numbers separated by space: ";
+  cout << "Enter two integers separated by space: ";
   cin >> n1 >> n2;
   // calculate answer
   answer = addfunc(n1, n2);
