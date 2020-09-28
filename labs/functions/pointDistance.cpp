@@ -23,7 +23,7 @@ Algorithm steps:
 #include <cmath>
 using namespace std;
 
-const float epsilon = 1e-6; // 0.000001 accuracy upto 6 decimal points; error of margin
+const float epsilon = 1e-5; // 0.000001 accuracy upto 5 decimal points; error of margin
 
 // function prototypes
 
@@ -90,5 +90,5 @@ void test()
     float expected = 2.23607f;
     assert( fabs(result - expected) <= epsilon); //accept the result if it's less than the error of margin
     // FIXME8 - add at least two more test cases
-    cout << "all tests passed..." << endl;
+    cerr << "all tests passed..." << endl;
 }
