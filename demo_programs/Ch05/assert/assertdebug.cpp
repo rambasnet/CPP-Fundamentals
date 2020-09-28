@@ -18,7 +18,7 @@ int main()
     // output to stderr stream; still see the output on console
     // can't redirect the cerr output
     cerr << "Execution continues past the first assert\n";
-    assert(2+2 == 5);
+    assert(2+3 == 4);
     cerr << "Execution continues past the second assert\n";
     assert(3%2 == 1);
     cerr << "Yet another assert message\n";
