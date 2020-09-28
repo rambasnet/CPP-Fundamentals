@@ -23,7 +23,7 @@ Algorithm steps:
 #include <cmath>
 using namespace std;
 
-const float epsilon = 1e-5; // 0.000001 accuracy upto 5 decimal points; error of margin
+const float epsilon = 1e-5; // 0.00001 accuracy upto 5 decimal points; error of margin
 
 // function prototypes
 
