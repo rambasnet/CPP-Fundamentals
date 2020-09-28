@@ -87,7 +87,7 @@ double findDistance(int x1, int y1, int x2, int y2)
 void test()
 {
     float result =  findDistance(4, 3, 5, 1);
-    float expected = 2.23607f;
+    float expected = 2.236067f;
     assert( fabs(result - expected) <= epsilon); //accept the result if it's less than the error of margin
     // FIXME8 - add at least two more test cases
     cerr << "all tests passed..." << endl;
