@@ -14,7 +14,7 @@ COMPILER_FLAGS = -c -g -Wall -std=c++17
 PROGRAM_NAME =  prog.exe # FIXME
 
 # list all .cpp files separated by space; files must exist!
-CPP_FILES =  main_arg1.cpp # FIXME
+CPP_FILES =  main_arg2.cpp # FIXME
 
 # make build rule/default rule that'll be run when we run "make" or make build
 # first compile each file to object file
