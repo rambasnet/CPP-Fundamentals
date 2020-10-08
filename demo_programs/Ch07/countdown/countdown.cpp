@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <unistd.h> //usleep
+#include <string>
 
 using namespace std;
 
@@ -26,6 +27,7 @@ void pause(float seconds) {
 
 void countDownForLoop(int N) {
     cout << "Starting countdown from " << N << endl;
+    cout << "While Countdown demo...\n";
     pause(1);
     for(int i=N; i>=0; i--) {
         clear();
@@ -49,8 +51,9 @@ void countDownForLoop(int N) {
 }
 
 void countDownWhileLoop(int N) {
+    cout << "While Countdown demo...\n";
     cout << "Starting countdown from " << N << endl;
-    pause(1);
+    pause(2);
     while(N >=0) {
         clear();
         if (N == 0) {
@@ -73,8 +76,10 @@ void countDownWhileLoop(int N) {
     }
 }
 
-int main() {
-    countDownForLoop(10);
-    //countDownWhileLoop(10);
+int main(int argc, char* argv[]) {
+    if (argc == 2 && string(argv[1]) == "for")
+        countDownForLoop(10);
+    else
+        countDownWhileLoop(10);
     return 0;
 }
