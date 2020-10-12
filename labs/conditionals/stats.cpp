@@ -6,7 +6,7 @@ FIXME2: Today's Date
 
 Program finds statistical values of two given numbers using user-defined functions.
 
-It's menu-driven program that demonstrates user-defined functions, automated testing conditional statements and loops
+A menu-driven program that demonstrates user-defined functions, automated testing conditional statements and loop.
 */
 
 #include <iostream>
@@ -21,7 +21,7 @@ using namespace std;
 // function prints menu options
 void printMenu(void);
  
-// function that prompts user to enter two numbers
+// function prompts user to enter two numbers
 // the numbers are stored in the parameters provided
 void getTwoNumbers(double &, double &);
  
@@ -50,7 +50,7 @@ void test();
 
 bool program();
 
-// function clears the screen system call
+// function clears the screen using system call
 // NOTE: system call is not a security best pracice!
 void clearScreen() {
     // use "cls" in windows and "clear" command in Mac and Linux
@@ -142,9 +142,9 @@ double findQuotient(const double &n1, const double &n2) {
 
 // functions to run automated testing for various user-defined functions
 void test() {
-    double result = findSum(10, 12.5);
+    double answer = findSum(10, 12.5);
     double expected = 22.5;
-    assert(result == expected); // test case 1
+    assert(answer == expected); // test case 1
     assert(findSum(-5, 10.5) == 5.5); // test case 2
 
     // FIXME9 – Using assert function write at least 2 test cases for each of the following functions
@@ -196,7 +196,7 @@ bool program() {
             //FIXME12: get two numbers and find their product using functions
             break;
         }
-        // FIXME14: complete the rest of the cases 4, 6, and 7
+        // FIXME13: complete the rest of the cases 4, 6, and 7
         case 5:
         {
             // get two numbers
@@ -207,6 +207,7 @@ bool program() {
             printf("larger between %.2f & %.2f is %.2f\n", num1, num2, max);
             break;
         }
+        case 8:
         default: // must be option 8
             return false; // exit the program
     }
