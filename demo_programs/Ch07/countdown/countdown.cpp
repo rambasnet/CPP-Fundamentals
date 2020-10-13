@@ -26,8 +26,8 @@ void pause(float seconds) {
 }
 
 void countDownForLoop(int N) {
+    cout << "For Loop Countdown demo...\n";
     cout << "Starting countdown from " << N << endl;
-    cout << "While Countdown demo...\n";
     pause(1);
     for(int i=N; i>=0; i--) {
         clear();
@@ -51,7 +51,7 @@ void countDownForLoop(int N) {
 }
 
 void countDownWhileLoop(int N) {
-    cout << "While Countdown demo...\n";
+    cout << "While Loop Countdown demo...\n";
     cout << "Starting countdown from " << N << endl;
     pause(2);
     while(N >=0) {

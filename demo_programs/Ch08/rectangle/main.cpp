@@ -1,5 +1,5 @@
 /*=====================================================
-Area and Perimeter of a Rectangle
+Area and Perimeter of a Rectangle using Dynamic Memory
 By: Ram Basnet
 Date: 07/06/2020
 License: MIT - Feel free to use it however you want. 
@@ -32,11 +32,11 @@ float getLength();
 // 1.b function to read width
 float getWidth();
 // 2. function to calculate area given length and width
-float findArea(float, float);
+float findArea(const float *, const float *);
 // 3. function to calculate perimeter given length and width
-float findPerimeter(float, float);
+float findPerimeter(const float *, const float *);
 // 4. function to display the results (length, width, area, and perimeter of a rectangle)
-void printResults(float, float, float, float);
+void printResults(const float *, const float *, const float *, const float *);
 
 void displayTitle();
 
@@ -87,24 +87,30 @@ int main(int argc, char* argv[]) {
 }
 
 void program() {
-     // variables to store data
-    float length, width, area, perimeter;
+     // pointer variables to store data
+    float *length, *width, *area, *perimeter = nullptr;
+    // allocate memory in heap/dynamic memory
+    length = new float;
+    width = new float;
+    area = new float;
+    perimeter = new float;
+
     // print description
     displayTitle();
     // 1.a get length
-    length = getLength();
+    *length = getLength();
     // 1.b get width
-    width = getWidth();
+    *width = getWidth();
     // 2. find perimeter
-    perimeter = findPerimeter(length, width);
+    *perimeter = findPerimeter(length, width);
     // 3. find area
-    area = findArea(length, width);
+    *area = findArea(length, width);
     // 4. display results
     printResults(length, width, area, perimeter);
 }
 
 void displayTitle() {
-    printf("%s\n", "Area and Perimeter of a Rectangle using Functions");
+    printf("%s\n", "Area and Perimeter of a Rectangle using Pointers and Dynamic Memory");
     printf("%s\n", "Program finds Area and Perimeter given length and width of a Rectangle");
     cout << setw(40) << setfill('=') << "\n";
     cout << setfill(' ');
@@ -124,15 +130,15 @@ float getWidth() {
     return width;
 }
 
-float findPerimeter(float length, float width) {
-    return 2*(length+width);
+float findPerimeter(const float *length, const float *width) {
+    return 2*(*length + *width);
 }
 
-float findArea(float length, float width) {
-    return length * width;
+float findArea(const float * length, const float * width) {
+    return *length * *width;
 }
 
-void printResults(float length, float width, float area, float perimeter) {
+void printResults(const float * length, const float * width, const float * area, const float * perimeter) {
     int colwidth = 50;
     // create output stream
     ostringstream output;
@@ -141,10 +147,10 @@ void printResults(float length, float width, float area, float perimeter) {
     output << setw(colwidth) << setfill('=') << '\n';
     output << fixed << setprecision(2);
     colwidth = 20;
-    output << setfill(' ') << setw(colwidth) << "length: " << length << endl;
-    output << setw(colwidth) << "width: " << width << endl;
-    output << setw(colwidth) << "perimeter: " << perimeter << endl;
-    output << setw(colwidth) << "area: " << area << endl;
+    output << setfill(' ') << setw(colwidth) << "length: " << *length << endl;
+    output << setw(colwidth) << "width: " << *width << endl;
+    output << setw(colwidth) << "perimeter: " << *perimeter << endl;
+    output << setw(colwidth) << "area: " << *area << endl;
     output << setw(50) << setfill('*') << '\n';
     // print the output result to console
     cout << output.str();
@@ -154,11 +160,14 @@ void testFindArea() {
     cerr << "Testing findArea function...\n";
     float length, width;
     length = 10; width=5;
-    assert(findArea(length, width) == 50);
-    assert(findArea(4, 3) == 12);
+    float area = findArea(&length, &width);
+    assert(area == 50);
+    length = 4;
+    width = 3;
+    assert(findArea(&length, &width) == 12);
     // testing floating point answer; need to round to some decimal points
     length = 10.55; width = 3.99;
-    float area = findArea(length, width);
+    area = findArea(&length, &width);
     assert(fabs(area - 42.094) <= ERROR_MARGIN);
     
     cerr << "All test cases passed...\n";
@@ -168,12 +177,14 @@ void testFindPerimeter() {
     cerr << "Testing findPerimeter function...\n";
     float length, width;
     length = 10; width=5;
-    assert(findPerimeter(length, width) == 30);
-    assert(findPerimeter(4, 3) == 14);
+    assert(findPerimeter(&length, &width) == 30);
+    length = 4;
+    width = 3;
+    assert(findPerimeter(&length, &width) == 14);
 
     // testing floating point answer; need to round to some decimal points
     length = 10.55; width = 3.99;
-    float perimeter = findPerimeter(length, width);
+    float perimeter = findPerimeter(&length, &width);
     assert(fabs(perimeter - 29.08) <= ERROR_MARGIN);
 
     cerr << "All test cases passed...\n";
