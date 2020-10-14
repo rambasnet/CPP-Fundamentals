@@ -60,7 +60,7 @@ bool isPalindrome(string phrase)
 {
  	bool isPalin = true;
     //FIXME3: implement the rest of the function using
-//the given algorithm in step #3...
+    //the given algorithm in step #3...
     return isPalin;
 }
 
