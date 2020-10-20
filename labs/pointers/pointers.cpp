@@ -118,5 +118,5 @@ large_int MyFunctions::findProduct(const large_int &n1, const large_int &n2) {
     return n1 * n1;
 }
 
-//FIXME8: define findDifference function declared inside MyFunctions namespace
+// FIXME8: define findDifference function declared inside MyFunctions namespace
 // return the value of second big_int subtracted from the first
