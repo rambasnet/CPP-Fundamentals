@@ -1,5 +1,5 @@
 //  Pointers, enum type and namespace lab
-//  Update by: FIXME1
+//  Updated by: FIXME1
 //  Date: FIXME2
 //  Program demonstrates the use of preprocessor directive, namespace, enum type,
 //  and pointers.
@@ -68,7 +68,9 @@ int main(int argc, char* argv[]) {
         default:
             break;
     }
-    
+    delete num1;
+    delete num2;
+    delete sum;
     cin.ignore(1000, '\n');
     cout << "Good bye! Enter to exit the program...";
     cin.get();
