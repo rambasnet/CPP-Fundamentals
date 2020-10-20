@@ -107,6 +107,10 @@ void program() {
     *area = findArea(length, width);
     // 4. display results
     printResults(length, width, area, perimeter);
+    delete length;
+    delete width;
+    delete area;
+    delete perimeter;
 }
 
 void displayTitle() {
