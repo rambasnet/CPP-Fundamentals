@@ -17,7 +17,7 @@ using namespace std;
 #endif
 
 // user-defined enumerated type OPERATION
-enum OPERATION { ADD, MULTIPLY, SUBTRACT, QUIT };
+enum OPERATION { ADD, MULTIPLY, SUBTRACT, LARGER, QUIT };
 
 // C++ way of defining type alias
 using big_int = long long int;
@@ -44,8 +44,8 @@ int main(int argc, char* argv[]) {
     num1 = new big_int; //allocate memory in heap and store the address in num1
     big_int *num2 = new big_int; //declare num2 as a dynamic variable
     large_int *sum = new large_int; //declare sum as a dynamic variable
-
-    // FIXME3 - declare dynamic variables to store product and difference values
+    large_int *prod = new large_int;
+    // FIXME3 - declare dynamic variables to store difference and larger values
     // Must use these variables to store the returned values from functions
 
     OPERATION oper;
@@ -65,12 +65,21 @@ int main(int argc, char* argv[]) {
             printf("%lld + %lld = %lld\n", *num1, *num2, *sum);
             break;
             // FIXME6: complete the rest of the cases to perform other operations
+        case MULTIPLY:
+            cout << "Enter two whole numbers separated by space: ";
+            // store the data by dereferencing pointers
+            cin >> *num1 >> *num2;
+            // passing pointers to findSum function
+            *prod = MyFunctions::findProduct(*num1, *num2);
+            printf("%lld * %lld = %lld\n", *num1, *num2, *prod);
+            break;
         default:
             break;
     }
     delete num1;
     delete num2;
     delete sum;
+    delete prod;
     cin.ignore(1000, '\n');
     cout << "Good bye! Enter to exit the program...";
     cin.get();
@@ -100,6 +109,7 @@ OPERATION getOperation(char choice) {
         case '3':
             op = SUBTRACT;
             break;
+        // FIXME7 - add case for LARGER
         default:
             op = QUIT;
     }
@@ -112,11 +122,12 @@ big_int MyFunctions::findSum(const big_int *n1, const big_int *n2) {
     return (*n1) + (*n2);
 }
 
-// FIXME7: define findLarger function declared inside MyFunctions namespace
+// FIXME8: define findLarger function declared inside MyFunctions namespace
 // function returns the larger of the two given values
+
 large_int MyFunctions::findProduct(const large_int &n1, const large_int &n2) {
-    return n1 * n1;
+    return n1 * n2;
 }
 
-// FIXME8: define findDifference function declared inside MyFunctions namespace
+// FIXME9: define findDifference function declared inside MyFunctions namespace
 // return the value of second big_int subtracted from the first
