@@ -28,7 +28,7 @@ typedef long long int large_int;
 
 // declare MyFunctions namespace
 namespace MyFunctions {
-    // function prototypes defined withing the namespace
+    // function prototypes defined within the namespace
     big_int findSum(const big_int *, const big_int *);
     big_int findLarger(const big_int *, const big_int *);
     large_int findProduct(const large_int &, const large_int &);
