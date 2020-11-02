@@ -1,4 +1,4 @@
-// bufferflow example 2
+// buffer overflow example 2
 // TODO: Compile and run the program using given Makefile
 // enter whatever username and about 20 As or more for passoword
 // goal is to display the social security without using the hidden password

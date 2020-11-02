@@ -1,3 +1,4 @@
+// Buffer overflow Example 1
 // a simple program to demonstrate buffer overflow vulnerability by corrupting data in memory
 // Run the program with various length of passwords (any characters!) and notice the output of SSN
 // TODO: 
@@ -13,7 +14,7 @@ using namespace std;
 
 int main() {
     char social_security[] = "123-45-6789";
-    char password[8]; // supposed to store only 5 characters or bytes
+    char password[8]; // supposed to store only 8 characters or bytes including the null byte
     cout << "Enter your password: ";
     cin >> password;
     // cin doesn't check the boundry or size of password
