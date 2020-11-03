@@ -10,7 +10,7 @@ using namespace std;
 
 // function reads data one character at a time upto size-1 length 
 // or '\n' which ever comes first
-void readData(char buffer[], unsigned int size){
+void readData(char buffer[], unsigned int size) {
     char ch;
     int i = 0;
     bool newLineRead = false;
@@ -27,21 +27,20 @@ void readData(char buffer[], unsigned int size){
     if (not newLineRead) cin.ignore(INT_MAX, '\n');
 }
 
-int main()
-{
+int main(int argc, char* argv[]) {
     bool valid = false;
-    char username[10]; //c-string
-    char password[10]; //c-string
+    char username[10]; //c-string; buffer
+    char password[10]; //c-string; buffer
 	
     cout << "Enter username: ";
-    readData(username, 10);
+    readData(username, 10); // read data checking bounds/size
 	cout << "Enter password: ";
-	readData(password, 10);
+	readData(password, 10); // read data checking bounds/size
 
 	if (string(username) == "backdoor" && strcmp(password, "123456") == 0)
 		valid = true;
 	
-    if(valid) {
+    if (valid) {
         cout << "You have now access to the top secret part of the program!" << endl;
         cout << "Your social is 123-45-5678\n";
     }
