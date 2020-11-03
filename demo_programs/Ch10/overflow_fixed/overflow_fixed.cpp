@@ -41,13 +41,12 @@ int main()
 	if (string(username) == "backdoor" && strcmp(password, "123456") == 0)
 		valid = true;
 	
-    //cout << boolalpha << valid << endl;
     if(valid) {
         cout << "You have now access to the top secret part of the program!" << endl;
         cout << "Your social is 123-45-5678\n";
     }
     else
-        cout << "invalid password" << endl;
+        cout << "invalid username or password" << endl;
    
    return 0;
 }
