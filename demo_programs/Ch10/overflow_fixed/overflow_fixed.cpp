@@ -13,14 +13,18 @@ using namespace std;
 void readData(char buffer[], unsigned int size){
     char ch;
     int i = 0;
+    bool newLineRead = false;
     while (i < size-1) {
         cin.get(ch);
-        if (ch == '\n') break;
+        if (ch == '\n') {
+            newLineRead = true;
+            break;
+        }
         buffer[i++] = ch;
     }
     buffer[i] = 0; // end the buffer with NULL character
-    // read and discard the rest of the characters from std input stream
-    cin.ignore(INT_MAX, '\n');
+    // read and discard the rest of the characters from std input stream upto '\n'
+    if (not newLineRead) cin.ignore(INT_MAX, '\n');
 }
 
 int main()
