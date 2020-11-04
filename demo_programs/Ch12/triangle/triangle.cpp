@@ -1,5 +1,5 @@
 // working with triangle using vector
-// using functions as possible to break the problem
+// using functions to divide the solution to the problem
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -10,7 +10,6 @@
 #include <vector>
 
 using namespace std;
-
 
 // function prototypes
 bool validTriangle(float side1, float side2, float side3);
@@ -43,7 +42,6 @@ int main(int argc, char* argv[]) {
 void program() {
     // store all the entered triangles into a vector
     vector< vector<float> > triangles;
-    float area, perimeter;
     // read triangles data from file and store them into triangles vector
     readTriangles(triangles);
     createReport(triangles);
@@ -147,7 +145,6 @@ void readTriangles(vector<vector<float> > & triangles) {
     string heading;
     getline(fin, heading);
     //cout << "heading = " << heading << endl;
-    char ch;
     int count = 0;
     while(fin >> side1 >> side2 >> side3) {
         // check data was read correctly
