@@ -11,10 +11,10 @@ COMPILER = g++
 COMPILER_FLAGS = -c -g -Wall -std=c++17
 
 # the build target executable program name of your choice
-PROGRAM_NAME =  exercise1.exe # FIXME
+PROGRAM_NAME = exercise1.exe # FIXME
 
 # list all .cpp files separated by space; files must exist!
-CPP_FILES =  exercise1.cpp # FIXME
+CPP_FILES = exercise1.cpp # FIXME
 
 # make build rule/default rule that'll be run when we run "make" or make build
 # first compile each file to object file
