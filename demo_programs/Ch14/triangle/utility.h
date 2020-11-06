@@ -1,0 +1,3 @@
+// utility functions
+
+void clear();

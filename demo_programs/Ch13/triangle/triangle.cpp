@@ -241,7 +241,6 @@ void readTriangles(vector<Triangle> & triangles, const string & fileName) {
     string heading;
     getline(fin, heading);
     //cout << "heading = " << heading << endl;
-    char ch;
     int count = 0;
     while(fin >> temp.side1 >> temp.side2 >> temp.side3) {
         // check data was read correctly
