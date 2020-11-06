@@ -83,9 +83,9 @@
 ### Compiling with Make program
 
 - see GNU Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/)
-- create a Makefile; see makefile_demos folder for examples
+- create a Makefile in the project folder; see makefile_demos folder for examples
 - once the Makefile is created; use the following commands from terminal
-- `cd` into a folder with a .cpp files; compile and run the program
+- `cd` into the project folder with the Makefile; compile and run the program using make command
 
     ```bash
         make
