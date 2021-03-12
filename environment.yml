@@ -1,0 +1,7 @@
+name: cling
+channels:
+  - nodefaults
+  - SylvainCorlay
+dependencies:
+  - cling
+  - xtensor
