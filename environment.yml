@@ -1,7 +1,6 @@
-name: cling
+name: xeus-cling
 channels:
-  - nodefaults
-  - SylvainCorlay
+  - conda-forge
 dependencies:
-  - cling
-  - xtensor
+  - xeus-cling=0.12.0
+  - notebook
