@@ -1,12 +1,11 @@
 # C++ Fundamentals
 
-### Try it online with [Binder](http://mybinder.org/)
+## Try it online with [Binder](http://mybinder.org/)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rambasnet/CPP-Fundamentals/HEAD?filepath=Ch00-TableOfContents.ipynb)
 
 - Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
-- some of the contents are based on the open source textbook: Think C++ by Allen B. Downey
-    - others are based on [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
+- some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 ## PDF Format
@@ -40,27 +39,27 @@
 - open a terminal/shell and run the following commands
 - create a virual environment to keep C++ specific installtions seperate from base installation
 
-    ```bash
-        conda update conda
-        conda create -n cpp python=3.7
-        conda activate cpp
-        conda install notebook
-        conda install -c conda-forge xeus-cling
-        conda install -c conda-forge jupyter_contrib_nbextensions
-        conda install -c conda-forge jupyter_nbextensions_configurator
-        jupyter nbextensions_configurator enable --user
-    ```
+```bash
+    conda update conda
+    conda create -n cpp python=3.7
+    conda activate cpp
+    conda install notebook
+    conda install -c conda-forge xeus-cling
+    conda install -c conda-forge jupyter_contrib_nbextensions
+    conda install -c conda-forge jupyter_nbextensions_configurator
+    jupyter nbextensions_configurator enable --user
+```
 
 ## Run or use Jupyter Notebooks
 
 - clone the repository locally once the tools are installed
 - open a terminal and `cd` into this cloned repo and run jupyter notebook
 
-    ```bash
-        cd <CPP Fundamentals repo folder>
-        conda activate cpp # activate virtualenv cpp if created
-        jupyter notebook
-    ```
+```bash
+    cd <CPP Fundamentals repo folder>
+    conda activate cpp # activate virtualenv cpp if created
+    jupyter notebook
+```
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
 - $ conda deactivate # to deactivate the virtual env and go back to base installation
@@ -78,24 +77,24 @@
 - open a terminal and run the following commands
 - `cd` into a folder with a demo program; compile and run the program
 
-    ```bash
-       cd demo_programs/Ch...
-       g++ -g -Wall -std=c++17 -o programName inputFile.cpp
-       ./programName
-    ```
+```bash
+    cd demo_programs/Ch...
+    g++ -g -Wall -std=c++17 -o programName inputFile.cpp
+    ./programName
+```
 
 ### Compiling with Make program
 
 - see GNU Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/)
-- create a Makefile in the project folder; see makefile_demos folder for examples
+- create a Makefile in the project folder; see `makefile_demos` folder for examples
 - once the Makefile is created; use the following commands from terminal
 - `cd` into the project folder with the Makefile; compile and run the program using make command
 
-    ```bash
-        make
-        make run
-        make clean
-    ```
+```bash
+    make
+    make run
+    make clean
+```
 
 ## Compiling and running C++ programs with VS Code
 
