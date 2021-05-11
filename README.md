@@ -1,5 +1,9 @@
 # C++ Fundamentals
 
+### Try it online with [Binder](http://mybinder.org/)
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rambasnet/CPP-Fundamentals/HEAD?filepath=Ch00-TableOfContents.ipynb)
+
 - Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey
     - others are based on [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
