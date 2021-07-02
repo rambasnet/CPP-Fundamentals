@@ -15,11 +15,11 @@
 ## System Requirements
 
 - Linux/MacOS/WSL on Windows
-- Jupyter Notebook - learning evinornment
+- Jupyter Notebook - learning environment
 - xeus-cling kernel - to run C++ code in Jupyter notebook
 - git client - to use version control
-- G++ compiler - to compile and run sample codes, solve exercises and labs
-- VS Code - Editor to write C++ programs
+- g++ compiler - to compile and run sample codes, solve exercises and labs
+- VS Code or any Code Editor to write C++ programs
 
 ### Note: xeus-cling doesn't support Windows
 
@@ -41,7 +41,7 @@
 
 ```bash
     conda update conda
-    conda create -n cpp python=3.7
+    conda create -n cpp python=3.8
     conda activate cpp
     conda install notebook
     conda install -c conda-forge xeus-cling
@@ -53,7 +53,7 @@
 ## Run or use Jupyter Notebooks
 
 - clone the repository locally once the tools are installed
-- open a terminal and `cd` into this cloned repo and run jupyter notebook
+- open a terminal and `cd` into this cloned repo folder and run `jupyter notebook`
 
 ```bash
     cd <CPP Fundamentals repo folder>
