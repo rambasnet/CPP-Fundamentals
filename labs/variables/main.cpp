@@ -21,12 +21,13 @@ using namespace std; //resolve cout, cin, and endl names
 int main()
 {
     // FIXME3: declare a variable to store name
-    // FIXME4: prompt user to enter their name and store the value in variable
+    // FIXME4: assign "your full name" to the variable declared in FIXME3
     
-    // FXIME5: greet the name using the variable as the following output
+    cout << "Nice meeting you, !" << endl; 
+    
+    //FXIME5: greet the name using the variable as the following output
     //must output: Nice meeting you, <name>!
-
-    cout << "Hope you like my Tom & Jerry ASCII art...\n\n";
+    cout << "Nice meeting you, !" << endl; //FXIME5
 
     string line1 = "  |\\_/|   **********************    (\\_/)\n";
     cout << line1;
