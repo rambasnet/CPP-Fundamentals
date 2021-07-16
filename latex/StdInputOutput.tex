@@ -1,0 +1,1674 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{StdInputOutput}
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb. 
+    \makeatletter
+        \newbox\Wrappedcontinuationbox 
+        \newbox\Wrappedvisiblespacebox 
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}} 
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}} 
+        \newcommand*\Wrappedcontinuationindent {3ex } 
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox} 
+        % Take advantage of the already applied Pygments mark-up to insert 
+        % potential linebreaks for TeX processing. 
+        %        {, <, #, %, $, ' and ": go to next line. 
+        %        _, }, ^, &, >, - and ~: stay at end of broken line. 
+        % Use of \textquotesingle for straight quote. 
+        \newcommand*\Wrappedbreaksatspecials {% 
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}% 
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}% 
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}% 
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}% 
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}% 
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}% 
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}% 
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}% 
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}% 
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}% 
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}% 
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}% 
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}% 
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}% 
+        } 
+        % Some characters . , ; ? ! / are not pygmentized. 
+        % This macro makes them "active" and they will insert potential linebreaks 
+        \newcommand*\Wrappedbreaksatpunct {% 
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}% 
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}% 
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}% 
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}% 
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}% 
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}% 
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}% 
+            \catcode`\.\active
+            \catcode`\,\active 
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active 
+            \lccode`\~`\~ 	
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+        
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active 	
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+    
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{standard-input-and-output}{%
+\section{Standard Input and Output}\label{standard-input-and-output}}
+
+\hypertarget{topics}{%
+\subsection{Topics}\label{topics}}
+
+\begin{itemize}
+\tightlist
+\item
+  common way to input and output data
+\item
+  printing variables and values onto monitor or console
+\item
+  reading data from keyboard
+\item
+  composing programs
+\end{itemize}
+
+    \hypertarget{input-and-output-io}{%
+\subsection{Input and output (IO)}\label{input-and-output-io}}
+
+\begin{itemize}
+\tightlist
+\item
+  IO operations are fundamental to computer programs
+\item
+  C++ IO occurs in streams (sequence of bytes)
+\item
+  programs must be able to read data from varieties of input devices
+  (\textbf{input operation})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    streams of bytes flow from keyboard, disk drive, network devices,
+    etc. to main memory, RAM (Random Access Memory)
+  \end{itemize}
+\item
+  programs must be able to write data to varieties of output devices
+  (\textbf{output operation})
+
+  \begin{itemize}
+  \tightlist
+  \item
+    stream of bytes flow from RAM to monitor, disk drive, network
+    devices, etc.
+  \end{itemize}
+\item
+  this chapter covers how C++ handle standard input and output
+\item
+  reading from and writing to disk drive or files is covered in File IO
+  chapter
+\end{itemize}
+
+    \hypertarget{standard-output-stream}{%
+\subsection{Standard output stream}\label{standard-output-stream}}
+
+\begin{itemize}
+\item
+  a prgram may need to display data or results of computation to users
+\item
+  a common way to display results is by printing them to common output
+  called monitor
+
+  \begin{itemize}
+  \tightlist
+  \item
+    also called console
+  \end{itemize}
+\item
+  we've printed \texttt{hello\ world} and some other strings to console
+  in Chapter 1
+\item
+  similarly, we can print any literal values or data stored in variables
+  to standard output
+\item
+  use \texttt{cout} statement defined in
+  \texttt{\textless{}iostream\textgreater{}} library and
+  \texttt{std\ namespace}
+\item
+  output statement syntax:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cout }\OperatorTok{\textless{}\textless{}}\NormalTok{ varName1 }\OperatorTok{\textless{}\textless{}}\NormalTok{ varName2 }\OperatorTok{\textless{}\textless{}} \StringTok{"literal values"} \OperatorTok{\textless{}\textless{}} \CharTok{\textquotesingle{} \textquotesingle{}} \OperatorTok{\textless{}\textless{}} \DecValTok{100} \OperatorTok{\textless{}\textless{}} \CharTok{\textquotesingle{}}\SpecialCharTok{\textbackslash{}n}\CharTok{\textquotesingle{}}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \texttt{\textless{}\textless{}} \textbf{stream insertion operator}
+  inserts values to output stream
+\item
+  multiple values are separated by \texttt{\textless{}\textless{}}
+  operator
+\item
+  \texttt{endl} operator or \texttt{\textbackslash{}n} escape character
+  end line to continue writing in next line
+\item
+  the following code demonstrates standard output stream
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// include required library}
+\PY{c+cp}{\PYZsh{}}\PY{c+cp}{include} \PY{c+cpf}{\PYZlt{}iostream\PYZgt{}}\PY{c+c1}{ // cout}
+
+\PY{c+c1}{// use required namespace}
+\PY{k}{using} \PY{k}{namespace} \PY{n+nn}{std}\PY{p}{;} \PY{c+c1}{//std namespace defines cout, endl, etc.}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello World!}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mi}{100} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mf}{2.5f} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{ }\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mf}{3.99} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{A}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{some text as string}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{continue printing stuff in next line...?}\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Hello World!
+1002.5 3.99Asome text as stringcontinue printing stuff in next line{\ldots}?
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// declaring and printing variables}
+\PY{c+cp}{\PYZsh{}}\PY{c+cp}{include} \PY{c+cpf}{\PYZlt{}string\PYZgt{}}
+
+\PY{n}{string} \PY{n}{name} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{John Doe}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{k+kt}{char} \PY{n}{MI} \PY{o}{=} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{A}\PY{l+s+sc}{\PYZsq{}}\PY{p}{;}
+\PY{k+kt}{int} \PY{n}{age} \PY{o}{=} \PY{l+m+mi}{25}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// outputting variables}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{name = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{name} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{MI = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{MI} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ and age = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{age} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+name = John Doe
+MI = A and age = 25
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kt}{bool} \PY{n}{done} \PY{o}{=} \PY{n+nb}{false}\PY{p}{;}
+\PY{k+kt}{float} \PY{n}{temperature} \PY{o}{=} \PY{l+m+mi}{73}\PY{p}{;}
+\PY{k+kt}{float} \PY{n}{richest\PYZus{}persons\PYZus{}networth} \PY{o}{=} \PY{l+m+mi}{120000000000}\PY{p}{;} \PY{c+c1}{// 120 billion}
+\PY{k+kt}{float} \PY{n}{interestRate} \PY{o}{=} \PY{l+m+mf}{4.5}\PY{p}{;}
+\PY{k+kt}{float} \PY{n}{length} \PY{o}{=} \PY{l+m+mf}{10.5}\PY{p}{;}
+\PY{k+kt}{float} \PY{n}{width} \PY{o}{=} \PY{l+m+mf}{99.99f}\PY{p}{;} \PY{c+c1}{// can end with f for representing floating point number}
+\PY{k+kt}{double} \PY{n}{space\PYZus{}shuttle\PYZus{}velocity} \PY{o}{=} \PY{l+m+mf}{950.1234567891234567} \PY{c+c1}{// 16 decimal points}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// cout can continue in multilines}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{temperature: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{temperature} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ age: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{age} 
+    \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ richest person\PYZsq{}s worth: }\PY{l+s}{\PYZdq{}}
+    \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{richest\PYZus{}persons\PYZus{}networth} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{interest rate: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{interestRate} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{length: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{length} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ and width = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{width} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{space\PYZus{}shuttle\PYZus{}velocity: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mf}{950.1234567891234567} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+temperature: 73 age: 25 richest person's worth: 1.2e+11
+interest rate: 4.5
+length: 10.5 and width = 99.99
+space\_shuttle\_velocity: 950.123
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// outputting string variables}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello there, }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{name} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{!}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Hello there, John Doe!
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// more string variables}
+\PY{n}{string} \PY{n}{address1} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{1100 North Ave}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{string} \PY{n}{state\PYZus{}code} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{CO}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{string} \PY{n}{country} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{USA}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{CMU\PYZsq{}s address:}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+     \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{address1} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}
+     \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Grand Junction, }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{state\PYZus{}code} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{ }\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mi}{81501} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}
+     \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{country} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+CMU's address:
+1100 North Ave
+Grand Junction, CO 81501
+USA
+    \end{Verbatim}
+
+    \hypertarget{escape-sequences}{%
+\subsubsection{Escape sequences}\label{escape-sequences}}
+
+\begin{itemize}
+\tightlist
+\item
+  some letters or sequence of letters have special meaning to C++
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g., pair of single quote is used to represent a character data,
+    e.g.~`A' or ' ' (space)
+  \item
+    and pair of double quotes is used to represent a string type, e.g.,
+    ``Hello World!''
+  \end{itemize}
+\item
+  how can we store single or double quotes as part of data?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g., we need to print: \textbf{``Oh no!'', Alice exclaimed, ``Bob's
+    bike is broken!''}
+  \item
+    we use backslash \texttt{\textbackslash{}} (escape character) to
+    escape the special meaning of single and double quotes or other
+    characters
+  \end{itemize}
+\item
+  characters represented using escape character are called escape
+  sequences
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbackslash n - new line
+  \item
+    \textbackslash\textbackslash{} - back slash
+  \item
+    \textbackslash t - tab
+  \item
+    \textbackslash r - carriage return
+  \item
+    \textbackslash' - single quote
+  \item
+    \textbackslash'' - double quote
+  \end{itemize}
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{What\PYZsq{}s up}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{ Shaq}\PY{l+s+se}{\PYZbs{}t}\PY{l+s}{O\PYZsq{}Neal?}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+What's up
+ Shaq   O'Neal?
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kt}{char} \PY{n}{quote} \PY{o}{=} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{\PYZbs{}\PYZsq{}}\PY{l+s+sc}{\PYZsq{}}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{quote}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+'''
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s}{Oh no!}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s}{, Alice exclaimed, }\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s}{Bob\PYZsq{}s bike is broken!}\PY{l+s+se}{\PYZbs{}\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+"Oh no!", Alice exclaimed, "Bob's bike is broken!"
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{how many back slashes will be printed? }\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+how many back slashes will be printed? \textbackslash{}\textbackslash{}
+    \end{Verbatim}
+
+    \hypertarget{standard-input-stream}{%
+\subsection{Standard input stream}\label{standard-input-stream}}
+
+\begin{itemize}
+\item
+  often, data must be read from standard input stream or keyboard
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g.~most interactive programs with Graphical User Interface (GUI)
+    or Command Line Interface (CLI)
+  \end{itemize}
+\item
+  must include \texttt{\textless{}iostream\textgreater{}} library for
+  standard input
+\item
+  must use \textbf{std} namespace
+\item
+  use \textbf{cin \textgreater\textgreater{}} statement
+\item
+  syntax:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cin }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ var1 }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ var2 }\OperatorTok{\textgreater{}\textgreater{}} \OperatorTok{...;}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \texttt{\textgreater{}\textgreater{}} stream extraction operator
+  extracts data/value from input stream
+\item
+  must always use variables of appropriate types
+\item
+  while scanning input stream, \texttt{\textgreater{}\textgreater{}}
+  ignores leading whitespaces and stops at a trailing whitespace
+\item
+  let's say we have a stream of data separated by whitespaces:
+  \texttt{10\ 11\ 15.5\ A}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    we can parse and extract it as following:
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cin }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ num1 }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ num2 }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ num3 }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ alpha}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+  - given num1 and num2 are of type int or long, num3 is float or double and alpha is char
+\end{verbatim}
+\end{itemize}
+
+\hypertarget{inputting-numerical-data}{%
+\subsubsection{Inputting numerical
+data}\label{inputting-numerical-data}}
+
+\begin{itemize}
+\tightlist
+\item
+  we must store the extracted numerical input data into appropriate
+  numerical variables
+\item
+  \texttt{\textgreater{}\textgreater{}\ int\ variables} : extracts whole
+  numbers from input stream; stops at anything else
+\item
+  \texttt{\textgreater{}\textgreater{}\ float\ or\ double\ variables} :
+  extracts numbers including decimal points; stops at anything else
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// include required libraries}
+\PY{c+cp}{\PYZsh{}}\PY{c+cp}{include} \PY{c+cpf}{\PYZlt{}iostream\PYZgt{}}\PY{c+c1}{ //cin, cout}
+
+\PY{k}{using} \PY{k}{namespace} \PY{n+nn}{std}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kt}{int} \PY{n}{num1}\PY{p}{;}
+\PY{c+c1}{// prompt user to enter a whole number}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{enter a whole number: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{num1}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{You entered: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num1} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+enter a whole number: 10
+You entered: 10
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// can extract multiple integers}
+\PY{k+kt}{int} \PY{n}{num2}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{enter two whole numbers separated by space: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{num1} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{num2}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num1} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{+}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num2} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{=}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num1}\PY{o}{+}\PY{n}{num2} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+enter two whole numbers separated by space: 10 20
+10+20=30
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// extracting int and float}
+\PY{k+kt}{float} \PY{n}{num3}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{enter a whole number and a floating point number separated by space: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{num1} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{num3}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num1} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ + }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num3} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{num1}\PY{o}{+}\PY{n}{num3} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+enter a whole number and a floating point number separated by space: 5 9.9
+5 + 9.9 = 14.9
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// let\PYZsq{}s enter 10 11 15.5 A and store them into corresponding variables}
+\PY{k+kt}{int} \PY{n}{n1}\PY{p}{,} \PY{n}{n2}\PY{p}{;}
+\PY{k+kt}{float} \PY{n}{n3}\PY{p}{;}
+\PY{k+kt}{char} \PY{n}{alpha}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// let\PYZsq{}s not prompt; but simply enter 10 11 15.5 A}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{n1} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{n2} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{n3} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{alpha}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+10 11 15.5 A
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// let\PYZsq{}s echo the entered values}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{n1} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{n2} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{n3} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{alpha}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+10 11 15.5 A
+    \end{Verbatim}
+
+    \hypertarget{input-failure}{%
+\subsubsection{Input failure}\label{input-failure}}
+
+\begin{itemize}
+\tightlist
+\item
+  if input data and variable type mismatched, \texttt{cin} will not be
+  able to extract the data from the stream
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{cin} will enter into a fail state
+  \item
+    won't be able to extract data anymore
+  \end{itemize}
+\item
+  Note: Jupyter Notebook may crash or simply not work as expected when
+  input fails
+
+  \begin{itemize}
+  \tightlist
+  \item
+    if the Jupyter crashes or stops working, your must restart the
+    Kernel: \texttt{Kernel\ -\textgreater{}\ Restart}
+  \end{itemize}
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// variable to store whole number}
+\PY{k+kt}{int} \PY{n}{number}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Enter a number: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{number}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{You entered }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{number}\PY{p}{;}
+\PY{c+c1}{// Play with it:}
+\PY{c+c1}{// try entering an integer then whole number and characters then characters and number, etc.}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Enter a number: adf
+You entered 0
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+@0x107733ec0
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{inputting-string-data}{%
+\subsubsection{Inputting string data}\label{inputting-string-data}}
+
+\begin{itemize}
+\item
+  we can read string data in two ways depending on if the string has a
+  space (phrase) or not (word)
+\item
+  string without space or single word can be extracted using
+  \texttt{\textgreater{}\textgreater{}} stream extraction operator
+\item
+  a single string data or line with spaces must be extracted using
+  \texttt{getline(\ )} function
+\item
+  reading syntax:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{getline}\OperatorTok{(}\NormalTok{cin}\OperatorTok{,}\NormalTok{ strVar}\OperatorTok{);} \CommentTok{// reading a line from std input and storing into strVar}
+\end{Highlighting}
+\end{Shaded}
+\item
+  \texttt{getline()} reads the entire line including whitespaces
+  including the \texttt{\textbackslash{}n} newline
+
+  \begin{itemize}
+  \tightlist
+  \item
+    newline is extracted from the input stream and discarded
+  \end{itemize}
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{string} \PY{n}{player\PYZus{}name}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Enter your first name: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{player\PYZus{}name}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello there, }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{player\PYZus{}name} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{c+c1}{// run it wih just firstname and then with fullname; notice the value of player\PYZus{}name}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Enter your first name:
+John Smith
+Hello there, John
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{18}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+@0x107733ec0
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// string with spaces}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Enter your full name: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{getline}\PY{p}{(}\PY{n}{cin}\PY{p}{,} \PY{n}{player\PYZus{}name}\PY{p}{)}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Hello there, }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{player\PYZus{}name} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Enter your full name: John Smith
+Hello there, John Smith
+    \end{Verbatim}
+
+    \hypertarget{note}{%
+\subsubsection{Note}\label{note}}
+
+\begin{itemize}
+\tightlist
+\item
+  getline( ) reads, discards and stops at newline character
+  (\texttt{\textbackslash{}n})
+\item
+  \texttt{\textgreater{}\textgreater{}} stops before the trailing
+  newline character leaving it in the input stream
+\item
+  must explictly read and discard newline character if getline is used
+  after \texttt{\textgreater{}\textgreater{}}
+\item
+  use \textbf{ws} whitespace manipulator
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ws operator extracts as many whitespace characters as possible from
+    the current position in the input stream
+  \item
+    extraction stops as soon as a non-whitespace character is found
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cin }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ number }\OperatorTok{\textgreater{}\textgreater{}}\NormalTok{ ws}\OperatorTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    reads and discards whitespace(s) including
+    \texttt{\textbackslash{}n} after number value in input stream
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{demo-program}{%
+\subsubsection{demo program}\label{demo-program}}
+
+\begin{itemize}
+\tightlist
+\item
+  program that demonstrates the above caveat is found here
+  \url{demos/stdio/demo1/main.cpp}
+\end{itemize}
+
+    \hypertarget{composition}{%
+\subsection{Composition}\label{composition}}
+
+\begin{itemize}
+\tightlist
+\item
+  similar to composing an essay or music
+
+  \begin{itemize}
+  \tightlist
+  \item
+    start with basic elements and combine them to build something bigger
+    and meaningful work
+  \end{itemize}
+\item
+  we use the same basic principle of \textbf{composition} in programming
+
+  \begin{itemize}
+  \tightlist
+  \item
+    take small building blocks
+
+    \begin{itemize}
+    \tightlist
+    \item
+      variables, values, expressions (operators), statements (input,
+      output), etc.
+    \end{itemize}
+  \item
+    compose something meaningful or solve a problem
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{example-1-find-area-and-perimeter-of-a-rectangle}{%
+\subsubsection{example 1: find area and perimeter of a
+rectangle}\label{example-1-find-area-and-perimeter-of-a-rectangle}}
+
+\begin{itemize}
+\tightlist
+\item
+  algorithm steps:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    get values for length and width of a rectangle
+  \item
+    calculate area and perimeter using the following equations
+
+    \begin{itemize}
+    \tightlist
+    \item
+      area = length x width
+    \item
+      perimeter = 2 x (length + width)
+    \end{itemize}
+  \item
+    display the results
+  \end{enumerate}
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// ex.1 program}
+\PY{c+c1}{// variables to store length and width}
+\PY{k+kt}{float} \PY{n}{rect\PYZus{}length}\PY{p}{,} \PY{n}{rect\PYZus{}width}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// step 1 get length and width values }
+\PY{c+c1}{// a. can be hardcoded literal values}
+\PY{n}{rect\PYZus{}length} \PY{o}{=} \PY{l+m+mf}{10.5}\PY{p}{;} \PY{c+c1}{//hardcoded}
+\PY{n}{rect\PYZus{}width} \PY{o}{=} \PY{l+m+mf}{5.5}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// step 1.b or can be read from std input}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Enter length and width of a rectangle separated by space: }\PY{l+s}{\PYZdq{}}\PY{p}{;}
+\PY{n}{cin} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{rect\PYZus{}length} \PY{o}{\PYZgt{}}\PY{o}{\PYZgt{}} \PY{n}{rect\PYZus{}width}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Enter length and width of a rectangle separated by space: 11.2 6.6
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{Rectangle\PYZsq{}s length = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{rect\PYZus{}length} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ and width = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{rect\PYZus{}width}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Rectangle's length = 11.2 and width = 6.6
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{8}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// step 2 and 3: calculate and display the area and perimeter}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{area of the rectangle: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{rect\PYZus{}length} \PY{o}{*} \PY{n}{rect\PYZus{}width} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{perimeter of the rectangle: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+m+mi}{2}\PY{o}{*}\PY{p}{(}\PY{n}{rect\PYZus{}length}\PY{o}{+}\PY{n}{rect\PYZus{}width}\PY{p}{)} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+area of the rectangle: 73.92
+perimeter of the rectangle: 35.6
+    \end{Verbatim}
+
+    \hypertarget{demo-programs}{%
+\subsubsection{demo programs}\label{demo-programs}}
+
+\begin{itemize}
+\tightlist
+\item
+  see the complete program here \url{demos/stdio/rectangle/main.cpp}
+\end{itemize}
+
+    \hypertarget{example-2-convert-decimal-number-to-binary}{%
+\subsubsection{example 2: convert decimal number to
+binary}\label{example-2-convert-decimal-number-to-binary}}
+
+\begin{itemize}
+\tightlist
+\item
+  let's convert \((13)_{10}\) to binary \((?)_2\)?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    from manual calculation in Chapter 02, we know: \((13)_{10}\)
+    -\textgreater{} \((1101)_2\)
+  \end{itemize}
+\item
+  let's use algorithm defined in Chapter 02:
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    repeteadly divide the decimal number by base 2 until the quotient
+    becomes 0
+  \item
+    collect the remainders in reverse order
+
+    \begin{itemize}
+    \tightlist
+    \item
+      the first remainder becomes the last bit (least significant) in
+      binary
+    \end{itemize}
+  \end{enumerate}
+\item
+  let's try to convert the above algorithm into C++ code
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{1}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cp}{\PYZsh{}}\PY{c+cp}{include} \PY{c+cpf}{\PYZlt{}iostream\PYZgt{}}\PY{c+c1}{ // cin, cout}
+\PY{c+cp}{\PYZsh{}}\PY{c+cp}{include} \PY{c+cpf}{\PYZlt{}string\PYZgt{}}\PY{c+c1}{ // basic\PYZus{}string, to\PYZus{}string}
+
+\PY{k}{using} \PY{k}{namespace} \PY{n+nn}{std}\PY{p}{;} \PY{c+c1}{// std::cin, std::cout, std::endl, etc.}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// decimal to binary conversion requires to calculate both quotient and remainder}
+\PY{k}{const} \PY{k+kt}{int} \PY{n}{divisor} \PY{o}{=} \PY{l+m+mi}{2}\PY{p}{;} \PY{c+c1}{// divisor is contant name whose value can\PYZsq{}t be changed once initialized}
+\PY{k+kt}{int} \PY{n}{dividend}\PY{p}{;}
+\PY{k+kt}{int} \PY{n}{quotient}\PY{p}{,} \PY{n}{remain}\PY{p}{;}
+\PY{n}{string} \PY{n}{answer}\PY{p}{;} \PY{c+c1}{// collect remainders by prepending as a string}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{answer} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZdq{}}\PY{p}{;} \PY{c+c1}{// variable to collect the binary answer}
+\PY{n}{quotient} \PY{o}{=} \PY{l+m+mi}{13}\PY{p}{;} \PY{c+c1}{//start with the decimal 13}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// copy the quotient into dividend to divide it}
+\PY{n}{dividend} \PY{o}{=} \PY{n}{quotient}\PY{p}{;}
+\PY{n}{remain} \PY{o}{=} \PY{n}{dividend}\PY{o}{\PYZpc{}}\PY{n}{divisor}\PY{p}{;} \PY{c+c1}{// find the remainder}
+\PY{n}{quotient} \PY{o}{=} \PY{n}{dividend}\PY{o}{/}\PY{n}{divisor}\PY{p}{;} \PY{c+c1}{// find the quotient}
+\PY{c+c1}{// print intermediate results; help us see and plan further computation}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{dividend} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{/}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{divisor} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ =\PYZgt{} quotient: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{quotient} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ remainder: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{remain} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{answer} \PY{o}{=} \PY{n}{to\PYZus{}string}\PY{p}{(}\PY{n}{remain}\PY{p}{)} \PY{o}{+} \PY{n}{answer}\PY{p}{;} \PY{c+c1}{// prepend remainder to answer}
+\PY{c+c1}{// is quotient 0?}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+13/2 => quotient: 6 remainder: 1
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+"1"
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// further divide quotient}
+\PY{n}{dividend} \PY{o}{=} \PY{n}{quotient}\PY{p}{;}
+\PY{n}{remain} \PY{o}{=} \PY{n}{dividend}\PY{o}{\PYZpc{}}\PY{n}{divisor}\PY{p}{;}
+\PY{n}{quotient} \PY{o}{=} \PY{n}{dividend}\PY{o}{/}\PY{n}{divisor}\PY{p}{;}
+\PY{c+c1}{// print intermediate results; help us see and plan further computation}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{dividend} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{/}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{divisor} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ =\PYZgt{} quotient: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{quotient} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ remainder: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{remain} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{answer} \PY{o}{=} \PY{n}{to\PYZus{}string}\PY{p}{(}\PY{n}{remain}\PY{p}{)} \PY{o}{+} \PY{n}{answer}\PY{p}{;} \PY{c+c1}{// prepend remainder to answer}
+\PY{c+c1}{// is quotient 0?}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+6/2 => quotient: 3 remainder: 0
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{5}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+"01"
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// further divide quotient}
+\PY{n}{dividend} \PY{o}{=} \PY{n}{quotient}\PY{p}{;}
+\PY{n}{remain} \PY{o}{=} \PY{n}{dividend}\PY{o}{\PYZpc{}}\PY{n}{divisor}\PY{p}{;}
+\PY{n}{quotient} \PY{o}{=} \PY{n}{dividend}\PY{o}{/}\PY{n}{divisor}\PY{p}{;}
+\PY{c+c1}{// print intermediate results; help us see and plan further computation}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{dividend} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{/}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{divisor} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ =\PYZgt{} quotient: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{quotient} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ remainder: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{remain} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{answer} \PY{o}{=} \PY{n}{to\PYZus{}string}\PY{p}{(}\PY{n}{remain}\PY{p}{)} \PY{o}{+} \PY{n}{answer}\PY{p}{;} \PY{c+c1}{// prepend remainder to answer}
+\PY{c+c1}{// is quotient 0?}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+3/2 => quotient: 1 remainder: 1
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{6}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+"101"
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// further divide quotient}
+\PY{n}{dividend} \PY{o}{=} \PY{n}{quotient}\PY{p}{;}
+\PY{n}{remain} \PY{o}{=} \PY{n}{dividend}\PY{o}{\PYZpc{}}\PY{n}{divisor}\PY{p}{;}
+\PY{n}{quotient} \PY{o}{=} \PY{n}{dividend}\PY{o}{/}\PY{n}{divisor}\PY{p}{;}
+\PY{c+c1}{// print intermediate results; help us see and plan further computation}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{dividend} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s+sc}{\PYZsq{}}\PY{l+s+sc}{/}\PY{l+s+sc}{\PYZsq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{divisor} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ =\PYZgt{} quotient: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{quotient} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ remainder: }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{remain} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\PY{n}{answer} \PY{o}{=} \PY{n}{to\PYZus{}string}\PY{p}{(}\PY{n}{remain}\PY{p}{)} \PY{o}{+} \PY{n}{answer}\PY{p}{;} \PY{c+c1}{// prepend remainder to answer}
+\PY{c+c1}{// is quotient 0?}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+1/2 => quotient: 0 remainder: 1
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{7}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+"1101"
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// stop division; display the answer}
+\PY{n}{cout} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{13  decimal = }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{answer} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{l+s}{\PYZdq{}}\PY{l+s}{ binary }\PY{l+s}{\PYZdq{}} \PY{o}{\PYZlt{}}\PY{o}{\PYZlt{}} \PY{n}{endl}\PY{p}{;}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+13  decimal = 1101 binary
+    \end{Verbatim}
+
+    \hypertarget{above-code-as-a-complete-c-program}{%
+\subsubsection{Above code as a complete C++
+program}\label{above-code-as-a-complete-c-program}}
+
+\begin{itemize}
+\tightlist
+\item
+  see \url{demos/stdio/decToBin/main.cpp}
+\end{itemize}
+
+\hypertarget{a-generic-c-program-to-convert-any-decimal-to-binary}{%
+\subsubsection{A generic C++ program to convert any decimal to
+binary}\label{a-generic-c-program-to-convert-any-decimal-to-binary}}
+
+\begin{itemize}
+\tightlist
+\item
+  basic building blocks covered so far is able to find the solution
+  using Jupyter notebook
+
+  \begin{itemize}
+  \tightlist
+  \item
+    however, we've not learned enough to write a generic program that
+    can convert any integer into binary, just yet!
+  \end{itemize}
+\item
+  we'll revisit this problem as we learn more concepts, such as
+  conditional statements and loops
+\end{itemize}
+
+    \hypertarget{labs}{%
+\subsection{Labs}\label{labs}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Standard IO Lab
+
+  \begin{itemize}
+  \tightlist
+  \item
+    write a C++ program that produces the following output on console
+  \item
+    use the partial solution provided in \url{labs/stdio/main.cpp}
+  \item
+    observe and note how the special symbols such as single quote,
+    double quotes and black slashes
+  \item
+    run the program as it is using the provided make file in the stdio
+    folder
+  \item
+    complete the rest of the ASCII Art by fixing all the FIXMEs
+  \item
+    write \#FIXED next to each FIXME
+  \end{itemize}
+
+\begin{verbatim}
+    |\_/|       *******************************     (\_/)
+   / @ @ \      *      ASCII Art              *    (='.'=)
+  ( > 0 < )     *      Author: <Your Name>    *  ( " )_( " )
+    >>x<<       *      CS Foundation Course   *
+    / O \       *******************************
+\end{verbatim}
+\end{enumerate}
+
+    \hypertarget{exercises}{%
+\subsection{Exercises}\label{exercises}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Write a C++ program including algorithm steps that calculates area and
+  perimeter of a circle.
+\item
+  Write a C++ program including algorithm steps that calculates Body
+  Mass Index (BMI) of a person.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    More information on BMI -
+    https://www.nhlbi.nih.gov/health/educational/lose\_wt/BMI/bmicalc.htm
+  \item
+    Formula
+    \href{https://www.cdc.gov/healthyweight/assessing/bmi/childrens_bmi/childrens_bmi_formula.html\#:~:text=The\%20formula\%20for\%20BMI\%20is,to\%20convert\%20this\%20to\%20meters.\&text=When\%20using\%20English\%20measurements\%2C\%20pounds\%20should\%20be\%20divided\%20by\%20inches\%20squared}{here}.
+  \item
+    a sample solution is provided here
+    \url{exercises/stdio/BMI/main.cpp}
+  \end{itemize}
+\item
+  Write a C++ program including algorithm steps that calculates area and
+  perimeter of a triangle given three sides.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hint: use Heron's formula to find area with three sides.
+  \end{itemize}
+\item
+  Write a C++ program that converts hours into seconds.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g.~given 2 hours, program should print 7200 as answer.
+  \end{itemize}
+\item
+  Write a C++ program that converts seconds into hours, minutes and
+  seconds.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    e.g.~given 3600 seconds, program should print 1 hour, 0 minute and 0
+    second.
+  \item
+    e.g.~given 3661 seconds, program should print 1 hour, 1 minute and 1
+    second.
+  \item
+    Hint: use series of division and module operators
+  \end{itemize}
+\item
+  Convert your full name into binary code using Jupyter Notebook.
+\end{enumerate}
+
+\hypertarget{kattis-problems}{%
+\subsection{Kattis Problems}\label{kattis-problems}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Solving for Carrots - https://open.kattis.com/problems/carrots
+
+  \begin{itemize}
+  \tightlist
+  \item
+    a simple standard input/output problem; just print the second number
+    in first line
+  \item
+    Hint: simply print P
+  \item
+    see sample solution in \url{demo_programs/Ch03/carrots} folder
+  \end{itemize}
+\item
+  R2 - https://open.kattis.com/problems/r2
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hint: simply output \(2*S-R1\)
+  \end{itemize}
+\item
+  Spavanac - https://open.kattis.com/problems/spavanac
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hint: convert min+hour to minute; subtract 45 and convert the result
+    back to hour and minute and print them
+  \end{itemize}
+\item
+  Add Two Numbers - https://open.kattis.com/problems/addtwonumbers
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hint: read two numbers and print their sum
+  \end{itemize}
+\item
+  Echo Echo Echo - https://open.kattis.com/problems/echoechoecho
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Hint: read the word; print the word three times
+  \end{itemize}
+\end{enumerate}
+
+    \hypertarget{testing-kattis-provided-samples}{%
+\subsection{Testing Kattis provided
+samples}\label{testing-kattis-provided-samples}}
+
+\begin{itemize}
+\tightlist
+\item
+  one way to check for the sample input and output is by manually typing
+  the input and comparing the results
+
+  \begin{itemize}
+  \tightlist
+  \item
+    input can be long and output can be tedious to compare
+  \item
+    Kattis expects output to be 100\% accuracte to the space
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{recommended-way-to-automate-the-process-to-solve-kattis-problems}{%
+\subsubsection{Recommended way to automate the process to solve Kattis
+problems}\label{recommended-way-to-automate-the-process-to-solve-kattis-problems}}
+
+\begin{itemize}
+\tightlist
+\item
+  download the samples provided in a compressed \texttt{.zip} file
+\item
+  unzip the file; it'll create a folder with the same name as the
+  problem name or zip file name
+\item
+  create a \texttt{problemName.cpp} solution file inside the same folder
+  where the sample files are
+\item
+  then do the following steps:
+
+  \begin{itemize}
+  \item
+    open a terminal on Mac/Linux/WSL
+  \item
+    change working directory to a problem folder, e.g.~carrots
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{pwd}
+\BuiltInTok{cd} \OperatorTok{\textless{}}\NormalTok{path to carrots folder}\OperatorTok{\textgreater{}}
+\FunctionTok{ls}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    directly compile using g++ or create and use a Makefile
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{g++} \AttributeTok{{-}std}\OperatorTok{=}\NormalTok{c++17 carrots.cpp}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    run Kattis provided sample test cases e.g.~if 1.in and 1.ans are
+    corresponding sample test files
+  \item
+    read the sample 1.in and pipe it to \texttt{a.out} program and pipe
+    the answer from the program to diff to compare against 1.ans
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{ 1.in }\KeywordTok{|} \ExtensionTok{./a.out} \KeywordTok{|} \FunctionTok{diff} \AttributeTok{{-}}\NormalTok{ 1.ans}
+\FunctionTok{cat}\NormalTok{ 2.in }\KeywordTok{|} \ExtensionTok{./a.out} \KeywordTok{|} \FunctionTok{diff} \AttributeTok{{-}}\NormalTok{ 2.ans}
+\end{Highlighting}
+\end{Shaded}
+  \item
+    if the program's answer is correct, you'll not see any difference or
+    output on the terminal
+  \end{itemize}
+\item
+  once your program provides correct result as shown in the
+  corresponding output, upload your \texttt{.cpp} source file to the
+  Kattis to test against all the hidden test samples
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Kattis will compile and execute your program to test against the
+    other samples
+  \end{itemize}
+\item
+  Kattis will either accept your solution or reject with some simple
+  feedback such as wrong answer
+\end{itemize}
+
+    \hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+\begin{itemize}
+\tightlist
+\item
+  this chapter covered reading data from common input stream (standard
+  input)
+\item
+  this chapter covered writing data to common output stream (standard
+  output)
+\item
+  covered escape character, sequences and their usage
+\item
+  we also learned about composing more meaningful programs with two
+  examples
+\item
+  exercises and problems with sample solutions
+\end{itemize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
