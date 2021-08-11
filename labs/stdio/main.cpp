@@ -23,7 +23,7 @@ int main()
     //FIXME3: declare a variable to store name
     //FIXME4: prompt user to enter their name and store the value in variable
     
-    // FXIME5: greet the name using the variable as the following output
+    //FXIME5: greet the name using the variable as the following output
     //must output: Nice meeting you, <name>!
 
     cout << "Hope you like my Tom & Jerry ASCII art...\n\n";
