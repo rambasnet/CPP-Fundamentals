@@ -13,15 +13,15 @@
 */
 
 #include <iostream> //library for input and output
-#include <string> // library for string data
+#include <string> //library for string data
  
 using namespace std; //resolve cout, cin, and endl names
  
 //main entry point of the program
 int main()
 {
-    // FIXME3: declare a variable to store name
-    // FIXME4: prompt user to enter their name and store the value in variable
+    //FIXME3: declare a variable to store name
+    //FIXME4: prompt user to enter their name and store the value in variable
     
     // FXIME5: greet the name using the variable as the following output
     //must output: Nice meeting you, <name>!
@@ -38,7 +38,7 @@ int main()
     //Note: You can add more lines or print more ASCII arts of your choice if you'd like...
 
     cout << "\nGood bye... hit enter to exit the program: " << '\n';
-    // FIXME10: make the console wait for user input
+    //FIXME10: make the console wait for user input
 
     return 0; //exit program by returning 0 status to the system
 }
