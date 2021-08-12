@@ -46,15 +46,15 @@ To run these notebooks interactively and save your work locally, you need the fo
 - g++ compiler - to compile and run sample codes, solve exercises and labs
 - VS Code or any Code Editor to write C++ programs
 
-### Note: xeus-cling doesn't support Windows
+#### Note: xeus-cling doesn't support Windows
 
     - as of September 2020
 
-### Development Environment Setup
+#### Setup development environment
 
 - detail step-by-step instructions (with screenshots) can be found here: [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
 
-### Install required tools
+#### Install required programs
 
 - if you went through Development Environment Setup step, you can ignore this section
 - Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++ Kernel, you can safely ignore this section
@@ -75,7 +75,7 @@ To run these notebooks interactively and save your work locally, you need the fo
     jupyter nbextensions_configurator enable --user
 ```
 
-### Run Jupyter notebooks on a local system
+#### Run Jupyter notebooks on a local system
 
 - clone the repository locally once the tools are installed
 - open a Terminal and `cd` into this cloned repo folder and run `jupyter notebook`
@@ -121,7 +121,7 @@ To run these notebooks interactively and save your work locally, you need the fo
     make clean
 ```
 
-## Compiling and running C++ programs with VS Code
+### Compiling and running C++ programs with [VS Code](https://code.visualstudio.com/)
 
 - install C/C++ extensions for VS Code
 - open integreted terminal in VS Code: View -> Terminal and follow the commands above
