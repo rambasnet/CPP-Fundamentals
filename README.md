@@ -4,15 +4,15 @@
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
-## PDF Format
+## PDF format
 
 - pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
-- pdfs of lecture notes and powerpoint slides can be found in [notes](https://github.com/rambasnet/CPP-Fundamentals/tree/master/notes) folder
+- pdfs of lecture notes can be found in [notes](https://github.com/rambasnet/CPP-Fundamentals/tree/master/notes) folder
 
 
-## Powerpoint Slides
+## Powerpoint slides
 
-- powerpoint slides based on the lecutre notes are found in [slides](https://github.com/rambasnet/CPP-Fundamentals/tree/master/slides) folder
+- powerpoint slides and corresponding pdfs based on the lecutre notes are found in [slides](https://github.com/rambasnet/CPP-Fundamentals/tree/master/slides) folder
 
 ## Who can use this content
 
