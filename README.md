@@ -1,18 +1,43 @@
 # C++ Fundamentals
 
-## Try it online with [Binder](http://mybinder.org/)
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rambasnet/CPP-Fundamentals/HEAD?filepath=Ch00-TableOfContents.ipynb)
-
-- Jupyter Notebooks for Computer Science Foundational Concepts (CS1) using C++
+- Jupyter Notebooks, Pdfs, Powerpoint Slides, Lecture Notes, Labs and Exercises for Computer Science Foundational Concepts (CS1) using C++
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
 ## PDF Format
 
-- pdf format of each chapter notebook can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
+- pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
+- pdfs of lecture notes and powerpoint slides can be found in [notes](https://github.com/rambasnet/CPP-Fundamentals/tree/master/notes) folder
 
-## System Requirements
+
+## Powerpoint Slides
+
+- powerpoint slides based on the lecutre notes are found in [slides](https://github.com/rambasnet/CPP-Fundamentals/tree/master/slides) folder
+
+## Who can use this content
+
+### University and High-school Coding Instructors
+
+Depending on the course level and topics covered, instructors can pick and choose appropriate chapters.
+
+### Self learners
+
+Depending on their skill and interest level, learners can move as swiftly as appropriate through the chapters. Try solving some exercises towards the end of each chapter before moving on to self-assess the mastery of the materials.
+
+## How to use Jupyter Notebooks
+
+### Important
+
+In order to learn coding, it's very important to actually type code on your own from scratch and NOT copy paste! You can run provided cells to see the output, follow along and learn from it. However, it's very important that you either start a new notebook or add cells and write your own code from scratch to practice the concepts covered with many similar examples and solve the exercises provided.
+
+### Online services
+
+You can launch an interactive session of this project using online [Binder](http://mybinder.org/) service:
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/rambasnet/CPP-Fundamentals/HEAD?filepath=Ch00-TableOfContents.ipynb)
+
+### On a local system
+
+To run these notebooks interactively and save your work locally, you need the following environment and programs installed.
 
 - Linux/MacOS/WSL on Windows
 - Jupyter Notebook - learning environment
@@ -25,11 +50,11 @@
 
     - as of September 2020
 
-## Development Environment Setup
+### Development Environment Setup
 
 - detail step-by-step instructions (with screenshots) can be found here: [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
 
-## Install required tools
+### Install required tools
 
 - if you went through Development Environment Setup step, you can ignore this section
 - Note: these libraries and tools need to be installed just once, if you've Jupyter Notebook with C++ Kernel, you can safely ignore this section
@@ -50,10 +75,10 @@
     jupyter nbextensions_configurator enable --user
 ```
 
-## Run or use Jupyter Notebooks
+### Run Jupyter notebooks on a local system
 
 - clone the repository locally once the tools are installed
-- open a terminal and `cd` into this cloned repo folder and run `jupyter notebook`
+- open a Terminal and `cd` into this cloned repo folder and run `jupyter notebook`
 
 ```bash
     cd <CPP Fundamentals repo folder>
@@ -64,15 +89,15 @@
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
 - $ conda deactivate # to deactivate the virtual env and go back to base installation
 
-## Demo programs and sample solutions
+## Demo programs and sample solutions to exercises
 
 - Jupyter Notebook doesn't run complete C++ program with main()
-- complete demo programs and example solutions are provided in demo_programs folder
-- these programs need to be compiled using any C++ compiler (with C++11 or newer standandard)
+- complete demo programs and example solutions to selected exercises are provided in [demos](https://github.com/rambasnet/CPP-Fundamentals/tree/master/demos) folder
+- these programs need to be compiled using any C++ compiler (g++ recommended with C++11 or newer standandard)
 
 ## Compiling and running C++ programs
 
-### Compiling with g++ compiler from terminal
+### Compiling with g++ Compiler from Terminal
 
 - open a terminal and run the following commands
 - `cd` into a folder with a demo program; compile and run the program
@@ -99,5 +124,18 @@
 ## Compiling and running C++ programs with VS Code
 
 - install C/C++ extensions for VS Code
-- open integreted terminal: View -> Terminal and follow the commands above
+- open integreted terminal in VS Code: View -> Terminal and follow the commands above
 - you can also click run button on the top right corner for some programs, but not recommended for many programs that are interactive
+
+## Content contributors
+
+1. Ram Basnet, PhD, Professor of Computer Science, Colorado Mesa University
+2. Sherine Antoune, PhD, Professor of Computer Science, Colorado Mesa University
+
+## Contributing
+
+Contributions are accepted via pull requests. You can also open issues on bugs, typos or any corrections and suggest improvements on the notebooks and other contents.
+
+## Copyright and License
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the [MIT License](https://opensource.org/licenses/MIT). See LICENSE file for details.
