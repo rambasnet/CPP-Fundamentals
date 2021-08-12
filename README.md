@@ -16,7 +16,7 @@
 
 ## Who can use this content
 
-### University and High-school Coding Instructors
+### University and high-school coding instructors
 
 Depending on the course level and topics covered, instructors can pick and choose appropriate chapters.
 
@@ -24,7 +24,7 @@ Depending on the course level and topics covered, instructors can pick and choos
 
 Depending on their skill and interest level, learners can move as swiftly as appropriate through the chapters. Try solving some exercises towards the end of each chapter before moving on to self-assess the mastery of the materials.
 
-## How to use Jupyter Notebooks
+## How to use Jupyter Notebook
 
 ### Important
 
