@@ -1,7 +1,7 @@
 # compiler name
 CXX = g++
 
-# c++ compiler flags
+# C++ compiler flags
 # -c : just do preprocess; compile and assemble into object files
 # -g : adds debugging information to the executable file
 # -Wall : turns on most, but not  all, compiler warnings
@@ -26,3 +26,6 @@ all:
 # delete object and binary files
 clean:
 	rm -f $(PROGRAM) *.o
+
+# FIXME
+# Add a rule to run the program
