@@ -66,7 +66,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ```bash
     conda update conda
-    conda create -n cpp python=3.8
+    conda create -n cpp python=3.9
     conda activate cpp
     conda install notebook
     conda install -c conda-forge xeus-cling
@@ -112,10 +112,11 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 - see GNU Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/)
 - create a Makefile in the project folder; see `makefile_demos` folder for examples
-- once the Makefile is created; use the following commands from terminal
+- once the Makefile is created; run the following commands on a Terminal
 - `cd` into the project folder with the Makefile; compile and run the program using make command
 
 ```bash
+    cd <project_folder>
     make
     make run
     make clean
