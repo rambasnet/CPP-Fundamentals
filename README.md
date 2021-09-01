@@ -93,11 +93,11 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 - Jupyter Notebook doesn't run complete C++ program with main()
 - complete demo programs and example solutions to selected exercises are provided in [demos](https://github.com/rambasnet/CPP-Fundamentals/tree/master/demos) folder
-- these programs need to be compiled using any C++ compiler (g++ recommended with C++11 or newer standandard)
+- these programs need to be compiled using any C++ compiler (g++ recommended with C++11 or newer standard)
 
 ## Compiling and running C++ programs
 
-### Compiling with g++ Compiler from Terminal
+### Compiling with g++ compiler
 
 - open a terminal and run the following commands
 - `cd` into a folder with a demo program; compile and run the program
