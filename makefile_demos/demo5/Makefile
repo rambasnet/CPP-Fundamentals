@@ -10,14 +10,14 @@ CPP_FILES = hello.cpp
 PROGRAM_NAME = hello.exe
 
 # rule for compiling and building program
-# make or make all triggers the following rule
+# make or make all or make build triggers the following rule
 build:
 	# compiles .cpp to object file .o
 	$(COMPILER) $(COMPILER_FLAGS) $(CPP_FILES)
 	# builds executable from object files
 	$(COMPILER) -o $(PROGRAM_NAME) *.o
 
-# rule for running programming
+# rule for running binary program
 # make run triggers the following rule
 run:
 	./$(PROGRAM_NAME)
