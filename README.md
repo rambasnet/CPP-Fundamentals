@@ -103,7 +103,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 - `cd` into a folder with a demo program; compile and run the program
 
 ```bash
-    cd demo_programs/Ch...
+    cd demos/Ch...
     g++ -g -Wall -std=c++17 -o programName inputFile.cpp
     ./programName
 ```
