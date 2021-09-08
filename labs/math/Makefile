@@ -1,8 +1,8 @@
 # compiler name
 CXX = g++
-# c++ compiler flags
+# g++ compiler flags
 # -g: adds debugging information to the executable file
-# - Wall turns on most, but not  all, compiler warnings
+# -Wall turns on most, but not  all, compiler warnings
 # -std=C++17 uses c++17 standard
 # put all the required flags separated by space
 CXXFLAGS = -c -g -Wall -std=c++17
@@ -24,4 +24,8 @@ all:
 # delete object and binary files
 clean:
 	rm -f $(PROGRAM) *.o
+
+# FIXME
+# add a rule to run the program
+
 	
