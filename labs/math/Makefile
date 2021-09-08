@@ -2,8 +2,8 @@
 CXX = g++
 # g++ compiler flags
 # -g: adds debugging information to the executable file
-# -Wall turns on most, but not  all, compiler warnings
-# -std=C++17 uses c++17 standard
+# -Wall: turns on most, but not  all, compiler warnings
+# -std=C++17: uses c++17 standard
 # put all the required flags separated by space
 CXXFLAGS = -c -g -Wall -std=c++17
 
@@ -15,7 +15,7 @@ CPPFILES = circle.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
-# then make a single binary program
+# then make a single binary/executable program
 all:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
