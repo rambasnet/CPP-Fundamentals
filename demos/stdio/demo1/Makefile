@@ -26,3 +26,5 @@ all:
 clean:
 	rm -f $(PROGRAM) *.o
 	
+run:
+	./$(PROGRAM)
