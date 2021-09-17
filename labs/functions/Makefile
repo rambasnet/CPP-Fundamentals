@@ -16,7 +16,7 @@ CPPFILES = pointDistance.cpp
 # make build rule/default rule that'll be run when we run "make"
 # first compile each file to object file
 # then make a single binary program
-build:
+all:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
 
