@@ -4,6 +4,34 @@
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
+## C++ Fundamentals
+- partially based on [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
+
+## Topics
+
+1. [**Introduction**](./Introduction.ipynb)
+2. [**Data, Variables and Operations**](./DataVariablesAndOperations.ipynb)
+3. [**Standard Input and Output**](./StdInputOutput.ipynb)
+4. [**Namespaces and Enumerations**](./Namespaces-Enumerations.ipynb)
+4. [**Libraries and Functions**](./LibraryAndFunction.ipynb)
+5. [**User Defined Functions**](./UserDefinedFunctions.ipynb)
+6. [**Conditionals**](./Conditionals.ipynb)
+7. [**Loops**](./Loops.ipynb)
+8. [**Pointers**](./Pointers.ipynb)
+9. [**Strings**](./Strings.ipynb)
+10. [**Arrays**](./Arrays.ipynb)
+11. [**Vectors**](./Vectors.ipynb)
+12. [**File Input and Output**](./FileIO.ipynb)
+13. [**Structures**](./Structures.ipynb)
+14. [**Header Files**](./HeaderFiles.ipynb)
+15. [**Maps**](./Maps.ipynb)
+
+## Miscellaneous Topics
+
+1. [**Dev Environment & Setup**](./DevEnvironmentSetup.ipynb)
+2. [**Jupyter Notebook & Setup**](./JupyterNotebookSetup.ipynb)
+3. [**Kattis Online Judge & Problem Bank**](./Kattis.ipynb)
+
 ## PDF format
 
 - pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
