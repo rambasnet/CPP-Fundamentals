@@ -13,7 +13,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = unittest.exe
 
 # list all .cpp files separated by space
-CPPFILES = unittesting3.cpp
+CPPFILES = unittesting2.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
@@ -26,3 +26,6 @@ all:
 # delete object and binary files
 clean:
 	rm -f $(PROGRAM) *.o
+
+run:
+	./$(PROGRAM)
