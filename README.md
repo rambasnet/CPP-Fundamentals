@@ -91,17 +91,16 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ```bash
     conda update conda
-    conda create -n cpp python=3.8
+    conda create -n cpp python=3.9
     conda activate cpp
-    conda install notebook
-    conda install "nbconvert=5.6.1"
+    conda install -c conda-forge retrolab # uses notebook
     conda install -c conda-forge xeus-cling
     conda install -c conda-forge jupyter_contrib_nbextensions
     conda install -c conda-forge jupyter_nbextensions_configurator
     jupyter nbextensions_configurator enable --user
 ```
 
-#### Run Jupyter notebooks on a local system
+#### Run Jupyter notebook or retrolab on a local system
 
 - clone the repository locally once the tools are installed
 - open a Terminal and `cd` into this cloned repo folder and run `jupyter notebook`
@@ -109,7 +108,8 @@ To run these notebooks interactively and save your work locally, you need the fo
 ```bash
     cd <CPP Fundamentals repo folder>
     conda activate cpp # activate virtualenv cpp if created
-    jupyter notebook
+    jupyter notebook # run notebook
+    jupyter retro # run retrolab
 ```
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
