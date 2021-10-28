@@ -20,7 +20,7 @@ int main()
 	cin >> password;
 	//strcpy(passBuffer, password);
 
-	if (string(username) == "backdoor" && strcmp(password, "123456") == 0)
+	if (string(username) == "backdoor" and strcmp(password, "123456") == 0)
 		valid = true;
 	
     //cout << valid << endl;
