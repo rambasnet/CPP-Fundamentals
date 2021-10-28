@@ -26,10 +26,10 @@ int main()
     //cout << valid << endl;
     if(valid) {
         cout << "You have now access to top secret part of the program!" << endl;
-        cout << "Your social is 123-45-5678\n";
+        cout << "Your SSN is 123-45-5678\n";
     }
     else
-        cout << "invalid password" << endl;
+        cout << "Invalid username or password!" << endl;
    
    return 0;
 }

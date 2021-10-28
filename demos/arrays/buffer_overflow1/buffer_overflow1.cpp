@@ -20,6 +20,6 @@ int main() {
     // cin doesn't check the boundry or size of password
     // and keeps coping the char until \n
     cout << "you entered: " << password << endl;
-    cout << "your SSN = " << social_security << endl;
+    cout << "your SSN is " << social_security << endl;
     return 0;
 }
