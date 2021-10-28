@@ -22,7 +22,7 @@ build:
 	$(CXX) -o $(PROGRAM) *.o
 
 run:
-	$(PROGRAM)
+	./$(PROGRAM)
 	
 # make clean rule
 # delete object and binary files
