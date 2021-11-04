@@ -8,7 +8,7 @@ Read Seven Wonders Problem Statement: https://open.kattis.com/problems/sevenwond
 Algorithm steps:
 1. Read string
 2. use map<char, int> to keep track of count of each card played
-  - update map for each char and updating its count
+  - update map: for each card, update its count
 3. find regular points following the instruction
   - points = sum of (each card_count)^2
 4. add bonus points if any
