@@ -22,17 +22,40 @@ void test_splitString() {
     assert(answer == actual);
     answer.clear();
     splitString(answer, "two word");
-    vector<string> actual1 = {"two, word"};
+    vector<string> actual1 = {"two", "word"};
     assert(answer == actual1);
     answer.clear();
     splitString(answer, "A sentence with multiple words!");
     vector<string> actual2 = {"A", "sentence", "with", "multiple", "words!"};
     assert(answer == actual2);
     answer.clear();
-    cerr << "all test cases is passed for splitString()\n";
+    cerr << "Congrats! all test cases passed for splitString()\n";
 }
 
-int main() {
-    test_splitString();
+// printVector function
+template<class T>
+void printVector(const vector<T>& v) {
+    char comma[3] = {'\0', ' ', '\0'};
+    cout << '[';
+    for (const auto& e: v) {
+        cout << comma << e;
+        comma[0] = ',';
+    }
+    cout << "]\n";
+}
+
+int main(int argc, char* argv[]) {
+    if (argc == 2 and string(argv[1]) == "test")
+        test_splitString();
+    else
+    {
+        string data;
+        cout << "Enter some text: ";
+        getline(cin, data);
+        vector<string> tokens;
+        splitString(tokens, data);
+        printf("Resulting vector of words:\n");
+        printVector<string>(tokens);
+    }
     return 0;
 }
