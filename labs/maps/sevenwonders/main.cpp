@@ -6,13 +6,13 @@ Date: FIXME2
 
 Read Seven Wonders Problem Statement: https://open.kattis.com/problems/sevenwonders
 Algorithm steps:
-1. Read string
+1. Read cards into a string variable
 2. use map<char, int> to keep track of count of each card played
   - update map: for each card, update its count
 3. find regular points following the instruction
   - points = sum of (each card_count)^2
 4. add bonus points if any
-  - find # of sets of three cards and mulitiply by 7 and add it to the total points
+  - find # of sets of three cards and mulitiply it by 7 and add it to the total points
 */
 
 #include <iostream>
