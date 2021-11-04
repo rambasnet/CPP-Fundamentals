@@ -20,11 +20,15 @@ build:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
 
+test:
+	./$(PROGRAM) test
+	
 run:
-	$(PROGRAM)
+	./$(PROGRAM)
 	
 # make clean rule
 # delete object and binary files
 clean:
 	rm -f $(PROGRAM) *.o
+
 	
