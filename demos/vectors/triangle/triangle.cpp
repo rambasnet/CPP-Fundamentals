@@ -76,10 +76,9 @@ void test_validTriangle() {
 }
 
 // function prompts user to enter 3 sides of a triangle
-// creates and returns a triangle
 void getTriangle(vector<float> & triangle) {
-    // input validation
     triangle = {0, 0, 0}; // initialize three sides with 0s
+    // input validation
     do {
         cout << "Enter three sides of a triangle separated by space: ";
         cin >> triangle[0] >> triangle[1] >> triangle[2];
@@ -145,7 +144,7 @@ void test_triangleArea() {
 // function to calculate and print the result on triangle
 void printTriangleInfo(const vector<float> & triangle) {
     cout << "Triangle info: \n"
-         << "3 sides length: " << triangle[0] << " " << triangle[1] << " " << triangle[1]
+         << "3 sides length: " << triangle[0] << " " << triangle[1] << " " << triangle[2]
          << "\narea: " << triangleArea(triangle) 
          << "\nperimeter: " << trianglePerimeter(triangle) << endl;        
 }

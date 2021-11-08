@@ -1,0 +1,12 @@
+
+3 sides length: 7 9 11
+area: 31.4195
+perimeter: 27
+
+3 sides length: 3 4 5
+area: 6
+perimeter: 12
+
+3 sides length: 4 5 6
+area: 9.92157
+perimeter: 15
