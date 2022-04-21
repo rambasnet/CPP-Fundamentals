@@ -156,8 +156,8 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ## Content contributors
 
-1. Ram Basnet, PhD, Professor of Computer Science, Colorado Mesa University
-2. Sherine Antoune, PhD, Professor of Computer Science, Colorado Mesa University
+1. Ram Basnet, PhD, (rbasnet@coloradomesa.edu) Professor of Computer Science, Colorado Mesa University
+2. Sherine Antoun, PhD, (santoun@coloradomesa.edu) Professor of Computer Science, Colorado Mesa University
 
 ## Contributing
 
