@@ -71,10 +71,6 @@ To run these notebooks interactively and save your work locally, you need the fo
 - g++ compiler - to compile and run sample codes, solve exercises and labs
 - VS Code or any Code Editor to write C++ programs
 
-#### Note: xeus-cling doesn't support Windows
-
-    - as of September 2020
-
 #### Setup development environment
 
 - detail step-by-step instructions (with screenshots) can be found here: [https://github.com/rambasnet/DevEnvSetup](https://github.com/rambasnet/DevEnvSetup)
@@ -113,7 +109,11 @@ To run these notebooks interactively and save your work locally, you need the fo
 ```
 
 - Enter ctrl+c to stop jupyter notebook from the terminal where its running from
-- $ conda deactivate # to deactivate the virtual env and go back to base installation
+- to deactivate the virtual env and go back to base installation type the following command
+
+```bash
+    conda deactivate
+```
 
 ## Demo programs and sample solutions to exercises
 
