@@ -115,6 +115,8 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda deactivate
 ```
 
+## NOTE: Use C++11 or C++14 kernels. C++17 kernel is not working as of xeus-cling version 0.13 (August 2022).
+
 ## Demo programs and sample solutions to exercises
 
 - Jupyter Notebook doesn't run complete C++ program with main()
