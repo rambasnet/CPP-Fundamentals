@@ -89,11 +89,8 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda update conda
     conda create -n cpp python=3.9
     conda activate cpp
-    conda install -c conda-forge retrolab # uses notebook
+    conda install -c conda-forge retrolab # jupyter notebook/retro
     conda install -c conda-forge xeus-cling
-    conda install -c conda-forge jupyter_contrib_nbextensions
-    conda install -c conda-forge jupyter_nbextensions_configurator
-    jupyter nbextensions_configurator enable --user
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
