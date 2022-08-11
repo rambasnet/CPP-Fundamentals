@@ -20,8 +20,9 @@
 12. [**Vectors**](./Vectors.ipynb)
 13. [**File Input and Output**](./FileIO.ipynb)
 14. [**Structures**](./Structures.ipynb)
-15. [**Header Files**](./HeaderFiles.ipynb)
-16. [**Maps**](./Maps.ipynb)
+15. [**Unions**](./Unions.ipynb)
+16. [**Header Files**](./HeaderFiles.ipynb)
+17. [**Maps**](./Maps.ipynb)
 
 ## Miscellaneous Topics
 
@@ -64,9 +65,9 @@ You can launch an interactive session of this project using online [Binder](http
 
 To run these notebooks interactively and save your work locally, you need the following environment and programs installed.
 
-- Linux/MacOS/WSL on Windows
+- Linux, MacOS or WSL (Ubuntu App) on Windows
 - Jupyter Notebook - learning environment
-- xeus-cling kernel - to run C++ code in Jupyter notebook
+- xeus-cling kernel - to execute C++ code in Jupyter notebook
 - git client - to use version control
 - g++ compiler - to compile and run sample codes, solve exercises and labs
 - VS Code or any Code Editor to write C++ programs
