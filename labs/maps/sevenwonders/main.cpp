@@ -43,7 +43,7 @@ void solve() {
     string cards;
     // string consists of only uppercase letters (no spaces) upto 50 chars
     // FIXME3
-    // read string into cards
+    // read std input into cards variable
     cout << answer(cards) << endl;
 }
 

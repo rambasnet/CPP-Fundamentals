@@ -29,12 +29,13 @@ int main() //main entry function that returns 0
 
 	string name = "Anonymous"; // variable to store user's name
 	cout << "Hi there, what's your full name? ";
-	// FIXME3: use getline to read user's fullname and store it into name variable
+	// FIXME3: read user's fullname and store it into name variable
 
 	cout << "Nice meeting you, " << name << "!" << endl;
 
 	// display some information about this program to the user
-	cout << "\nProgram finds area and circumference of a circle with the given radius.\n\n";
+	cout << "\nProgram finds area and circumference of a circle with the given radius.\n";
+	cout << string(75, '=') << endl << endl;
 
 	// prompt user telling what to do
 	cout << name << ", please enter radius of a circle: ";

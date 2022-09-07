@@ -1,6 +1,6 @@
 /*=================================================
   Hello World program
-  By: Ram Basnet
+  Author: Ram Basnet
   Date: June 24, 2020
   Copyright: MIT License
   

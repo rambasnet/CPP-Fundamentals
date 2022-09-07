@@ -20,6 +20,7 @@ using namespace std; //resolve cout, cin, and endl names
 int main()
 {
 
+    cout << "Hi there!" << endl;
     cout << "Hope you like my Tom & Jerry ASCII art...\n\n";
 
     cout << "  |\\_/|   **********************    (\\_/)" << endl;
