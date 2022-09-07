@@ -4,25 +4,6 @@
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
-## Topics
-
-1. [**Introduction**](./Introduction.ipynb)
-2. [**Data, Variables and Operations**](./DataVariablesAndOperations.ipynb)
-3. [**Standard Input and Output**](./StdInputOutput.ipynb)
-4. [**Libraries and Functions**](./LibraryAndFunction.ipynb)
-5. [**User Defined Functions and Testing**](./UserDefinedFunctionsTesting.ipynb)
-6. [**Conditionals**](./Conditionals.ipynb)
-7. [**Loops**](./Loops.ipynb)
-8. [**Pointers**](./Pointers.ipynb)
-9. [**Namespaces and Enumerations**](./Namespaces-Enumerations.ipynb)
-10. [**Strings**](./Strings.ipynb)
-11. [**Arrays**](./Arrays.ipynb)
-12. [**Vectors**](./Vectors.ipynb)
-13. [**File Input and Output**](./FileIO.ipynb)
-14. [**Structures**](./Structures.ipynb)
-15. [**Unions**](./Unions.ipynb)
-16. [**Header Files**](./HeaderFiles.ipynb)
-17. [**Maps**](./Maps.ipynb)
 
 ## Miscellaneous Topics
 
