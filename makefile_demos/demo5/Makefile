@@ -1,4 +1,4 @@
-# Farily complex Makefile demo
+# Fairly complex Makefile demo
 
 COMPILER = clang++
 COMPILER_FLAGS = -c -g -Wall -std=c++17
