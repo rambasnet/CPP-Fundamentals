@@ -4,13 +4,6 @@
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
-
-## Miscellaneous Topics
-
-1. [**Dev Environment & Setup**](./DevEnvironmentSetup.ipynb)
-2. [**Jupyter Notebook & Setup**](./JupyterNotebookSetup.ipynb)
-3. [**Kattis Online Judge & Problem Bank**](./Kattis.ipynb)
-
 ## PDF format
 
 - pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
