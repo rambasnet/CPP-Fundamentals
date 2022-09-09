@@ -23,14 +23,19 @@ int main()
     cout << "Hi there!" << endl;
     cout << "Hope you like my Tom & Jerry ASCII art...\n\n";
 
-    cout << "  |\\_/|   **********************    (\\_/)" << endl;
-    cout << " / @ @ \\  *       ASCII Lab    *   (=\'.\'=)" << endl;
+    // Declare line1 variable of string type and assign the art for line1
+    string line1 = "  |\\_/|   **********************    (\\_/)";
+    // Declare line2 variable of string type and assign the art for line2
+    string line2 = " / @ @ \\  *       ASCII Lab    *   (=\'.\'=)";
+    // print line1
+    cout << line1 << endl;
+    // print line2
+    cout << line2 << endl;
 
-    //FIXME3: print the third line
-    //FIXME4: print the fourth line
-    //FIXME5: print the final line
+    //FIXME3: Declare line3 variable, assign the art for the 3rd line and print the variable
+    //FIXME4: Declare line4 variable, assign the art for the 4th line and print the variable
+    //FIXME5: Declare line5 variable, assign the art for the 5th line and print the variable
 
-    // the following code may be required to make your console pause...
     cout << "\nGood bye... hit enter to exit the program: " << '\n';
     // make the console wait for user input
     cin.get();

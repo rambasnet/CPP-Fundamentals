@@ -16,7 +16,6 @@
 #include <iostream> // C++ library for std IO
 #include <iomanip> // C++ library for formatting IO
 #include <string> // C++ library for string data
-#include <cstdio> // C library for std IO
  
 using namespace std; //resolve cout, cin, endl, etc. identifiers for C++ stdio
 
@@ -41,7 +40,8 @@ int main()
     const int tomWidth = 20;
     const int jerryWidth = 20;
     cout << centerText(100, "STD IO Lab using C and C++ libraries") << endl;
-    cout << centerText(100, string(50, '=')) << endl << endl; // create a string with 75 =
+    // create a string with 75 = signs; center the string and print it out
+    cout << centerText(100, string(50, '=')) << endl << endl; 
     string labTitle; // declare a variable to store your name
     // prompt to enter your name from standard input
     cout << "Enter Lab Title: ";
@@ -52,7 +52,7 @@ int main()
     //FIXME2: prompt to enter programer's name and store the entered data into the declared variable
 
     //FIXME3: prompt user to enter course name (e.g., CSCI 111) and store the data into a declared variable
-    //FIXME4: promput user to enter semester info (e.g., Fall 2022) and store the data into a declared variable
+    //FIXME4: prompt user to enter semester info (e.g., Fall 2022) and store the data into a declared variable
 
     const string tom1 = "|\\_/|";
     const string jerry1 = "(\\_/)";
@@ -60,19 +60,24 @@ int main()
     const string jerry2 = "(='.'=)";
     string asterics = string(middleWidth, '*'); // create a string with 50 asterics
     
-    // Using C++, print first line
-    cout << centerText(tomWidth, tom1)
-         << centerText(middleWidth, asterics)
-         << centerText(jerryWidth, jerry1) << endl;
+    string tomLine1 = centerText(tomWidth, tom1);
+    string infoLine1 = centerText(middleWidth-2, asterics);
+    string jerryLine1 = centerText(jerryWidth, jerry1);
 
-    // Using C, print 2nd line
-    printf("%s*%s*%s\n", centerText(tomWidth, tom2).c_str(), centerText(middleWidth-2, labTitle).c_str(), centerText(jerryWidth, jerry2).c_str());
+    // Print the first line
+    cout << tomLine1 << infoLine1 << jerryLine1 << endl;
 
-    //FIXME5: Using C++, print 3rd line
-    //FIXME6: Using C, print 4th line
-    //FIXME7: Print the rest of the ASCII art using either C or C++ output statements
+    string tomLine2 = centerText(tomWidth, tom2);
+    string infoLine2 = centerText(middleWidth-2, labTitle);
+    string jerryLine2 = centerText(jerryWidth, jerry2);
 
-    //Note: You can add more lines or print more ASCII arts of your choice if you'd like...
+    // Print the 2nd line
+    cout << tomLine2 << '*' << infoLine2 <<  '*' << jerryLine2 << endl;
+    //FIXME5: Create and print the 3rd line
+    //FIXME6: Create and print the 4th line
+    //FIXME7: Create and print the 5th line
+
+    //Note: You can add more lines or print more ASCII arts of your choice ... if you'd like to...
 
     cout << "\nGood bye... hit enter to exit the program.\n";
     //FIXME8: make the console wait for user input
