@@ -29,7 +29,7 @@ int main() //main entry function that returns 0
 
 	string name = "Anonymous"; // variable to store user's name
 	cout << "Hi there, what's your full name? ";
-	// FIXME3: read user's fullname and store it into name variable
+	// FIXME3: using getline function, read user's fullname and store it into name variable
 
 	cout << "Nice meeting you, " << name << "!" << endl;
 
@@ -42,11 +42,11 @@ int main() //main entry function that returns 0
 	cin >> radius; //read the entered value and store it into radius variable
 
 	area = pi * pow(radius, 2); // same as: area = pi * radius * radius;
-	//FIXME4: find circumference
+	//FIXME4: calculate circumference and store it into the circumference variable
 
 	cout << "Your circle has radius: " << fixed << setprecision(6) << radius << endl;
 	cout << "Area of the circle is:\t" << area << '\n';
-	//FIXME5: Output the value of circumference
+	//FIXME5: print the calculated value of circumference
 
 	// the following code may be required to make your console pause...
 	cout << "Good bye...\nHit enter to exit the program!" << '\n';

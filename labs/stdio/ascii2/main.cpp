@@ -1,11 +1,11 @@
 /*
     StdIO Lab
-    ASCII Art - using C and C++ Standard Input/Output
+    Printing ASCII Art Using Standard Input/Output
     
     Updated By: <FIXME>
     Date: <FIXME>
     
-    This program produces an ASCII art on the console using C and C++ std IO.
+    This program produces an ASCII art on the console using C++ std IO.
 
     Algorithm steps: 
     1. Declare variables to store data/values
@@ -60,22 +60,25 @@ int main()
     const string jerry2 = "(='.'=)";
     string asterics = string(middleWidth, '*'); // create a string with 50 asterics
     
+    // create the first line of the ASCII art
     string tomLine1 = centerText(tomWidth, tom1);
     string infoLine1 = centerText(middleWidth-2, asterics);
     string jerryLine1 = centerText(jerryWidth, jerry1);
 
-    // Print the first line
+    // Print the 1st line
     cout << tomLine1 << infoLine1 << jerryLine1 << endl;
 
+    // create the 2nd line of the ASCII art
     string tomLine2 = centerText(tomWidth, tom2);
     string infoLine2 = centerText(middleWidth-2, labTitle);
     string jerryLine2 = centerText(jerryWidth, jerry2);
 
     // Print the 2nd line
     cout << tomLine2 << '*' << infoLine2 <<  '*' << jerryLine2 << endl;
-    //FIXME5: Create and print the 3rd line
-    //FIXME6: Create and print the 4th line
-    //FIXME7: Create and print the 5th line
+
+    //FIXME5: Create and print the 3rd line of the ASCII art
+    //FIXME6: Create and print the 4th line of the ASCII art
+    //FIXME7: Create and print the 5th line of the ASCII art
 
     //Note: You can add more lines or print more ASCII arts of your choice ... if you'd like to...
 

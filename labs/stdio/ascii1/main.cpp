@@ -21,7 +21,7 @@ using namespace std; //resolve cout, cin, and endl names
 int main()
 {
     //FIXME3: declare a variable to store name
-    //FIXME4: prompt user to enter their name and store the value in variable
+    //FIXME4: prompt user to enter their name and store the value into name variable using getline function
     
     //FIXME5: greet the name using the variable as the following output
     //must output: Nice meeting you, <name>!
