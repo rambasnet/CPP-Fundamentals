@@ -32,7 +32,7 @@ const float epsilon = 1e-5; // 0.00001 accuracy upto 5 decimal points; error of 
 double findDistance(int, int, int, int);
 
 // test function that runs automated testing
-void test();
+void unitTest();
 
 // function clears the screen system call
 // NOTE: system call is not a security best pracice!
@@ -62,7 +62,7 @@ int main()
 
         cout << "Enter a second point in the form (x, y): ";
         //FIXME3 - Read/parse the second point and store data into variables x2 and y2
-        //FIXME4 - Call test function
+        //FIXME4 - Call unitTest function
 
         //FIXME5 - call findDistance function passing proper arguments
         //FIXME6 – Using printf function display the returned distance with proper description
@@ -84,11 +84,11 @@ double findDistance(int x1, int y1, int x2, int y2)
 }
 
 // test function that test findDistance function with 3 test cases
-void test()
+void unitTest()
 {
     float result =  findDistance(4, 3, 5, 1);
     float expected = 2.236067f;
     assert( fabs(result - expected) <= epsilon); //accept the result if it's less than the error of margin
     // FIXME8 - add at least two more test cases
-    cerr << "all tests passed..." << endl;
+    cerr << "all test cases passed..." << endl;
 }

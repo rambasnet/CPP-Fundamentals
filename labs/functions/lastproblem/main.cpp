@@ -1,5 +1,6 @@
 /*
-Kattis The Last Problem
+Kattis - The Last Problem
+User-defined functions and Library Functions Lab
 Updated By: FIXME
 CSCI 111
 Date: FIXME
