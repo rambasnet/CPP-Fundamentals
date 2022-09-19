@@ -27,7 +27,7 @@ float areaOfTriangle(const unsigned height, const unsigned base);
 // function to test area function
 void testArea();
 
-#define MAX_ERROR 1e-7 // 10^-7 or 0.0000007
+#define MAX_ERROR 1e-7 // 10^-7 or 0.0000001
 
 int main()
 {
