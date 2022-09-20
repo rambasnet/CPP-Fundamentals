@@ -16,7 +16,7 @@ CPPFILES = main.cpp #FIXME
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object code
 # then make a single binary/executable code
-all:
+build:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
 
@@ -32,8 +32,12 @@ unittest:
 	./$(PROGRAM) test
 
 # test the kattis provided samples
-kattis_test: # FIXME - add commands to test other two sample files
+kattis_test: # FIXME - add commands to test 6 more sample files
 	cat ./sample_tests/1.in | ./$(PROGRAM) | diff - ./sample_tests/1.ans
 	
-	echo "All Test Cases Passed!"
+	@echo "All Test Cases Passed!"
+
+all: build unittest kattis_test clean
+	@echo "All done!"
+
 	
