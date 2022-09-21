@@ -1,5 +1,5 @@
 // unittesting void functions and floating point results
-// void functions that exposes results from reference parameters
+// void function that writes result to a reference parameter
 // NOTE - floating point computation may not be precisely accurate!
 // Run the program as it is (test fails!)
 // FIXME: change type of paramter in product function to double for double precision!
