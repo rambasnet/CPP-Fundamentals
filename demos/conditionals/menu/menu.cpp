@@ -1,5 +1,5 @@
 /*
-Menu-drive program demo
+Menu-driven program demo
 */
 
 #include <iostream>
