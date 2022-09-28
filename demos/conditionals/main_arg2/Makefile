@@ -29,6 +29,10 @@ run:
 	./$(PROGRAM_NAME)
 
 # make clean rule
-# delete object and binary files
+# delete object code and binary executables
 clean:
 	rm -f $(PROGRAM_NAME) *.o
+
+unittest:
+	./$(PROGRAM_NAME) test
+	@printf "All done!\n"
