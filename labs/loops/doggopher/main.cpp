@@ -10,9 +10,9 @@ Read and solve the Kattis problem: https://open.kattis.com/problems/doggopher
 Algorithm Steps:
 		1. Read gopher and dog's coordinates
 		2. Define a function to find and return the Euclidean distance between the two points
-    3. For each gopher hole coordinate's:
-      3.a find the distance between the gopher and the hole
-      3.b find the distance between the dog and the hole
+    3. For each gopher hole coordinate:
+      3.a find the distance between the gopher position and the hole
+      3.b find the distance between the dog position and the hole
       4.c if the dog's distance is larger or equal to twice the distance of gopher, 
           gopher can get away through that hole. 
           4.c.1 Stop testing other holes.
@@ -61,7 +61,6 @@ int main(int argc, char* argv[])
         break; // no need to test more holes; the first one will do!
       }
     }
-
     cout << answer << endl;
   }
 	return 0;
@@ -71,7 +70,7 @@ int main(int argc, char* argv[])
 float distance(const float x1, const float y1, const float x2, const float y2) {
   float d = 0;
   // FIXME4: Find the Eucledian distance between two points on 2-d coordiantes.
-  // store the area into area variable
+  // store the distance into the `d` variable
 	return d;
 }
 
