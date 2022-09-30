@@ -9,7 +9,7 @@ Read and solve the Kattis problem: https://open.kattis.com/problems/twostones
 
 Algorithm Steps:
   1. Read the number of stones
-	2. Check if the number of stones is odd or even
+  2. Check if the number of stones is odd or even
   3.a. If the number is odd, Alice wins.
   3.b. Otherwise, Bob wins.
 */
