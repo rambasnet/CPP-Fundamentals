@@ -58,7 +58,7 @@ void testOddOrEven() {
   assert(oddOrEven(number) == "odd");
   // FIXME5: Write 2nd test case
   // FIXME6: Write 3rd test case
-  cerr << "All test cases passed!\n";
+  cerr << "All test cases passed for oddOrEven() !\n";
 }
 
 // FIXME7: Write a function to test answer function
