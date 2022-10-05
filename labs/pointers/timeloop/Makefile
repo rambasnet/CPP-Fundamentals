@@ -32,7 +32,7 @@ unittest:
 	./$(PROGRAM) test
 
 # FIXME2 - add 4 more commands to test the 4 input files
-test:
+kattistest:
 	cat 1.in | ./$(PROGRAM) | diff - 1.ans
 	cat 2.in | ./$(PROGRAM) | diff - 2.ans
 	@#FIXME - Add commands to test 4 more input files
