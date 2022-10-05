@@ -8,10 +8,10 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = a.out#FIXME
+PROGRAM = #FIXME
 
 # list .cpp files separated by space
-CPPFILES = main.cpp#FIXME
+CPPFILES = #FIXME
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
