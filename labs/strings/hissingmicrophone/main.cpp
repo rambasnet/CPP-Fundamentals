@@ -7,7 +7,7 @@ Date: FIXME2
 Hissing Microphone Problem Statement: https://open.kattis.com/problems/hissingmicrophone
 Algorithm steps:
 1. Read string
-2. find "ss" substring in the string
+2. search for "ss" substring in the string
     - if found, print "hiss"
     - otherwise, print "no hiss"
 */
