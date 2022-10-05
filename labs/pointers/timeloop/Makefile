@@ -8,22 +8,35 @@ CXX = g++
 CXXFLAGS = -c -g -Wall -std=c++17
 
 # the build target executable file; .exe is not required
-PROGRAM = pointers.exe #FIXME
+PROGRAM = a.out#FIXME
 
 # list .cpp files separated by space
-CPPFILES = main.cpp #FIXME
+CPPFILES = main.cpp#FIXME
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
 # then make a single binary/executable program
-all:
+build:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
 	$(CXX) -o $(PROGRAM) *.o
 
 # make clean rule
 # delete object and binary files
 clean:
-	rm -f $(PROGRAM) *.o
+	@rm -f $(PROGRAM) *.o
 
-# FIXME
+# FIXME1
 # add a rule to run the program
+
+unittest:
+	./$(PROGRAM) test
+
+# FIXME2 - add 4 more commands to test the 4 input files
+test:
+	cat 1.in | ./$(PROGRAM) | diff - 1.ans
+	cat 2.in | ./$(PROGRAM) | diff - 2.ans
+	@#FIXME - Add commands to test 4 more input files
+	@printf "All test cases passed!\n"
+
+all: build test clean
+	@printf "All done!\n"

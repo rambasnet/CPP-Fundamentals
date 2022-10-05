@@ -35,8 +35,7 @@ void testDistance();
 
 #define TOLERANCE 1e-6 // 10^-6 or 0.000001
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
     // FIXME1: call testDistance function
   }

@@ -62,7 +62,6 @@ void clearScreen() {
 }
 
 int main(int argc, char* argv[]) {
-    bool keepRunning = true;
     if(argc == 2 && string(argv[1]) == "test") {
         test();
         exit(EXIT_SUCCESS); // exit the program
