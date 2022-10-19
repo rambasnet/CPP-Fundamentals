@@ -46,23 +46,18 @@ pos_int readNumber();
 int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
     // FIXME1: call testSpell function
-    testSpell();
     return 0;
   }
   // declare a dynamic variable to store N
   pos_int *N = new pos_int; 
   //FIXME2: Call readNumber function and assign the returned value to N;
   //FIXME3: Call answer function passing proper argument
-  *N = readNumber();
-  printAnswer(*N);
 }
 
 pos_int readNumber() {
   //FIXME4: Declare a dynamic variable to read and store N and return it
-  pos_int *N = new pos_int;
-  cin >> *N;
+  pos_int *N;
   return *N;
-  return 0;
 }
 
 string spell(pos_int n) {
