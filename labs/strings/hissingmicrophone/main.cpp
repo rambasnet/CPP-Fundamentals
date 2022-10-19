@@ -1,15 +1,15 @@
 /*
 Kattis - Hissing Microphone Problem
 
-By: FIXME1
+Updated By: FIXME1
 Date: FIXME2
 
-Hissing Microphone Problem Statement: https://open.kattis.com/problems/hissingmicrophone
+Problem Statement: https://open.kattis.com/problems/hissingmicrophone
 Algorithm steps:
 1. Read string
-2. search for "ss" substring in the string
-    - if found, print "hiss"
-    - otherwise, print "no hiss"
+2. Search for "ss" substring in the string
+    i. if found, print "hiss"
+    ii. otherwise, print "no hiss"
 */
 
 #include <iostream>
@@ -31,8 +31,7 @@ int main(int argc, char* argv[]) {
 }
 
 string answer(const string &line) {
-    // FIXME3
-    // implment algorithm step 2
+    // FIXME3 - implement algorithm in step 2
     // return "hiss" if ss is found in line
     // otherwise, return "no hiss"
     return "hiss";
@@ -40,16 +39,14 @@ string answer(const string &line) {
 
 // unit testing answer()
 void testAnswer() {
-    // FIXME4
-    // write at least two test cases to test answer()
+    // FIXME4 - write at least two test cases to test answer()
     cerr << "All test cases passed!\n";
 }
 
 // solving the problem for kattis
 void solve() {
     string line;
-    // string consists of only lowercase letters (no spaces) upto 30 chars
-    // FIXME5
-    // read string into line
+    // Note: string consists of only lowercase letters (no spaces) upto 30 chars
+    // FIXME5 - read string into line
     cout << answer(line) << endl;
 }

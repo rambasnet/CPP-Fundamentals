@@ -4,7 +4,7 @@ Kattis - Simon Says
 Updated By: FIXME
 Date: FIXME
 
-Simon Says Problem Statement: https://open.kattis.com/problems/simonsays 
+Problem Statement: https://open.kattis.com/problems/simonsays 
 Algorithm steps:
 1. Read N
 2. Loop N times:
