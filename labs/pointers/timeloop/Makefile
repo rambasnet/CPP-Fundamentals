@@ -38,5 +38,5 @@ kattistest:
 	@#FIXME - Add commands to test 4 more input files
 	@printf "All test cases passed!\n"
 
-all: build test clean
+all: build unittest clean
 	@printf "All done!\n"
