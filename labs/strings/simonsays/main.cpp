@@ -1,17 +1,17 @@
 /*
 Kattis - Simon Says
 
-By: FIXME
+Updated By: FIXME
 Date: FIXME
 
-Hissing Microphone Problem Statement: https://open.kattis.com/problems/simonsays 
+Simon Says Problem Statement: https://open.kattis.com/problems/simonsays 
 Algorithm steps:
 1. Read N
 2. Loop N times:
   i. Read a line
   ii. If the line starts with "Simon says",
     print the rest of the string. Note: print the leading space after says as well!
-  3. Otherwise, skip the line
+  iii. Otherwise, skip the line
 */
 
 #include <iostream>
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
 }
 
 string answer(const string &line) {
-  // FIXME2: If the line starts with "Simon says", return rest of the line after says
+  //FIXME2: If the line starts with "Simon says", return rest of the line after says
   // including the space after says, otherwise return empty string ""
   // Hint: use find method on line object
   return "";
@@ -47,7 +47,7 @@ void testAnswer() {
   cerr << "ans = " << ans << endl;
   assert(ans == " laugh!"); 
   assert(answer("Write more programs.") == "");
-  // FIXME3: write at least two test cases to test answer()
+  //FIXME3: write at least two test cases to test answer()
   cerr << "All test cases passed!\n";
 }
 
@@ -58,10 +58,11 @@ void solve() {
   cin >> N;
   //FIXME4 : read and discard \n left behind
   while (N--) {
-    //Note: string consists of phrase with spaces
+    //Note: i. string consists of phrase with spaces
+    // ii. don't print an empty line if the line doesn't start with "Simon says"
     //FIXME5: read the whole line into line 
     //FIXME6: call answer function and store the returned value into ans
-    //FIXME7: print ans
     if (ans == "") continue;
+    //FIXME7: print ans
   }
 }
