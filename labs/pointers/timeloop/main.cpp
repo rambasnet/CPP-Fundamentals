@@ -27,21 +27,21 @@ Algorithm Steps:
 #include <sstream>
 using namespace std;
 
-// declare alias pos_int of type "unsigned int"
-using pos_int = unsigned short;
+// declare alias pos_short of type "unsigned int"
+using pos_short = unsigned short;
 
 // Function taken an integer n and returns
 // spell: n Abracadabra
-string spell(const pos_int);
+string spell(const pos_short);
 
 // function to test spell function
 void testSpell();
 
 // function to print the final answer
-void printAnswer(const pos_int);
+void printAnswer(const pos_short);
 
 // function to read N
-pos_int readNumber();
+pos_short readNumber();
 
 int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
@@ -49,31 +49,32 @@ int main(int argc, char* argv[]) {
     return 0;
   }
   // declare a dynamic variable to store N
-  pos_int *N = new pos_int; 
+  pos_short *N = new pos_short; 
   //FIXME2: Call readNumber function and assign the returned value to N;
   //FIXME3: Call answer function passing proper argument
 }
 
-pos_int readNumber() {
+pos_short readNumber() {
   //FIXME4: Declare a dynamic variable to read and store N and return it
-  pos_int *N;
+  pos_short *N;
   return *N;
 }
 
-string spell(pos_int n) {
+string spell(pos_short n) {
   return to_string(n) + " Abracadabra";
 }
 
 void testSpell() {
-  pos_int * n = new pos_int;
+  pos_short * n = new pos_short;
   *n = 10;
   assert(spell(*n) == "10 Abracadabra");
   // FIXME5: Add two more test cases
+  delete n;
   cerr << "Yay... all test cases passed!\n";
 }
 
-void printAnswer(const pos_int N) {
-  for(pos_int i=1; i<=N; i++) {
+void printAnswer(const pos_short N) {
+  for(pos_short i=1; i<=N; i++) {
     printf("%s\n", spell(i).c_str());
   }
 }
