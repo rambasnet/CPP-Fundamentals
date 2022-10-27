@@ -28,9 +28,6 @@ clean:
 # FIXME
 # add a rule to run the program
 
-# FXIME
-# add a rule to run the program for unittesting
-
 all: build unittest clean
 	@printf "All done!\n"
 	
