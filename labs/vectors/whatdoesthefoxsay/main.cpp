@@ -31,10 +31,11 @@ void test_eraseAnimalSound();
 void test_splitString();
 string foxSays(vector<string> &);
 void test_foxSays();
+void unit_test();
 
 int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
-    // FIXME1: call unit test functions
+    // FIXME1: call unit_test function
   }
   // read the total number of test cases
   else
@@ -44,14 +45,14 @@ int main(int argc, char* argv[]) {
 
 void solve() {
   size_t T;
-  cin >> T >> ws;
+  cin >> T >> ws; // read the number of test cases and discard the newline
   
   while(T--) {
-    //cout << "T = " << T << endl;
+    cerr << "T = " << T << endl;
     vector<string> recordings;
     string sounds, animal_sound;
     getline(cin, sounds);
-    //cout << sounds << endl;
+    cerr << sounds << endl;
     splitString(recordings, sounds);
     // read and parse animal sounds
     // don't know how many animals are there
@@ -101,25 +102,17 @@ void eraseAnimalSound(vector<string> &recordings, string sound) {
   }
 }
 
-void test_splitString() {
+void test_splitString(){
   vector<string> answer;
   splitString(answer, "word");
-  vector<string> actual = {"word"};
-  assert(answer == actual);
+  vector<string> expected = {"word"};
+  assert(answer == expected);
   answer.clear();
   splitString(answer, "two word");
-  vector<string> actual1 = {"two", "word"};
-  assert(answer == actual1);
+  vector<string> expected1 = {"two", "word"};
+  assert(answer == expected1);
   // FIXME4: add 2 more test cases
   cerr << "splitString(): All test cases passed!)\n";
-}
-
-void test_foxSays() {
-  vector<string> recordings = {"bo", "boo", "-", "ba", "-", "bo"};
-  string ans = foxSays(recordings);
-  assert(ans == "bo boo ba bo");
-  // FIXME5: add 2 more test cases
-  cerr << "foxSays(): All test cases passed!" << endl;
 }
 
 void test_eraseAnimalSound() {
@@ -129,4 +122,22 @@ void test_eraseAnimalSound() {
   assert(recordings == expected);
   // FIXME6: add 2 more test cases
   cerr << "eraseAnimalSound(): All test cases passed!" << endl;
+}
+
+void test_foxSays() {
+  // after animal sounds are del
+  vector<string> recordings = {"bo", "boo", "meow", "ba", "wooon", "bo"};
+  eraseAnimalSound(recordings, "bo");
+  string ans = foxSays(recordings);
+  cerr << "ans = " << ans << endl;
+  assert(ans == "boo meow ba wooon");
+  // FIXME5: add 2 more test cases
+  cerr << "foxSays(): All test cases passed!" << endl;
+}
+
+void unit_test() {
+  test_splitString();
+  test_eraseAnimalSound();
+  test_foxSays();
+  cerr << "All unit tests passed!" << endl;
 }
