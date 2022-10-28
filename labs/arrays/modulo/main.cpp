@@ -12,7 +12,7 @@ Algorithm Steps:
 		2. Create boolean array of size 42 to store the modulo 42 values (0-41)
       - initialize the array with false values
     3. For each of the 10 numbers:
-      3.a find the modulo 42 and set the flag of the array at that index to true
+      3.a find the number modulo 42 as an index and set the flag of the array at that index to true
     4. Go through the boolean array and count all true values
     5. Print the count of the true values to find the unique modulo 42 values
 */
@@ -59,7 +59,7 @@ void updateFlags(const unsigned int * numbers, bool * flags, size_t num_len) {
   unsigned int mod;
   for(int i=0; i<num_len; i++) {
     mod = getModulo42(numbers[i]);
-    //cout << "mod = " << mod << endl;
+    cerr << "mod = " << mod << endl;
     flags[mod] = true;
   }
 }
