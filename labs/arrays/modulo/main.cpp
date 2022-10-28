@@ -40,11 +40,11 @@ int main(int argc, char* argv[])
     unsigned int * nums = new unsigned int[10];
     // read 10 numbers into nums array
     readData(nums, 10); 
-    // create a dynamic boolean array of size 42 to store module flags
+    // create a dynamic boolean array of size 42 to store num % 42 flags
     bool * flags = new bool[42];
     initFlags(flags, 42);
     updateFlags(nums, flags, 10);
-    //FIXME - call countFlags function passing proper argument and print the result
+    //FIXME3 - call countFlags function passing proper argument and print the result
   }
 	return 0;
 }
@@ -65,7 +65,7 @@ void updateFlags(const unsigned int * numbers, bool * flags, size_t num_len) {
 }
 
 unsigned int getModulo42(unsigned int num) {
-  // FIXME: return num modulo 42
+  // FIXME4: return num modulo 42
   return 0;
 }
 
@@ -78,7 +78,7 @@ void initFlags(bool * flags, size_t flags_len) {
 size_t countFlags(const bool flags[], size_t flags_len) {
   size_t count = 0;
   for (int i=0; i< flags_len; i++) {
-    // FIXME: if the flags at index i is set to true, increment count by 1
+    // FIXME5: if the flags at index i is set to true, increment count by 1
   }
   return count;
 }
@@ -87,7 +87,7 @@ void testGetModulo42() {
   assert(getModulo42(41) == 41);
   assert(getModulo42(42) == 0);
   assert(getModulo42(43) == 1);
-  // FIXME: Write 3 more test cases
+  // FIXME6: Write 3 more test cases
   cerr << "getModulo42(): All test cases passed!" << endl;
 }
 
@@ -103,6 +103,6 @@ void testCountFlags() {
   flags[420%42] = true;
   flags[43%42] = true;
   assert(countFlags(flags, 42) == 2);
-  // FIXME: write 3 more test cases
+  // FIXME7: write 3 more test cases
   cerr << "countFlags(): All test cases passed!" << endl;
 }
