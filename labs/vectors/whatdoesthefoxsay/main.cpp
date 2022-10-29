@@ -37,6 +37,7 @@ void unit_test();
 int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
     // FIXME1: call unit_test function
+    unit_test();
   }
   // read the total number of test cases
   else
@@ -97,12 +98,10 @@ void splitString(vector<string> &words, string text) {
 }
 
 void eraseAnimalSound(vector<string> &recordings, string sound) {
-  // use iterator to erase all matching sound
   // see how erase works here: https://en.cppreference.com/w/cpp/container/vector/erase 
-  for(vector<string>::iterator it = recordings.begin(); it != recordings.end();) {
-    // FIXME3: if it points to sound, erase it and update it with the next element returned
-    // otherwise, increment the iterator
-  }
+  // FIXME3 - use iterator to erase all matching sound
+  // if iterator points to sound, erase it and update it with the next element pointer
+  // otherwise, just increment the iterator
 }
 
 void test_splitString(){
@@ -119,9 +118,9 @@ void test_splitString(){
 }
 
 void test_eraseAnimalSound() {
-  vector<string> recordings = {"bo", "boo", "meow", "ba", "wooon", "bo"};
+  vector<string> recordings = {"bo", "boo", "meow", "bo", "ba", "wooon", "bo"};
   eraseAnimalSound(recordings, "bo");
-  vector<string> expected = {"", "boo", "meow", "ba", "wooon", ""};
+  vector<string> expected = {"boo", "meow", "ba", "wooon"};
   assert(recordings == expected);
   // FIXME6: add 2 more test cases
   cerr << "eraseAnimalSound(): All test cases passed!" << endl;
@@ -129,7 +128,7 @@ void test_eraseAnimalSound() {
 
 void test_foxSays() {
   // after animal sounds are del
-  vector<string> recordings = {"bo", "boo", "meow", "ba", "wooon", "bo"};
+  vector<string> recordings = {"bo", "boo", "meow", "bo", "ba", "wooon", "bo"};
   eraseAnimalSound(recordings, "bo");
   string ans = foxSays(recordings);
   cerr << "ans = " << ans << endl;
