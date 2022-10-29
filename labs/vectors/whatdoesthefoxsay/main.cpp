@@ -37,7 +37,6 @@ void unit_test();
 int main(int argc, char* argv[]) {
   if (argc == 2 and string(argv[1]) == string("test")) {
     // FIXME1: call unit_test function
-    unit_test();
   }
   // read the total number of test cases
   else
