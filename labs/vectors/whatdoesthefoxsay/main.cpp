@@ -78,7 +78,6 @@ string foxSays(vector<string> &recordings) {
   ostringstream oss;
   bool first = true;
   for(int i=0; i<recordings.size(); i++) {
-    if (recordings[i] == "") continue;
     if (first) {
       oss << recordings[i];
       first = false;
