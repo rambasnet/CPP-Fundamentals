@@ -1,6 +1,6 @@
 /*
 Kattis - What does the fox say?
-Arrays Lab
+Vector Lab
 Updated By: FIXME
 CSCI 111
 Date: FIXME
@@ -11,14 +11,15 @@ Algorithm Steps:
 	1. For each test case do the following:
     i. Read all the recorded sounds into a vector
     ii. Read individual animal sound until 'What does the fox say?' line
-    iii. Replace all the matching sounds from the recorded sounds vecotor to "-"
-    iv. Print the sounds that's left
+    iii. Erase all the matching animal sounds from the recorded sounds vector
+    iv. Print the sounds that's left in the vector
 */
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cassert>
 
 using namespace std;
 
@@ -76,7 +77,7 @@ string foxSays(vector<string> &recordings) {
   ostringstream oss;
   bool first = true;
   for(int i=0; i<recordings.size(); i++) {
-    if (recordings[i] == "-") continue;
+    if (recordings[i] == "") continue;
     if (first) {
       oss << recordings[i];
       first = false;
@@ -96,9 +97,11 @@ void splitString(vector<string> &words, string text) {
 }
 
 void eraseAnimalSound(vector<string> &recordings, string sound) {
-  // for each sound s in recordings vector
-  for (string & s: recordings) {
-    // FIXME3: if s matches with sound, set it to '-'
+  // use iterator to erase all matching sound
+  // see how erase works here: https://en.cppreference.com/w/cpp/container/vector/erase 
+  for(vector<string>::iterator it = recordings.begin(); it != recordings.end();) {
+    // FIXME3: if it points to sound, erase it and update it with the next element returned
+    // otherwise, increment the iterator
   }
 }
 
@@ -118,7 +121,7 @@ void test_splitString(){
 void test_eraseAnimalSound() {
   vector<string> recordings = {"bo", "boo", "meow", "ba", "wooon", "bo"};
   eraseAnimalSound(recordings, "bo");
-  vector<string> expected = {"-", "boo", "meow", "ba", "wooon", "-"};
+  vector<string> expected = {"", "boo", "meow", "ba", "wooon", ""};
   assert(recordings == expected);
   // FIXME6: add 2 more test cases
   cerr << "eraseAnimalSound(): All test cases passed!" << endl;
