@@ -11,8 +11,8 @@ Algorithm Steps:
 	1. For each test case do the following:
     i. Read all the recorded sounds into a vector
     ii. Read individual animal sound until 'What does the fox say?' line
-    iii. Erase all the matching animal sounds from the recorded sounds vector
-    iv. Print the sounds that's left in the vector
+      a) Erase all the matching animal sounds from the recorded sounds vector
+    iv. Print the sounds that's left in the recorded sounds vector
 */
 
 #include <iostream>
@@ -23,15 +23,21 @@ Algorithm Steps:
 
 using namespace std;
 
+// function prototypes
 void solve();
 // function splits given string into vector of words
 void splitString(vector<string> &, string);
-// function 
-void eraseAnimalSound(vector<string> &recordings, string sound);
-void test_eraseAnimalSound();
-void test_splitString();
+// function erases sound from recordings vector
+void eraseAnimalSound(vector<string> &, string);
+// function returns what the fox says
 string foxSays(vector<string> &);
+// function tests eraseAnimalSound function
+void test_eraseAnimalSound();
+// function tests splitString function
+void test_splitString();
+// function tests foxSays function
 void test_foxSays();
+// function calls all test functions
 void unit_test();
 
 int main(int argc, char* argv[]) {
