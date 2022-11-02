@@ -108,7 +108,7 @@ void eraseAnimalSound(vector<string> &recordings, string sound) {
   // otherwise, just increment the iterator
 }
 
-void test_splitString(){
+void test_splitString() {
   vector<string> answer;
   splitString(answer, "word");
   vector<string> expected = {"word"};
