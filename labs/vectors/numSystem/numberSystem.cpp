@@ -6,7 +6,7 @@
 
     Program: Number system converter  
 
-    The program converts decimal to binary and binary to decimal number system.
+    The program converts decimal to binary and octol number systems.
     Lab demonstrates the vector application. 
 */
 
