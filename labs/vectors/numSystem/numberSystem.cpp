@@ -52,7 +52,7 @@ int main()
     string octalNum, binary;
     do {
         clearScreen();
-        cout << "Program converts decimal number into binary and vice versa.\n";
+        cout << "Decimal, Binary, and Octal Number System Converter.\n";
         choice = menuOption();
         switch(choice) {
             case 1:
