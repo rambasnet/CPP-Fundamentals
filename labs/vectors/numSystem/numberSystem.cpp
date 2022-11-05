@@ -1,12 +1,12 @@
 /*
     CS1 - Vector Lab
 
-    Updated by: FIXME1
-    Date: FIXME2
+    Updated by: FIXME
+    Date: FIXME
 
     Program: Number system converter  
 
-    The program converts decimal to binary and octol number systems.
+    The program converts decimal (unsigned int) number to binary and octol representations.
     Lab demonstrates the vector application. 
 */
 
@@ -56,15 +56,15 @@ int main()
         choice = menuOption();
         switch(choice) {
             case 1:
-                // FIXME3
+                // FIXME1
                 cout << "FIXME\n";
                 break;
             case 2:
-                // FIXME4
+                // FIXME2
                 cout << "FIXME\n";
                 break;
             case 3:
-                cout << "Enter a positive decimal number: ";
+                cout << "Enter a positive whole decimal number: ";
                 cin >> decimalNum;
                 octalNum = decToOct(decimalNum);
                 printf("(%llu) base 10 = (%s) base 8\n", decimalNum, octalNum.c_str());
@@ -91,15 +91,14 @@ int main()
 }
 
 string decToBin(llu num) {
-    // FIXME5 - use algorithm step in Ch03-StdInputOutput chapter
+    // FIXME3 - implement algorithm step in Ch03-StdInputOutput chapter
     // or use hint from decToOct function
-    
     return to_string(num);
 }
 
 llu binToDec(string binaryNumber)
 {
-    // FIXME6 - use algorithm described in Ch03-StdInputOutput chapter
+    // FIXME4 - implement algorithm described in Ch03-StdInputOutput chapter
     // or use hints from binToOct function
     return 0;
 }
@@ -123,13 +122,14 @@ string decToOct(llu num)
         remainder = quotient%divisor;
         quotient = quotient/divisor;
         octal.push_back(remainder);
-        // cout << "quotient = " << quotient << " " << remainder << endl;
+        // debug log
+        cerr << "quotient = " << quotient << " " << remainder << endl;
     }
 
     // step 3. convert octal vector into string for easy printing the result
     // collect remainders in reverse order
     string ans = "";
-    while(!octal.empty()) {
+    while(not octal.empty()) {
         // collect from the last element
         ans += to_string(octal.back());
         // remove the last element
@@ -142,13 +142,13 @@ string decToOct(llu num)
 llu octToDec(string octalNumber)
 {
     /* Algorithm steps:
-    1. multiply each octal digit by its place in octal
-    2. sum all place value products
+    1. multiply each octal digit by its place value in octal
+    2. sum all place values
     e.g. (173) base 8 = 1x8^2 + 7x8^1 + 3x8^0 = 64+56+3 = (123) base 10
     */
     llu ans = 0;
     int exp;
-    // go from last digit to the first digit of octal number
+    // traverse from last digit to the first digit of octal number
     for(int i = octalNumber.size()-1; i>=0; i--) {
         exp = octalNumber.size()-1 - i;
         int digit = int(octalNumber[i]) - int('0');

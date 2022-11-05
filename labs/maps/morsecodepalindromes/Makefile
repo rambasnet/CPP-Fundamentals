@@ -33,7 +33,9 @@ kattis_test: # FIXME - add commands to test 2 more sample files
 	cat ./sample_tests/1.in | ./$(PROGRAM) | diff - ./sample_tests/1.ans
 	cat ./sample_tests/2.in | ./$(PROGRAM) | diff - ./sample_tests/2.ans
 	cat ./sample_tests/3.in | ./$(PROGRAM) | diff - ./sample_tests/3.ans
-
+	cat ./sample_tests/4.in | ./$(PROGRAM) | diff - ./sample_tests/4.ans
+	cat ./sample_tests/5.in | ./$(PROGRAM) | diff - ./sample_tests/5.ans
+	cat ./sample_tests/6.in | ./$(PROGRAM) | diff - ./sample_tests/6.ans
 	@echo "All Test Cases Passed!"
 
 all: build unittest kattis_test clean

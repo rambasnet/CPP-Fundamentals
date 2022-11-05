@@ -126,18 +126,18 @@ void test_eraseAnimalSound() {
   eraseAnimalSound(recordings, "bo");
   vector<string> expected = {"boo", "meow", "ba", "wooon"};
   assert(recordings == expected);
-  // FIXME6: add 2 more test cases
+  // FIXME5: add 2 more test cases
   cerr << "eraseAnimalSound(): All test cases passed!" << endl;
 }
 
 void test_foxSays() {
-  // after animal sounds are del
   vector<string> recordings = {"bo", "boo", "meow", "bo", "ba", "wooon", "bo"};
   eraseAnimalSound(recordings, "bo");
+  // after animal sounds are deleted
   string ans = foxSays(recordings);
   cerr << "ans = " << ans << endl;
   assert(ans == "boo meow ba wooon");
-  // FIXME5: add 2 more test cases
+  // FIXME6: add 2 more test cases
   cerr << "foxSays(): All test cases passed!" << endl;
 }
 
