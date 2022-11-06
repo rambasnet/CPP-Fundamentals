@@ -1,8 +1,8 @@
 /*
     CS1 - File IO Lab
 
-    Updated by: FIXME1
-    Date: FIXME2 
+    Updated by: FIXME
+    Date: FIXME
 
     The program reads numbers from a file and finds statistical values from those numbers.
     Lab demonstrates the file io and vector application. 
@@ -52,13 +52,13 @@ int main(int argc, char* argv[]) {
 }
 
 void readData(vector<int> & numbers, const string inputFileName) {
-    // FIXME3: Open inputFileName for reading data
+    // FIXME1: Open inputFileName for reading data
     // read the data until eof marker and store each num into numbers vector
     int num;
 }
 
 void writeData(const vector<int> & numbers) {
-    // FIXME4
+    // FIXME2
     /*
     Algorithm steps:
     1. Prompt user to enter output file name
@@ -75,7 +75,7 @@ int findMax(const vector<int> & nums) {
 }
 
 int findMin(const vector<int> & nums) {
-    // FIXME5 - implement function to find and return min value from nums vector
+    // FIXME3 - implement function to find and return min value in nums vector
     return 0;
 } 
 
