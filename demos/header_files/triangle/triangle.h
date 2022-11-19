@@ -1,6 +1,6 @@
 // Triangle struct and function prototypes
 
-#pragma once
+#pragma once // include guard; tells the compiler to only include this file once
 
 #include <vector>
 using namespace std;

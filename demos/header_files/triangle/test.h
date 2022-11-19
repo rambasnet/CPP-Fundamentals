@@ -1,4 +1,4 @@
-#pragma once
+#pragma once // include guard; tells the compiler to only include this file once
 
 // function prototypes of test functions
 void test_validTriangle();

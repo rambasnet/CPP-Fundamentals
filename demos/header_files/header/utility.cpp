@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 long add(int x, int y) {
     return x+y;
 }
