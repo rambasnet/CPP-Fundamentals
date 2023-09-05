@@ -2,10 +2,10 @@
 Map Lab
 Kattis - Seven Wonders
 
-Updatd By: FIXME
+Updated By: FIXME
 Date: FIXME
 
-Solution to Seven Wonders Problem: https://open.kattis.com/problems/sevenwonders
+The solution to the Seven Wonders Problem: https://open.kattis.com/problems/sevenwonders
 Algorithm steps:
 1. Read cards into a string variable
 2. use map<char, int> to keep track of count of each card played
@@ -13,7 +13,7 @@ Algorithm steps:
 3. find regular points following the instruction
   - points = sum of (each card_count)^2
 4. add bonus points if any
-  - find # of sets of three cards and mulitiply it by 7
+  - find # of sets of three cards and multiply it by 7
 */
 
 #include <iostream>
@@ -64,7 +64,7 @@ void countCards(const string& cards, map<char, pos_int>& cardCount) {
     // step 2: update cardCount map with count of each card played
     // for each card in cards
     for (char card: cards) {
-      // check if card is already in wonders map
+      // check if a card is already in wonders map
       auto find = cardCount.find(card);
       if (find == cardCount.end()) // card not found
         // add it to the wonders map
