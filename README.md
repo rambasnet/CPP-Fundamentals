@@ -1,6 +1,6 @@
 # C++ Fundamentals
 
-- Jupyter Notebooks, Pdfs, Powerpoint Slides, Lecture Notes, Labs and Exercises for Computer Science Foundational Concepts (CS1) using C++
+- Jupyter Notebooks, Pdfs, Labs and Exercises for Computer Science Foundational Concepts (CS1) using C++
 - some of the contents are based on the open source textbook: Think C++ by Allen B. Downey, [https://en.cppreference.com/](https://en.cppreference.com/) and [http://cplusplus.com/](http://cplusplus.com/)
 - PDF of the textbook can be found at [http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf](http://www.greenteapress.com/thinkcpp/thinkCScpp.pdf)
 
@@ -8,10 +8,6 @@
 
 - pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
 - pdfs of lecture notes can be found in [notes](https://github.com/rambasnet/CPP-Fundamentals/tree/master/notes) folder
-
-## Powerpoint slides
-
-- powerpoint slides and corresponding pdfs based on the lecutre notes are found in [slides](https://github.com/rambasnet/CPP-Fundamentals/tree/master/slides) folder
 
 ## Who can use this content
 
@@ -57,12 +53,12 @@ To run these notebooks interactively and save your work locally, you need the fo
 - git client is already available on Mac and Linux
 - install Miniconda: [https://conda.io/miniconda.html](https://conda.io/miniconda.html)
 - open a terminal/shell and run the following commands
-- create a virual environment to keep C++ specific installtions seperate from base installation
-- NOTE - xeus-ling doesn't work on Mac Silicon (M chips)
+- create a virtual environment to keep C++ specific installations separate from base installation
+- NOTE - xeus-cling C++ kernel doesn't work on Mac Silicon (M chips) as of Nov. 4 2025
 
 ```bash
     conda update conda -y
-    conda create -n cpp python=3.9 -y
+    conda create -n cpp python=3.10 -y
     conda install mamba -c conda-forge -y
     conda activate cpp
     mamba install -c conda-forge retrolab # jupyter notebook/retro
@@ -88,7 +84,9 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda deactivate
 ```
 
-## NOTE: Use C++11 or C++14 kernels. C++17 kernel is not working as of xeus-cling version 0.13 (August 2022).
+## NOTE: Use C++11 or C++14 kernels.
+
+- C++17 kernel is not working as of xeus-cling version 0.13 (August 2022).
 
 ## Demo programs and sample solutions to exercises
 
