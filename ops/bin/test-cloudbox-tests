@@ -1,0 +1,106 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]
+do
+    case "$1"
+    in
+	--platform) platform="$2"; shift; shift ;;
+	--dockerfile) dockerfile="$2"; shift; shift ;;	
+	--tag) tag="$2"; shift; shift ;;
+	--user) user="$2"; shift; shift ;;
+	--home) home="$2"; shift; shift ;;
+	--build)    build=true; shift;;
+	--help)     echo "usage: $0 [--platform linux/arm64|linux/amd64] [--tag <this> ] [--dockerfile Dockerfile.<this> ] [--user node ] [ --home /home/<user> ] [--build] [command ...]"; shift; exit 0;;
+	*) break;
+    esac
+done
+
+ok=true
+
+if [ "$platform" = "" ]
+then
+    machine="$(uname -m)"
+    if ( uname -m | grep -q arm || uname -m | grep aarch)
+    then
+	platform=linux/arm64
+    else
+	platform=linux/amd64
+    fi
+fi
+
+if [ "$platform" = "linux/arm64" ]
+then
+  machine=aarch64
+else
+  machine=x86_64
+fi
+
+if [ "$(uname -m)" != "$machine" ]
+then
+  echo incorrect machine, expected $machine but got $(uname -m)
+  ok=false
+fi
+
+if [ "$user" != "" ]
+then
+  if [ "$(whoami)" != "$user" ]
+  then
+      echo incorrect user, expected $user but got $(whoami)
+      ok=false
+  fi
+
+  owner="$(stat -c '%U' "${BASH_SOURCE[0]}")"
+  if [ "$owner" != "$user" ]
+  then
+      echo incorrect owner, expected $user but got $owner
+  fi
+fi
+
+if [ "$home" != "" ]
+then
+    if [ "$HOME" != "$home" ]
+    then
+	echo incorrect home, expected $home but got $HOME
+	ok=false
+    fi
+fi
+if ! sudo -S ls < /dev/null > /dev/null
+then
+    echo "sudo command failed."
+    ok=false
+fi
+    
+if [ ! -x "$(which gcloud)" ]
+then
+    echo gcloud is missing
+    ok=false
+fi
+
+if [ ! -x "$(which firebase)" ]
+then
+    echo firebase is missing
+    ok=false
+fi
+
+# if [ ! -x "$(which flyctl)" ]
+# then
+#     if [ "$platform" = "linux/amd64" ]
+#     then
+# 	echo flyctl is missing on linux/amd64
+# 	ok=false
+#     fi
+# fi
+
+if [ ! -x "$(which aws)" ]
+then
+    echo aws is missing
+    ok=false
+fi
+
+if ! cd /tmp && git clone git@github.com:octocat/Hello-World
+then
+    echo git cannot clone via ssh
+    ok=false
+fi
+
+test "$ok" = "true"

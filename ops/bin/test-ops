@@ -1,0 +1,39 @@
+#!/bin/bash
+
+dir="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )"/.. &> /dev/null && pwd )"
+
+if ! docker run --rm hello-world | grep -q "Hello from Docker!"
+then
+    echo "docker hello-world failed."
+    exit 1
+fi
+
+ok=true
+
+if ! docker run --rm  -v "$dir:/app" alpine:3 sh -c 'apk add --update bash && bash -c "cd /app; . ./setup; bash -c \"cd /; ops dir\""' | egrep -q "^/app$"
+then
+    echo "bash ops failed"
+    docker run --rm  -v "$dir:/app" alpine:3 sh -c 'apk add --update bash && bash -c "cd /app; . ./setup; bash -c \"cd /; ops dir\""'
+    ok=false
+fi
+
+if ! docker run --rm  -v "$dir:/app" alpine:3 sh -c 'apk add --update bash zsh && zsh -c "cd /app; . ./setup; cd /; ops dir"' | egrep -q "^/app$"
+then
+    echo "zsh ops failed (subshell untested -- unsupported by zsh)."
+    ok=false
+fi
+
+if ! docker run --rm  -v "$dir:/app" alpine:3 sh -c 'apk add --update bash loksh && ksh -c "cd /app; . ./setup; cd /; ops dir"' | egrep -q "^/app$"
+then
+    echo "ksh ops failed (subshell untested -- unsupported by ksh)."
+    ok=false
+fi
+
+if [ $ok = true ]
+then
+    echo all tests passed
+else
+    echo some tests failed
+fi
+
+test $ok = true

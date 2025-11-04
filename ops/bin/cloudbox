@@ -1,0 +1,201 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]
+do
+    case "$1"
+    in
+	--test) test=true; shift;;
+	--platform) platform="$2"; shift; shift ;;
+	--dockerfile) dockerfile="$2"; shift; shift ;;	
+	--tag) tag="$2"; shift; shift ;;
+	--user) user="$2"; shift; shift ;;
+	--home) home="$2"; shift; shift ;;
+	--build)    build=true; shift;;
+	--help)     echo "usage: $0 [--platform linux/arm64|linux/amd64] [--tag <this> ] [--dockerfile Dockerfile.<this> ] [--user node ] [ --home /home/<user> ] [--build] [command ...]"; shift; exit 0;;
+	*) break;
+    esac
+done
+
+if [ ! -x "$(which docker)" ]
+then
+    echo "docker is not available in this shell"
+    exit 1
+fi
+
+if ! docker run --rm hello-world | grep -q "Hello from Docker!"
+then
+    echo "docker hello-world failed"
+    exit 1
+fi
+
+dir="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd)"
+extension="$(basename "${BASH_SOURCE[0]}")"
+if [ "$tag" = "" ]
+then
+    tag=$(basename "${BASH_SOURCE[0]}" | tr '[:upper:]' '[:lower:]')
+    tag="${tag// /_}"
+fi
+
+if [ "$docerfile" = "" ]
+then
+    dockerfile="$(cd "$(dirname "${BASH_SOURCE[0]}")"; pwd)/Dockerfile.$extension"
+fi
+
+if [ "$platform" = "" ]
+then
+    machine="$(uname -m)"
+    if ( uname -m | grep -q arm || uname -m | grep aarch)
+    then
+	platform=linux/arm64
+    else
+	platform=linux/amd64
+    fi
+fi
+
+docker_id() {
+    local tag="$1"
+    local id="$(docker image ls --format ':id:{{.ID}}:tag:{{.Repository}}:' | grep ":tag:$tag:" | cut -d: -f3)"
+    test "$id" != "" && echo $id
+}
+
+iso2sec() {
+    local iso="$1"
+    local trunc=$(echo "$iso" | cut -d. -f1)
+    if [ "$(uname)" = "Darwin" ]
+    then
+	date -j -f "%Y-%m-%dT%H:%M:%S" "$trunc" "+%s"
+    else
+	date --date="$trunc" "+%s"
+    fi
+}
+
+docker_timestamp() {
+    local id="$1"
+    if local iso="$(docker inspect --format '{{.Created}}' "$id")"
+    then
+	iso2sec "$iso"
+    else
+	echo 0
+    fi
+}
+
+modification_timestamp() {
+    if [ "$(uname)" = "Darwin" ]
+    then
+	stat -f "%m" "$1"
+    else
+	stat -c "%Y" "$1"
+    fi
+}
+
+if [ "$build" = "" ]
+then
+    build=false
+fi
+
+# build if this $tag has never been built
+if ! id="$(docker_id "$tag")"
+then
+    echo "building $dockerfile (no such tag)"
+    build=true
+fi
+
+# build if dockerfile has been modified since last build
+if [ $build != "true" ]
+then
+  built_time="$(docker_timestamp "$id")"
+  modification_time="$(modification_timestamp "$dockerfile")"
+
+  if [ "$built_time" -lt "$modification_time" ]
+  then
+      echo "rebuilding because $dockerfile changed since last build."
+      build=true
+  fi
+fi
+
+if [ $build = true ]
+then
+    if ! docker build --platform $platform --tag "$tag" --file "$dockerfile" "$dir"
+    then
+	echo "Build failed."
+	exit 1
+    fi
+fi
+
+if [ "$user" = "" ]
+then
+    user=node
+fi
+
+if [ "$home" = "" ]
+then
+    if [ "$user" != "root" ]
+    then
+	home="/home/$user"
+    else
+	home="/root"
+    fi
+fi
+
+CONTAINER_USER="$user"
+CONTAINER_HOME="$home"
+
+
+# work with repo in container
+if ! git config --get-all safe.directory | grep -q "^/repo$"
+then
+  git config --add safe.directory /repo
+fi
+
+# get the repo base directory
+REPO="$(cd "$(git rev-parse --show-toplevel)" && pwd)"
+
+EMAIL="$(git config --global user.email)"
+
+REPO_HOME="$REPO/private/home/$EMAIL"
+
+mkdir -p "$REPO_HOME"
+
+for cfg in .gnupg .ssh .config .gitconfig
+do
+    if [ ! -r "$REPO_HOME/$cfg" -a -r "$HOME/$cfg" ] ; then
+	cp -r "$HOME/$cfg" "$REPO_HOME/$cfg"
+    fi
+done
+
+# find the working directory relative to the repo directory
+if [ "$test" = true ]
+then
+    WORK="$dir"
+else
+    WORK="$(pwd)"
+fi
+
+if [ "$REPO" != "$WORK" ]
+then
+    WORK="${WORK#$REPO/}"
+else
+    WORK="."
+fi
+
+if [ "$user" != root ]
+then
+    # do not specify group - makes sudo fail
+    UOPT="-u 1000"
+else
+    UOPT="-u root"
+fi
+
+if [ "$test" = true ]
+then
+    if ! docker run --platform $platform $UOPT -v "$REPO_HOME:$CONTAINER_HOME" -v "$REPO:/repo" -w "/repo/$WORK" --rm -it "$tag" ./test-cloudbox-tests --platform $platform --user $user
+    then
+	echo "test $platform failed"
+	exit 1
+    else
+	echo "test $platform ok"
+	exit 0
+    fi
+else
+    docker run --platform $platform $UOPT -v "$REPO_HOME:$CONTAINER_HOME" -v "$REPO:/repo" -w "/repo/$WORK" --rm -it "$tag" "$@"
+fi

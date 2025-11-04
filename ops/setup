@@ -1,0 +1,21 @@
+#!/bin/echo source this file instead .
+
+if [ -n "$BASH_VERSION" ]
+then
+    eval 'ops() { local dir; dir="'"$( cd -- "$( dirname -- "${BASH_SOURCE[0]}"  )" &> /dev/null && pwd )"'"; local cmd; cmd="$1"; shift; "$dir/bin/$cmd" "$@"; }'
+    export -f ops
+    echo "ops cmd args... becomes \"$(ops dir)/bin/cmd\" args..."
+elif [ -n "$ZSH_VERSION" ]
+then
+    eval 'ops() { local dir; dir="'"$( cd -- "$( dirname -- "$0" )" >/dev/null 2>&1 && pwd )"'"; local cmd="$1"; shift; "$dir/bin/$cmd" "$@"; };'
+    echo "ops cmd args... becomes \"$(ops dir)/bin/cmd\" args..."
+    echo "Since functions cannot be exported to subshells in zsh, bash is recommended."
+elif [ -n "$KSH_VERSION" ]
+then
+    eval 'ops() { local dir; dir="'"$( cd -- "$( dirname -- "$0" )" >/dev/null 2>&1 && pwd )"'"; local cmd="$1"; shift; "$dir/bin/$cmd" "$@"; };'
+    echo "ops cmd args... becomes \"$(ops dir)/bin/cmd\" args..."
+    echo "Since functions cannot be exported to subshells in ksh, bash is recommended."
+else
+    echo "Unsupported shell.  Use bash (recommended), zsh, or ksh."
+    false
+fi

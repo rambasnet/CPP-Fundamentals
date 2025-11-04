@@ -1,0 +1,32 @@
+services:
+  container:
+    build:
+      context: ./ # Use the current directory as the build context
+      dockerfile: Dockerfile
+    image: ${IMAGE_NAME}
+    hostname: ${CONTAINER_NAME}
+    container_name: ${CONTAINER_NAME}
+    environment:
+      - REPO_NAME=${REPO_NAME}
+    working_dir: /home/user/${REPO_NAME}
+    volumes:
+      - ./:/home/user/${REPO_NAME}
+      - ${HOME}/.gitconfig:/home/user/.gitconfig
+      - ${HOME}/.ssh:/home/user/.ssh
+      - ${HOME}/.zsh_history:/home/user/.zsh_history
+      - ${HOME}/.kattisrc:/home/user/.kattisrc
+    cap_add:
+      - ALL
+    privileged: true # Grant full privileges to the container
+    ports:
+      - 8888:8888
+    command:
+      [
+        "bash",
+        "-c",
+        "sudo chown user --recursive /home/user && tail -f /dev/null",
+      ]
+
+networks:
+  default:
+    driver: bridge

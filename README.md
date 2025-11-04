@@ -9,7 +9,6 @@
 - pdf of each jupyter notebook chapter can be found in [pdfs](https://github.com/rambasnet/CPPFundamentals-Notebooks/tree/master/pdfs) folder
 - pdfs of lecture notes can be found in [notes](https://github.com/rambasnet/CPP-Fundamentals/tree/master/notes) folder
 
-
 ## Powerpoint slides
 
 - powerpoint slides and corresponding pdfs based on the lecutre notes are found in [slides](https://github.com/rambasnet/CPP-Fundamentals/tree/master/slides) folder
@@ -59,19 +58,21 @@ To run these notebooks interactively and save your work locally, you need the fo
 - install Miniconda: [https://conda.io/miniconda.html](https://conda.io/miniconda.html)
 - open a terminal/shell and run the following commands
 - create a virual environment to keep C++ specific installtions seperate from base installation
+- NOTE - xeus-ling doesn't work on Mac Silicon (M chips)
 
 ```bash
-    conda update conda
-    conda create -n cpp python=3.9
+    conda update conda -y
+    conda create -n cpp python=3.9 -y
+    conda install mamba -c conda-forge -y
     conda activate cpp
-    conda install -c conda-forge retrolab # jupyter notebook/retro
-    conda install -c conda-forge xeus-cling
+    mamba install -c conda-forge retrolab # jupyter notebook/retro
+    mamba install -c conda-forge xeus-cling
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
 
 - clone the repository locally once the tools are installed
-- open a Terminal and `cd` into this cloned repo folder and run `jupyter notebook`
+- open a Terminal and `cd` into this cloned repo folder and run `jupyter lab`
 
 ```bash
     cd <CPP Fundamentals repo folder>
@@ -92,7 +93,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 ## Demo programs and sample solutions to exercises
 
 - Jupyter Notebook doesn't run complete C++ program with main()
-- complete demo programs and example solutions to selected exercises are provided in [demos](https://github.com/rambasnet/CPP-Fundamentals/tree/master/demos) folder
+- complete demo programs and example solutions to selected exercises are provided in [demos](https://github.com/rambasnet/CPP-Fundamentals/tree/main/demos) folder
 - these programs need to be compiled using any C++ compiler (g++ recommended with C++11 or newer standard)
 
 ## Compiling and running C++ programs
@@ -104,14 +105,14 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ```bash
     cd demos/Ch...
-    g++ -g -Wall -std=c++17 -o programName inputFile.cpp
+    g++ -g -Wall -std=c++17 -o program_name input_file.cpp
     ./programName
 ```
 
 ### Compiling with Make program
 
 - see GNU Make: [https://www.gnu.org/software/make/](https://www.gnu.org/software/make/)
-- create a Makefile in the project folder; see `makefile_demos` folder for examples
+- create a Makefile in the project folder; see `demos/makefiles` folder for examples
 - once the Makefile is created; run the following commands on a Terminal
 - `cd` into the project folder with the Makefile; compile and run the program using make command
 

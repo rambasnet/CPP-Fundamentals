@@ -1,0 +1,73 @@
+FROM --platform=${TARGETPLATFORM} node:18
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+
+#
+# install gcloud tools
+#
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+     apt-transport-https \
+     build-essential \
+     ca-certificates \
+     curl \
+     cmake \
+     git \
+     git-crypt \
+     gnupg \
+     less \
+     mandoc \
+     openjdk-17-jdk \
+     openssl \
+     openssh-server \
+     python3 \
+     python3-pip \
+     python3-venv \     
+     sudo \
+     uuid-runtime
+
+RUN sed -i- -e 's/ALL=(ALL:ALL) ALL/ALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
+# RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN usermod -a -G sudo node
+
+#
+# https://www.educative.io/answers/how-to-install-google-cloud-cli-on-debian-ubuntu
+#
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    google-cloud-cli
+
+#
+# Use yarn to install firebase tools
+#
+RUN yarn global add firebase-tools
+
+RUN chown -R node:node /usr/local/share/.config
+RUN chown -R node:node /usr/local/bin
+
+USER node
+WORKDIR /home/node
+
+#
+# Azure install-in-a-box
+#
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+# #
+# # fly only works on linux/amd64
+# #
+# RUN if [ `uname -m` = x86_64 ] ; \
+#     then \
+#       curl -L https://fly.io/install.sh | sh ; \
+#       echo  export PATH='"'/home/node/.fly/bin:'${PATH}''"' >> \
+#         /home/node/.bashrc; \
+#     fi
+
+#
+# AWS
+#
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    sudo ./aws/install
+
+CMD bash
