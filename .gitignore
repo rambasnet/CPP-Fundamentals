@@ -34,3 +34,7 @@
 .DS_Store
 .ipynb_checkpoints/
 .vscode/
+venv/
+__pycache__/
+*.pyc
+*.pyo
