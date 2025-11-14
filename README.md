@@ -58,7 +58,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ```bash
     conda update conda -y
-    conda create -n cpp python=3.10 -y
+    conda create -n cpp python=3.12 -y
     conda install mamba -c conda-forge -y
     conda activate cpp
     mamba install -c conda-forge retrolab # jupyter notebook/retro
