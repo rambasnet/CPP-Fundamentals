@@ -58,11 +58,11 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ```bash
     conda update conda -y
-    conda create -n cpp python=3.12 -y
-    conda install mamba -c conda-forge -y
+    conda create -n cpp python=3.12 -c conda-forge -y
+    source activate cpp
     conda activate cpp
-    mamba install -c conda-forge retrolab # jupyter notebook/retro
-    mamba install -c conda-forge xeus-cling
+    conda install -c conda-forge retrolab -y # jupyter notebook/retro
+    conda install -c conda-forge xeus-cling -y # C++ kernel
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
@@ -84,9 +84,11 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda deactivate
 ```
 
-## NOTE: Use C++11 or C++14 kernels.
+## VS Code setup for Jupyter Notebooks
 
-- C++17 kernel is not working as of xeus-cling version 0.13 (August 2022).
+- uninstall/install Jupyter and Python extensions for VS Code
+- open any notebook file in VS Code; select the xeus-cling C++ kernel from
+- pick C++17 from Jupyter Kernel selection dropdown
 
 ## Demo programs and sample solutions to exercises
 
