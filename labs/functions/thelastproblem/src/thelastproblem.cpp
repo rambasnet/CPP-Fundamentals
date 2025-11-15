@@ -16,37 +16,28 @@ Algorithm:
 #include <cstdio>
 #include <cassert>
 #include <string>
-using namespace std;
+#include "helper.h"
 
-// Function prototypes
-// Function finds the answer from given string and restuns the result as a string
-string twilight(const string&);
-// Function reads the data from standard input and returns the data
-string readData();
+using namespace std;
 
 int main()
 {
 	string input = "input";
 	// step1. read data
-	input = readData();
+	input = read_data();
 	// FIXME1: Call twilight function passing input as an argument
 	// store the returned result into answer variable
-	string answer = input;
+	string answer = twilight(input);
 	// print answer
 	printf("%s\n", answer.c_str());
 	return 0;
 }
 
 // Function implementation
-string readData() {
+string read_data()
+{
 	string input;
-	// FIXME2: using getline reade and store the data into input variable
+	// FIXME2: using getline read and store the data into input variable
 	// FIXME3 return input data
 	return "FIXME";
 }
-
-// Function implementation
-string twilight(const string& input) {
-	string ans = "Thank you, " + input + ", and farewell!";
-	return ans;
-} 

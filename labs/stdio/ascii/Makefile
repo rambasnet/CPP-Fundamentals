@@ -1,6 +1,7 @@
 # compiler name
 CXX = g++
 # g++ compiler flags
+# -c: compile only, do not link
 # -g: adds debugging information to the executable file
 # -Wall: turns on most, but not  all, compiler warnings
 # -std=c++17: uses c++17 standard
@@ -11,7 +12,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = stdio.exe #FIXME
 
 # list .cpp files separated by space
-CPPFILES = main.cpp #FIXME
+CPPFILES = main.cpp util.cpp #FIXME
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file
