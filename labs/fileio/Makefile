@@ -11,7 +11,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = fileio.exe
 
 # list .cpp files separated by space
-CPPFILES = fileio.cpp
+CPPFILES = src/fileio.cpp
 
 # make all rule/default rule that'll be run when we run "make"
 # first compile each file to object file

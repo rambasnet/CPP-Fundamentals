@@ -11,14 +11,17 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = thelastproblem.exe
 
 # list .cpp files separated by space
-CPPFILES = src/thelastproblem.cpp src/helper.cpp
+
+SRC = $(wildcard src/*.cpp)
+TESTS = $(wildcard tests/*.cpp)
 
 # default rule that'll be run when we run "make"
 # first compile each file to object files
 # then link all objects files to a single binary program
 all:
-	$(CXX) $(CXXFLAGS) $(CPPFILES)
-	$(CXX) -o $(PROGRAM) *.o
+	$(CXX) $(CXXFLAGS) $(SRC)
+	$(CXX) -o $(PROGRAM) *.o	
+
 
 run:
 	./$(PROGRAM)
@@ -26,7 +29,10 @@ run:
 # make clean rule
 # delete object and binary files
 clean:
-	rm -f $(PROGRAM) *.o *.out
+	find . -type f -name "*.out" -delete
+	find . -type f -name "*.o" -delete
+	find . -type f -name ".exe" -delete
+	find . -type d -name "*.dSYM" -exec rm -r {} +
 
 test:
 	cat data/1.in | ./$(PROGRAM) | diff - data/1.ans

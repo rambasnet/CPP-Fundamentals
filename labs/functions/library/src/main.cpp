@@ -4,7 +4,7 @@ Updated By: FIXME
 CSCI 111
 Date: FIXME
 
-Program prompts user to enter a decimal number. It then finds various trig and mathematical values 
+Program prompts user to enter a decimal number. It then finds various trig and mathematical values
 of the number using library functions and prints the results using cstdio's printf function.
 
 Algorithm:
@@ -17,6 +17,8 @@ Algorithm:
 #include <cstdio>
 #include <cassert>
 #include <cmath> // various math functions: https://cplusplus.com/reference/cmath
+#include "my_math.h"
+
 using namespace std;
 
 int main()
@@ -32,15 +34,12 @@ int main()
     // Find floor of the number
     result = floor(number);
     printf("Floor(%f) = %.1f\n", number, result);
-    //FIXME3 - Using library function, find and print the square root of the number upto 2 decimal points
-    //FIXME4 - Using library function, find and print the cube root of the number upto 2 decimal points
-    //FIXME5 - Using library function, find and print the 10th power of the number upto 2 decimal points
-    //FIXME6 - Using library function, find and print the log_2 of the number upto 2 decimal points
-    //FIXME7 - Using library function, find and print the log_10 of the number upto 2 decimal points
-    //FIXME8 - Convert number into radians and store into a variable
-    //FIXME9 - Using library function, find and print the sine of the radian value in FIXME 8 upto 2 decimal points
-    //FIXME10 - Using library function, find and print the cosine of the radian value in FIXME 8 upto 2 decimal points
-
+    // FIXME4 - Find square root of the number and print the result with 4 decimal points
+    // FIXME5 - Find log base two of the number and print the result with 3 decimal points
+    // Pretend the number is in degree, convert it to radian and print the result with 5 decimal points
+    // FIXME6 - Find sine of the number (in radian) and print the result with 5 decimal points
+    // FIXME7 - Find cosine of the number (in radian) and print the result
+    // FIXME8 - Find power of ten of the number and print the result with no decimal points
     cin.ignore(1000, '\n');
     cout << "Enter to quit the program: ";
     cin.get();

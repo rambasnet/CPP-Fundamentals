@@ -2,13 +2,14 @@ COMPILER = g++
 
 COMPILER_FLAGS = -c -g -Wall -std=c++17
 
-PROGRAM_NAME =  func_prototype.exe
+PROGRAM_NAME =  assert.exe
 
-CPP_FILES =  func_prototype.cpp
+CPP_FILES =  assertdebug.cpp
 
 build:
 	$(COMPILER) $(COMPILER_FLAGS) $(CPP_FILES)
 	$(COMPILER) -o $(PROGRAM_NAME) *.o
+
 
 run:
 	./$(PROGRAM_NAME)

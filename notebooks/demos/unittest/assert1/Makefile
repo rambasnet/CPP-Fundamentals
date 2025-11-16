@@ -1,11 +1,10 @@
-
 CXX = g++
 
 CXXFLAGS = -c -g -Wall -std=c++17
 
-PROGRAM = rectangle.exe
+PROGRAM = unittest.exe
 
-CPPFILES = main.cpp
+CPPFILES = unittesting.cpp
 
 all:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)

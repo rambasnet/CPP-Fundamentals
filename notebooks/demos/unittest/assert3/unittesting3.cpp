@@ -15,7 +15,8 @@ void test_product(void);
 
 const double tolerance = 1e-1;
 
-int main() {
+int main()
+{
   // call test function
   test_product();
   // FIXME: make the program useable by any user...
@@ -23,13 +24,15 @@ int main() {
 }
 
 // function multiplies given two numbers and finds the product
-// stores the result in product reference variable 
-void product(float n1, float n2, float &result) {
+// stores the result in product reference variable
+void product(float n1, float n2, float &result)
+{
   result = n1 * n2;
   // no return!
 }
 
-void test_product(void) {
+void test_product(void)
+{
   float answer;
   float num1, num2;
   num1 = 10.0;
@@ -43,12 +46,12 @@ void test_product(void) {
   // let's print the answer to see what it is
   // let's print some decimal values
   cerr << "answer = " << fixed << setprecision(6) << answer << endl;
-  assert(fabs(answer-expected) <= tolerance);
+  assert(fabs(answer - expected) <= tolerance);
   // the following assert will fail!
   // try: https://www.wolframalpha.com/input/?i=100.1234+*+1199.14556
   // try: https://www.google.com/search?q=100.1234*1199.14556&oq=100.1234*1199.14556
   // expected answer is provided by google and wolfram alpha
   assert(answer == expected);
 
-  cerr << "all test cases passed!\n"; 
+  cerr << "all test cases passed!\n";
 }

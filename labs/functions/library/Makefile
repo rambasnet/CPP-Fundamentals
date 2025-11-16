@@ -11,7 +11,7 @@ CXXFLAGS = -c -g -Wall -std=c++17
 PROGRAM = library.exe
 
 # list .cpp files separated by space
-CPPFILES = main.cpp
+CPPFILES = src/main.cpp src/my_math.cpp
 
 # make build rule/default rule that'll be run when we run "make"
 # first compile each file to object file
@@ -22,9 +22,17 @@ all:
 
 run:
 	./$(PROGRAM)
+
+unittest:
+	$(CXX) tests/test_my_math.cpp src/my_math.cpp -o test_my_math.exe
+	./test_my_math.exe
+	@echo "All tests executed successfully!"
 	
 # make clean rule
 # delete object and binary files
 clean:
-	rm -f $(PROGRAM) *.o
+	find . -type f -name "*.out" -delete
+	find . -type f -name "*.o" -delete
+	find . -type f -name ".exe" -delete
+	
 	
