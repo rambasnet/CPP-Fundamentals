@@ -8,6 +8,12 @@ private:
     double width;
 
 public:
+    // Default constructor
+    Rectangle()
+    {
+        this->length = 1.0;
+        this->width = 1.0;
+    }
     // Constructor
     Rectangle(double l, double w)
     {

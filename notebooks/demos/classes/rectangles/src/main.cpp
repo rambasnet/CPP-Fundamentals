@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     // Create a Rectangle object
-    Rectangle rect(5.0, 3.0);
+    Rectangle rect;
     // Display the rectangle's properties
     cout << "Area: " << rect.area() << endl;
     cout << "Perimeter: " << rect.perimeter() << endl;
