@@ -1,6 +1,6 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
-TARGET = point.exe
+TARGET = rectangle.exe
 SRCS = $(wildcard src/*.cpp)
 
 all: $(TARGET)
@@ -12,8 +12,3 @@ run: $(TARGET)
 
 clean:
 	rm -f *.exe
-
-unittest: $(TARGET)
-	$(CXX) $(CXXFLAGS) -o test_point.exe tests/test_point.cpp src/point.cpp
-	./test_point.exe
-
