@@ -1,0 +1,10 @@
+{
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "chat.agent.enabled": false,
+  "files.autoSave": "onFocusChange"
+}
