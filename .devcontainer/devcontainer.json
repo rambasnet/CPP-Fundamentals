@@ -2,7 +2,7 @@
   "name": "CPP Fundamentals",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "container",
-  "workspaceFolder": "/home/user/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/home/user/cs1",
   "shutdownAction": "stopCompose",
   "postStartCommand": "bash -lc 'if command -v code >/dev/null 2>&1; then code --uninstall-extension GitHub.copilot || true; code --uninstall-extension GitHub.copilot-chat || true; fi'",
   "customizations": {
