@@ -26,7 +26,7 @@ using ui = unsigned int;
 
 int main(int argc, char *argv[])
 {
-  ios_base::sync_with_stdio(false);
+  ios::sync_with_stdio(false);
   cin.tie(NULL);
 
   // create a dynamic unsigned int array of size 10 to store numbers
@@ -39,5 +39,6 @@ int main(int argc, char *argv[])
   update_flags(nums, flags, 10);
   // FIXME3 - call count_flags function passing proper
   // argument and print the result
+  
   return 0;
 }
