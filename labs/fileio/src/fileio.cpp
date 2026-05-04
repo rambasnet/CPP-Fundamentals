@@ -14,6 +14,7 @@ int read_data(int *numbers, const string input_file)
     // read the data until eof marker and store each num into numbers array
     // return the number of integers read from the file or the first integer
     // in the file which represents the number of integers to read
+    
     int array_len = 0;
     return array_len;
 }
@@ -27,6 +28,7 @@ void write_data(const int *numbers, size_t array_len)
     2. Store and use the file name to open the file in write mode
     3. Write output as shown in output.txt file with proper formatting using iomanip
     */
+    
 }
 
 int find_max(const int *nums, size_t array_len)
