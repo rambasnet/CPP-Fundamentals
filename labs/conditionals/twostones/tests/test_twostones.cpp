@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME: adjust the path as needed
+#include <doctest.h> // FIXME: adjust the path as needed
 #include "../src/twostones.hpp"
 
 TEST_CASE("Testing odd_or_even function")

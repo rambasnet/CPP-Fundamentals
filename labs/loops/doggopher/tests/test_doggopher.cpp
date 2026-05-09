@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME: adjust the path as needed
+#include <doctest.h> // FIXME: adjust the path as needed
 #include "../src/doggopher.hpp"
 
 TEST_CASE("Testing distance function")

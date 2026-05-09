@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME if the path is different
+#include <doctest.h> // FIXME if the path is different
 #include "../includes/util.hpp"
 
 TEST_CASE("Testing util::find_email function")

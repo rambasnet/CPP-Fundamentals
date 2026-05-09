@@ -8,7 +8,7 @@ int main()
     Point p1(3.0, 4.0);
     Point p2(1.0, 2.0);
     Point p3 = p1 + p2;
-
+    cout << "Point1 = " << p1 << " point 2 == " << p2 << endl;
     cout << p3 << endl;
     Point p4(3.0, 4.0);
     if (p1 == p4)

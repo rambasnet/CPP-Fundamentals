@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h"
+#include <doctest.h>
 #include "../src/morsecode.h"
 
 TEST_CASE("Testing convert_to_morse function")

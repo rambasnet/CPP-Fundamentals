@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME4: adjust the path as needed
+#include <doctest.h> // FIXME4: adjust the path as needed
 #include "../src/util.hpp"
 
 TEST_CASE("1 - Testing convert_miles_to_feet function")

@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME: adjust the path as needed
+#include <doctest.h> // FIXME: adjust the path as needed
 #include "../src/dig.h"
 
 TEST_CASE("Testing calculate_rate_per_worker function")

@@ -2,7 +2,7 @@
 #include <sstream>
 #include <streambuf>
 
-#include "../../../doctest/doctest.h" // FIXME: adjust the path as needed
+#include <doctest.h> // FIXME: adjust the path as needed
 #include "../src/timeloop.h"
 
 TEST_CASE("Testing read_number function")

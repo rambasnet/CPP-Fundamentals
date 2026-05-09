@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME - update the path to doctest.h as per your lab structure
+#include <doctest.h> // FIXME - update the path to doctest.h as per your lab structure
 #include "../src/hailstone.hpp"
 
 TEST_CASE("Testing hailstone::h_sum function")

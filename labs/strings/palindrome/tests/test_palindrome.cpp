@@ -1,6 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
-#include "../../../doctest/doctest.h"
+#include <doctest.h>
 #include "../includes/palindrome.hpp"
 
 TEST_CASE("Testing palindrome::naive function")

@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h"
+#include <doctest.h>
 #include "../src/pokerhand.hpp"
 
 TEST_CASE("Test poker hand")

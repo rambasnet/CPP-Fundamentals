@@ -19,12 +19,12 @@ double Point::distance_from_origin() const
 // overload + operator to add two points
 Point Point::operator+(const Point &p) const
 {
-    return Point((*this->x + *p.x), (*this->y + *p.y));
+    return Point((*this->x + *(p.x)), (*this->y + *p.y));
 }
 // overload == operator to compare two points
 bool Point::operator==(const Point &p) const
 {
-    return (*this->x == *p.x) && (*this->y == *p.y);
+    return (*x == *p.x) && (*this->y == *p.y);
 }
 
 // Destructor
@@ -37,5 +37,6 @@ Point::~Point()
 // overload << operator to print point
 std::ostream &operator<<(std::ostream &os, const Point &p)
 {
-    return os << "(" << *(p.x) << ", " << *(p.y) << ")";
+    os << "(" << *(p.x) << ", " << *(p.y) << ")";
+    return os;
 }

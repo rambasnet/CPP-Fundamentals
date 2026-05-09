@@ -1,5 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../../doctest/doctest.h" // FIXME7: adjust the path as needed
+#include <doctest.h> // FIXME7: adjust the path as needed
 #include "../src/utils.h"
 
 TEST_CASE("1 - Testing total_stragglers function")
