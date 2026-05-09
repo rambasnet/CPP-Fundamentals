@@ -1,22 +1,24 @@
-# CS1 Lab - Pointers, Namespace, Enum and Unittest
+# CS1 Lab - Textual User Interface (TUI) Menu with ncurses
 
 Possible Points: 100
 
-Write a C++ program to perform basic math operations using namespaces and enum types. Read the problem statement carefully to design a correct solution.
+Write a C++ program to perform basic math operations using a textual user interface (TUI) menu. Run the program in the terminal and use the arrow keys to navigate through the menu and perform operations. Read the problem statement carefully to design a correct solution.
 
 ## Type and fix the code
 
 1. Create the directory structure similar to this lab as shown below:
 
 ```bash
-pointers/
-├── includes/
-│   └── utils.h
+tui_menu/
+├── include/
+│   └── my_math.hpp
+│   └── tui.hpp
 ├── src/
-│   └── utils.cpp
 │   └── main.cpp
+│   └── my_math.cpp
+│   └── tui.cpp
 ├── tests/
-│   └── test_utils.cpp
+│   └── test_mymath.cpp
 ├── Makefile
 └── README.md
 └── screenshots/
@@ -30,13 +32,12 @@ pointers/
 - Test the program mannually by running the executable file.
 
 ```bash
-make all
+make run
 ```
 
 ## Unit testing with Doctest
 
-1. Create **doctest** folder in the **labs** root folder and copy the `doctest.h` file into it from [https://github.com/doctest/doctest/tree/master/doctest](https://github.com/doctest/doctest/tree/master/doctest)
-2. Set the doctest rule in the Makefile and run the tests. Fix any issues if found.
+1. Set the doctest rule in the Makefile and run the tests. Fix any issues if found.
 
 ```bash
 make doctest
