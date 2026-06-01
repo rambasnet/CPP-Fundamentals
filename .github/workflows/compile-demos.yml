@@ -1,0 +1,55 @@
+name: Compile Demos
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install g++
+      run: |
+        apt-get update
+        apt-get install -y g++
+
+    - name: Compile conditionals/rectangle
+      run: |
+        cd notebooks/demos/conditionals/rectangle
+        g++ -std=c++17 -Wall -o rectangle.exe main.cpp
+
+    - name: Compile loops/rectangle
+      run: |
+        cd notebooks/demos/loops/rectangle
+        g++ -std=c++17 -Wall -o rectangle.exe main.cpp
+
+    - name: Compile pointers/rectangle
+      run: |
+        cd notebooks/demos/pointers/rectangle
+        g++ -std=c++17 -Wall -o rectangle.exe main.cpp
+
+    - name: Compile functions/rectangle
+      run: |
+        cd notebooks/demos/functions/rectangle
+        g++ -std=c++17 -Wall -o rectangle.exe main.cpp
+
+    - name: Compile classes/points
+      run: |
+        cd notebooks/demos/classes/points
+        g++ -std=c++17 -Wall -o point.exe src/main.cpp src/point.cpp
+
+    - name: Compile stdio/demo1
+      run: |
+        cd notebooks/demos/stdio/demo1
+        g++ -std=c++17 -Wall -o demo1.exe main.cpp
+
+    - name: Compile maps/letter_frequency
+      run: |
+        cd notebooks/demos/maps/letter_frequency
+        g++ -std=c++17 -Wall -o letter_frequency.exe main.cpp
