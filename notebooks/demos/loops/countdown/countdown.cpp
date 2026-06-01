@@ -1,3 +1,24 @@
+// Expected Output (default - while loop countdown from 10):
+// ============================================================
+// While Loop Countdown demo...
+// Starting countdown from 10
+// [counts down 10, 9, 8, ..., 1, 0 then...]
+// Blast Off!!!
+// #$%@$#RAET$#%#$%EDFAsdf$^@^@#$^FD
+// ^%$#$@#$^&$^%&$%^#%#$!@*&)!@!@#!DFGSFG%^$GAG
+// #$%@$#RAET$#%#$%EDFA$#%@#GAGQ!#%#FD
+
+// Expected Output (with "for" argument):
+// ============================================================
+// For Loop Countdown demo...
+// Starting countdown from 10
+// [counts down 10, 9, 8, ..., 1, 0 then...]
+// Blast Off!!!
+// [same explosion messages]
+
+// Run with: ./countdown.exe for   (uses for loop)
+// Run with: ./countdown.exe        (uses while loop, default)
+
 // A Simple count down to Blast Off program
 // Demonstrates count down using both For and While loops
 

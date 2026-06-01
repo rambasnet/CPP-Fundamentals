@@ -1,0 +1,28 @@
+# Repo State
+- upstream_url: https://github.com/rambasnet/CPP-Fundamentals
+- fork_url: https://github.com/Arvuno/CPP-Fundamentals
+- local_path: /root/mid-pr-pack-1/repos/CPP-Fundamentals
+- default_branch: main
+- archived: no
+- license: MIT
+- primary_language: HTML (educational content)
+- package_manager: (none detected - conda environment.yml present for Jupyter setup)
+- build_system: Make (for demos), plain HTML for notebooks
+- contribution_guidelines_found: no (CONTRIBUTING.md does not exist; README has basic contributing info)
+- fork_created: yes
+- cloned: yes
+- upstream_remote_added: yes
+- baseline_tests_run: (will be done later)
+- baseline_status: (will be filled after testing)
+- issue_triage_done: no
+- quality_audit_done: no
+- candidate_backlog_done: no
+- selected_3_pr_plan_done: no
+- branches_created: 0
+- branches_pushed: 0
+- upstream_prs_opened: 0
+- upstream_pr_urls: []
+- prs_waiting_review: 0
+- blocked:
+- blocker_reason:
+- next_action:

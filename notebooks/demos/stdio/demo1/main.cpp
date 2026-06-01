@@ -1,3 +1,13 @@
+// Expected Output (input: "3.5, 4.5" followed by "Alice\n"):
+// ============================================================
+// Enter two numbers separated by comma: 3.5 + 4.5 = 8.00
+// Hi, what's your name?: Nice meeting you, Alice
+// Good bye!
+// Press enter to quit the program...
+
+// Known Issue: getline after >> leaves '\n' in buffer - name will be empty
+// unless cin >> ws is uncommented at line 21.
+
 // demonstrates standard input and output
 // specifically >> and getline
 // compile and run the program as it is

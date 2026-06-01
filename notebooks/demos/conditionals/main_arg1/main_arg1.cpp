@@ -1,3 +1,15 @@
+// Expected Output (run with: ./main_arg1.exe hello "john smith" 10):
+// ============================================================
+// total argument count = 4
+// value at argv[0] = ./main_arg1.exe
+// value at argv[1] = hello
+// value at argv[2] = john smith
+// value at argv[3] = 10
+
+// When run with "test" as second argument:
+// ============================================================
+// running test function!
+
 // program demonstrates passing arguments to main
 // TODO: compile the program 
 // run the program with arguments
