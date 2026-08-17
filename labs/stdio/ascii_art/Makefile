@@ -18,8 +18,9 @@ CPPFILES = main.cpp util.cpp #FIXME
 # first compile each file to object file
 # then make a single binary/executable program
 
+#.PHONY: all build clean run
 
-all: build clean
+all: build
 
 build:
 	$(CXX) $(CXXFLAGS) $(CPPFILES)
