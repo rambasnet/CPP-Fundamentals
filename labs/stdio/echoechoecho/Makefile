@@ -6,4 +6,4 @@ build:
 	g++ -o echoechoecho.exe *.o
 
 # FIXME 7
-# Write at at least 3 more rules: all, run, and clean
+# Write at least 3 more rules: all, run, and clean
