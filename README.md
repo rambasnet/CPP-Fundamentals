@@ -60,7 +60,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 - install Miniconda: [https://conda.io/miniconda.html](https://conda.io/miniconda.html)
 - open a terminal/shell and run the following commands
 - create a virtual environment to keep C++ specific installations separate from base installation
-- NOTE - xeus-cling C++ kernel doesn't work on Mac Silicon (M chips) as of Nov. 4 2025
+- **NOTE that xeus-cling C++ kernel doesn't work on Mac Silicon (M chips) as of Sep. 4 2026**
 
 ```bash
     python -m pip install ipykernel
