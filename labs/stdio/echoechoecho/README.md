@@ -73,7 +73,7 @@ kattis submit
 
 ## Submission
 
-1. Create at least 3 screenshots showing your local tests (kattis test) and the (kattis submit) final **Accept** verdict and save them to the **screenshots** folder. (10 points).
+1. Create at least 2 screenshots showing your local tests (kattis test) and the (kattis submit) final **Accept** verdict and save them to the **screenshots** folder. (10 points).
 2. Update the `README.md` file (10 points) with self-grade as shown here: https://github.com/rambasnet/csXXX-rbasnet
 
 ```bash
