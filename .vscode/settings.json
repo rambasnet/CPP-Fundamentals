@@ -10,5 +10,6 @@
     "shellscript": false
   },
   "chat.agent.enabled": false,
-  "files.autoSave": "onFocusChange"
+  "files.autoSave": "onFocusChange",
+  "markdown.validate.enabled": true
 }
