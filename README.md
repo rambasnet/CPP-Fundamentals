@@ -31,18 +31,19 @@ In order to learn coding, it's very important to actually type code on your own 
 ```bash
     python -m pip install ipykernel
     python -m ipykernel install --user
-    conda install -c conda-forge xeus-cling -y # C++ kernel
+    conda install -c conda-forge::xeus-cpp -y # C++ kernel
+    jupyter kernelspec list # list all the kernels installed
 ```
 
 - open any notebook file in the Codespace; select the xeus-cling C++ kernel from Jupyter Kernel selection dropdown
 
-### On a local system
+### On a persoanl computer
 
 To run these notebooks interactively and save your work locally, you need the following environment and programs installed.
 
 - Linux, MacOS or WSL (Ubuntu App) on Windows
 - Jupyter Notebook - learning environment
-- xeus-cling kernel - to execute C++ code in Jupyter notebook
+- xeus-cpp kernel - to execute C++ code in Jupyter notebook
 - git client - to use version control
 - g++ compiler - to compile and run sample codes, solve exercises and labs
 - VS Code or any Code Editor to write C++ programs
@@ -66,12 +67,12 @@ To run these notebooks interactively and save your work locally, you need the fo
     python -m pip install ipykernel
     python -m ipykernel install --user
     conda update conda -y
-    conda create -n cpp python=3.12 -c conda-forge -y
+    conda create -n cpp python=3.14 -c conda-forge -y
     conda init
     conda activate cpp
     # if you cpp not activated, close and open the Termainl
-    conda install -c conda-forge retrolab -y # jupyter notebook/retro
-    conda install -c conda-forge xeus-cling -y # C++ kernel
+    conda install -c conda-forge::retrolab -y # jupyter notebook/retro
+    conda install -c conda-forge::xeus-cpp -y # C++ kernel
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
