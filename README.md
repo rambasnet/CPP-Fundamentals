@@ -115,7 +115,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 ```bash
     cd demos/Ch...
     g++ -g -Wall -std=c++17 -o program_name input_file.cpp
-    ./programName
+    ./program_name
 ```
 
 ### Compiling with Make program
