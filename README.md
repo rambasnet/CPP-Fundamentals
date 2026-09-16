@@ -31,7 +31,7 @@ In order to learn coding, it's very important to actually type code on your own 
 ```bash
     python -m pip install ipykernel
     python -m ipykernel install --user
-    conda install -c conda-forge::xeus-cpp -y # C++ kernel
+    conda install conda-forge::xeus-cpp -y # C++ kernel
     jupyter kernelspec list # list all the kernels installed
 ```
 
@@ -71,8 +71,8 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda init
     conda activate cpp
     # if you cpp not activated, close and open the Termainl
-    conda install -c conda-forge::retrolab -y # jupyter notebook/retro
-    conda install -c conda-forge::xeus-cpp -y # C++ kernel
+    conda install conda-forge::retrolab -y # jupyter notebook/retro
+    conda install conda-forge::xeus-cpp -y # C++ kernel
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
@@ -141,7 +141,7 @@ To run these notebooks interactively and save your work locally, you need the fo
 
 ## Content contributors
 
-Ram Basnet, PhD, (rbasnet@coloradomesa.edu) Professor of Computer Science, Colorado Mesa University
+Ram Basnet, PhD, (mailto://rbasnet@coloradomesa.edu) Professor of Computer Science, Colorado Mesa University
 
 ## Contributing
 
