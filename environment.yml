@@ -3,7 +3,7 @@ channels:
     - conda-forge
     - defaults
 dependencies:
-    - xeus-cling
+    - xeus-cpp
     - python
     - pip:
         - -r requirements.txt
