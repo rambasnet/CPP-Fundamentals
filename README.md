@@ -35,7 +35,7 @@ In order to learn coding, it's very important to actually type code on your own 
     jupyter kernelspec list # list all the kernels installed
 ```
 
-- open any notebook file in the Codespace; select the xeus-cling C++ kernel from Jupyter Kernel selection dropdown
+- open any notebook file in the Codespace; select the C++ kernel from Jupyter Kernel selection dropdown
 
 ### On a persoanl computer
 
@@ -96,8 +96,8 @@ To run these notebooks interactively and save your work locally, you need the fo
 ## VS Code setup for Jupyter Notebooks
 
 - uninstall/install Jupyter and Python extensions for VS Code
-- open any notebook file in VS Code; select the xeus-cling C++ kernel from
-- pick C++17 from Jupyter Kernel selection dropdown
+- open any notebook file in VS Code
+- pick the most recent C++ kernel from Jupyter Kernel selection dropdown
 
 ## Demo programs and sample solutions to exercises
 
