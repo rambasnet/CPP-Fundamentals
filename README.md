@@ -70,8 +70,8 @@ To run these notebooks interactively and save your work locally, you need the fo
     conda init
     conda activate cpp
     # if you cpp not activated, close and open the Termainl
-    conda install conda-forge::retrolab -y # jupyter notebook/retro
-    conda install conda-forge::xeus-cpp -y # C++ kernel
+    conda install -c conda-forge retrolab -y # jupyter notebook/retro
+    conda install -c onda-forge xeus-cpp -y # C++ kernel
 ```
 
 #### Run Jupyter notebook or retrolab on a local system
