@@ -37,7 +37,7 @@ In order to learn coding, it's very important to actually type code on your own 
 
 - open any notebook file in the Codespace; select the C++ kernel from Jupyter Kernel selection dropdown
 
-### On a persoanl computer
+### On a personal computer
 
 To run these notebooks interactively and save your work locally, you need the following environment and programs installed.
 
