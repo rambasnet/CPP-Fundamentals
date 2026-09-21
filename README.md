@@ -31,7 +31,7 @@ In order to learn coding, it's very important to actually type code on your own 
 ```bash
     python -m pip install ipykernel
     python -m ipykernel install --user
-    conda install conda-forge::xeus-cpp -y # C++ kernel
+    conda install -c conda-forge xeus-cpp -y # C++ kernel
     jupyter kernelspec list # list all the kernels installed
 ```
 
