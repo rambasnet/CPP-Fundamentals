@@ -27,33 +27,37 @@ int main(int argc, char *argv[])
 
     OPERATION oper;
 
-    // FIXME2: Add do... while loop to continue the program until the user wants to quit
-    // FIXME3: call clear function defined above to clear the screen
-    show_menu();
-    cin >> *input;
-    oper = get_operation(*input);
-    switch (oper)
+    // FIXME2: Add do... while loop to continue the program until the user wants to quit # fixed
+    do
     {
-    case ADD:
-        cout << "Enter two whole numbers separated by space: ";
-        // store the data by dereferencing pointers
-        cin >> *num1 >> *num2 >> ws;
-        // passing pointers to find_sum function
-        *sum = find_sum(num1, num2);
-        printf("%lld + %lld = %lld\n", *num1, *num2, *sum);
-        break;
-    case MULTIPLY:
-        cout << "Enter two whole numbers separated by space: ";
-        // store the data by dereferencing pointers
-        cin >> *num1 >> *num2 >> ws;
-        // passing dereferences (actural addresses) of num1 and num2
-        *prod = find_product(*num1, *num2);
-        printf("%lld * %lld = %lld\n", *num1, *num2, *prod);
-        break;
-    // FIXME4: complete the rest of the cases to perform other operations
-    default:
-        break;
-    }
+        // FIXME3: call clear function defined above to clear the screen
+        show_menu();
+        cin >> *input;
+        oper = get_operation(*input);
+        switch (oper)
+        {
+        case ADD:
+            cout << "Enter two whole numbers separated by space: ";
+            // store the data by dereferencing pointers
+            cin >> *num1 >> *num2 >> ws;
+            // passing pointers to find_sum function
+            *sum = find_sum(num1, num2);
+            printf("%lld + %lld = %lld\n", *num1, *num2, *sum);
+            break;
+        case MULTIPLY:
+            cout << "Enter two whole numbers separated by space: ";
+            // store the data by dereferencing pointers
+            cin >> *num1 >> *num2 >> ws;
+            // passing dereferences (actural addresses) of num1 and num2
+            *prod = find_product(*num1, *num2);
+            printf("%lld * %lld = %lld\n", *num1, *num2, *prod);
+            break;
+        // FIXME4: complete the rest of the cases to perform other operations
+        default:
+            break;
+        }
+    } while (oper != QUIT);
+
     // delete/deallocate/free memory occupied by all the dynamic variables
     delete num1;
     delete num2;

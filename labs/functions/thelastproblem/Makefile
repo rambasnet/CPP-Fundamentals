@@ -29,4 +29,4 @@ clean:
 	find . -type d -name "*.dSYM" -exec rm -r {} +
 
 unittest:
-	@echo "FIXME!"
+	@echo "FIXME! compile and run test_helper.cpp file"
