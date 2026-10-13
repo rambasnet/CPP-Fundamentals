@@ -36,7 +36,7 @@ make all
 ## Unit testing with Doctest
 
 1. Create **doctest** folder in the **labs** root folder and copy the `doctest.h` file into it from [https://github.com/doctest/doctest/tree/master/doctest ](https://github.com/doctest/doctest/tree/master/doctest) if not already done in previous labs.
-2. Set the doctest rule in the Makefile and run the tests. Fix any issues if found.
+2. Set the doctest rule in the Makefile and run the tests. Fix any issues found.
 
 ```bash
 make doctest
