@@ -1,5 +1,6 @@
 #include <iostream>
 #include <tuple>
+#include <limits>
 #include "../includes/tictactoe.hpp"
 
 void tictactoe::init_board(char board[][3])
